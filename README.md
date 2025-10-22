@@ -98,7 +98,7 @@ This library uses **Tailwind CSS v4** utility classes directly in components (e.
 ### Button
 
 ```tsx
-import { Button } from "@your-neoptocom/neopto-ui";
+import { Button } from "@neoptocom/neopto-ui";
 
 <Button variant="primary" size="md">
   Click me
@@ -108,7 +108,7 @@ import { Button } from "@your-neoptocom/neopto-ui";
 ### Input
 
 ```tsx
-import { Input } from "@your-neoptocom/neopto-ui";
+import { Input } from "@neoptocom/neopto-ui";
 
 <Input placeholder="Enter text" size="md" />;
 ```
@@ -116,7 +116,7 @@ import { Input } from "@your-neoptocom/neopto-ui";
 ### Typography
 
 ```tsx
-import { Typo } from "@your-neoptocom/neopto-ui";
+import { Typo } from "@neoptocom/neopto-ui";
 
 <Typo variant="headline-lg" bold="semibold">
   Heading Text
@@ -126,7 +126,7 @@ import { Typo } from "@your-neoptocom/neopto-ui";
 ### Avatar
 
 ```tsx
-import { Avatar, AvatarGroup } from "@your-neoptocom/neopto-ui";
+import { Avatar, AvatarGroup } from "@neoptocom/neopto-ui";
 
 <AvatarGroup max={3}>
   <Avatar name="John Doe" src="/avatar.jpg" />
@@ -137,7 +137,7 @@ import { Avatar, AvatarGroup } from "@your-neoptocom/neopto-ui";
 ### Autocomplete
 
 ```tsx
-import { Autocomplete } from "@your-neoptocom/neopto-ui";
+import { Autocomplete } from "@neoptocom/neopto-ui";
 
 const options = [
   { label: "Option 1", value: "1" },
@@ -165,7 +165,7 @@ The library uses a comprehensive design token system:
 
 ## 📚 Documentation
 
-Visit our [Storybook documentation](https://your-neoptocom.github.io/neopto-ui) for:
+Visit our [Storybook documentation](https://neoptocom.github.io/neopto-ui) for:
 
 - Interactive component playground
 - Design system guidelines
