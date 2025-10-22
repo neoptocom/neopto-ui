@@ -1,4 +1,4 @@
-# @victorfbrito/neo-ui-demo
+# @neoptocom/neopto-ui
 
 ## 0.2.1
 

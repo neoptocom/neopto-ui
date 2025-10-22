@@ -18,7 +18,7 @@ A modern React component library built with Tailwind CSS v4 and TypeScript. Feat
 ### Step 1: Install the library
 
 ```bash
-npm install @victorfbrito/neo-ui-demo
+npm install @neoptocom/neopto-ui
 ```
 
 ### Step 2: Install Tailwind CSS v4
@@ -34,9 +34,9 @@ Create `postcss.config.js` in your project root:
 ```js
 export default {
   plugins: {
-    '@tailwindcss/postcss': {}
-  }
-}
+    "@tailwindcss/postcss": {},
+  },
+};
 ```
 
 ### Step 4: Setup your CSS file
@@ -47,16 +47,16 @@ In your main CSS file (e.g., `src/index.css`):
 @import "tailwindcss";
 
 /* 👇 Scan the component library */
-@source "../node_modules/@victorfbrito/neo-ui-demo/dist";
+@source "../node_modules/@neoptocom/neopto-ui/dist";
 
 /* 👇 Import library styles */
-@import "@victorfbrito/neo-ui-demo/styles";
+@import "@neoptocom/neopto-ui/styles";
 ```
 
 Then import this CSS in your `src/main.tsx`:
 
 ```tsx
-import './index.css'
+import "./index.css";
 ```
 
 ## 🎨 Usage
@@ -64,7 +64,7 @@ import './index.css'
 ### Basic Example
 
 ```tsx
-import { Button, Input, Typo } from '@victorfbrito/neo-ui-demo';
+import { Button, Input, Typo } from "@neoptocom/neopto-ui";
 
 function App() {
   return (
@@ -81,10 +81,10 @@ function App() {
 
 ```tsx
 // Enable dark mode
-document.documentElement.classList.add('dark');
+document.documentElement.classList.add("dark");
 
 // Toggle dark mode
-document.documentElement.classList.toggle('dark');
+document.documentElement.classList.toggle("dark");
 ```
 
 ## Why Tailwind CSS v4 is Required
@@ -96,47 +96,52 @@ This library uses **Tailwind CSS v4** utility classes directly in components (e.
 ## 🧩 Components
 
 ### Button
+
 ```tsx
-import { Button } from '@your-username/my-ui-lib';
+import { Button } from "@your-neoptocom/neopto-ui";
 
 <Button variant="primary" size="md">
   Click me
-</Button>
+</Button>;
 ```
 
 ### Input
-```tsx
-import { Input } from '@your-username/my-ui-lib';
 
-<Input placeholder="Enter text" size="md" />
+```tsx
+import { Input } from "@your-neoptocom/neopto-ui";
+
+<Input placeholder="Enter text" size="md" />;
 ```
 
 ### Typography
+
 ```tsx
-import { Typo } from '@your-username/my-ui-lib';
+import { Typo } from "@your-neoptocom/neopto-ui";
 
 <Typo variant="headline-lg" bold="semibold">
   Heading Text
-</Typo>
+</Typo>;
 ```
 
 ### Avatar
+
 ```tsx
-import { Avatar, AvatarGroup } from '@your-username/my-ui-lib';
+import { Avatar, AvatarGroup } from "@your-neoptocom/neopto-ui";
 
 <AvatarGroup max={3}>
   <Avatar name="John Doe" src="/avatar.jpg" />
   <Avatar name="Jane Smith" />
-</AvatarGroup>
+</AvatarGroup>;
 ```
 
 ### Autocomplete
+
 ```tsx
-import { Autocomplete } from '@your-username/my-ui-lib';
+import { Autocomplete } from "@your-neoptocom/neopto-ui";
 
 const options = [
   { label: "Option 1", value: "1" },
-  { label: "Option 2", value: "2" }
+  { label: "Option 2", value: "2" },
 ];
 
 <Autocomplete
@@ -144,7 +149,7 @@ const options = [
   options={options}
   selectedOption={selected}
   onSelect={setSelected}
-/>
+/>;
 ```
 
 ## 🎨 Design Tokens
@@ -160,7 +165,8 @@ The library uses a comprehensive design token system:
 
 ## 📚 Documentation
 
-Visit our [Storybook documentation](https://your-username.github.io/my-ui-lib) for:
+Visit our [Storybook documentation](https://your-neoptocom.github.io/neopto-ui) for:
+
 - Interactive component playground
 - Design system guidelines
 - Usage examples

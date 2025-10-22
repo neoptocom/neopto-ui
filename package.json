@@ -1,5 +1,5 @@
 {
-  "name": "@victorfbrito/neo-ui-demo",
+  "name": "@neoptocom/neopto-ui",
   "version": "0.2.1",
   "private": false,
   "description": "A modern React component library built with Tailwind CSS v4 and TypeScript. Features dark mode, design tokens, and comprehensive Storybook documentation. Requires Tailwind v4+.",
@@ -12,15 +12,15 @@
     "design-system",
     "storybook"
   ],
-  "author": "Your Name <victor_f_brito@outlook.com>",
+  "author": "Victor Brito <victor_f_brito@outlook.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/victorfbrito/neo-ui-demo.git"
+    "url": "https://github.com/neoptocom/neopto-ui.git"
   },
-  "homepage": "https://github.com/victorfbrito/neo-ui-demo#readme",
+  "homepage": "https://github.com/neoptocom/neopto-ui#readme",
   "bugs": {
-    "url": "https://github.com/victorfbrito/neo-ui-demo/issues"
+    "url": "https://github.com/neoptocom/neopto-ui/issues"
   },
   "type": "module",
   "main": "./dist/index.cjs",

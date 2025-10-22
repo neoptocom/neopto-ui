@@ -11,7 +11,7 @@ This component library uses **Tailwind CSS v4 utility classes** directly in the 
 ### Step 1: Install the library
 
 ```bash
-npm install @victorfbrito/neo-ui-demo
+npm install @neoptocom/neopto-ui
 ```
 
 ### Step 2: Install Tailwind CSS v4
@@ -27,9 +27,9 @@ Create `postcss.config.js` in your project root:
 ```js
 export default {
   plugins: {
-    '@tailwindcss/postcss': {}
-  }
-}
+    "@tailwindcss/postcss": {},
+  },
+};
 ```
 
 ### Step 4: Setup your CSS file
@@ -40,22 +40,22 @@ In your main CSS file (e.g., `src/index.css`):
 @import "tailwindcss";
 
 /* 👇 Scan the component library */
-@source "../node_modules/@victorfbrito/neo-ui-demo/dist";
+@source "../node_modules/@neoptocom/neopto-ui/dist";
 
 /* 👇 Import library tokens and styles */
-@import "@victorfbrito/neo-ui-demo/styles";
+@import "@neoptocom/neopto-ui/styles";
 ```
 
 Then import your CSS in `src/main.tsx`:
 
 ```tsx
-import './index.css'
+import "./index.css";
 ```
 
 ### Step 5: Use the components!
 
 ```tsx
-import { Button, Input, Typo } from '@victorfbrito/neo-ui-demo';
+import { Button, Input, Typo } from "@neoptocom/neopto-ui";
 
 function App() {
   return (
@@ -76,13 +76,13 @@ Toggle dark mode by adding/removing the `dark` class to your root element:
 
 ```tsx
 // Enable dark mode
-document.documentElement.classList.add('dark');
+document.documentElement.classList.add("dark");
 
 // Disable dark mode
-document.documentElement.classList.remove('dark');
+document.documentElement.classList.remove("dark");
 
 // Toggle
-document.documentElement.classList.toggle('dark');
+document.documentElement.classList.toggle("dark");
 ```
 
 ---
@@ -90,7 +90,7 @@ document.documentElement.classList.toggle('dark');
 ## 🎨 Available Components
 
 - `Button` - Interactive buttons with variants
-- `Input` - Text input fields  
+- `Input` - Text input fields
 - `Typo` - Typography with design tokens
 - `Avatar` & `AvatarGroup` - User avatars
 - `Autocomplete` - Autocomplete input
@@ -109,7 +109,8 @@ document.documentElement.classList.toggle('dark');
 **Problem:** Components render but look unstyled.
 
 **Solution:** Make sure you:
-1. ✅ Imported the library CSS: `import '@victorfbrito/neo-ui-demo/styles'`
+
+1. ✅ Imported the library CSS: `import '@neoptocom/neopto-ui/styles'`
 2. ✅ Added the library path to `tailwind.config.js` content array
 3. ✅ Have Tailwind CSS installed and configured
 
@@ -123,5 +124,4 @@ document.documentElement.classList.toggle('dark');
 
 ## 📚 Full Documentation
 
-Visit the [Storybook documentation](https://victorfbrito.github.io/neo-ui-demo/) for interactive examples and API documentation.
-
+Visit the [Storybook documentation](https://neoptocom.github.io/neopto-ui/) for interactive examples and API documentation.

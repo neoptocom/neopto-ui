@@ -12,7 +12,7 @@ const tokensCSS = fs.readFileSync("src/styles/tokens.css", "utf8");
 
 // Create a minimal CSS file with just tokens and fonts
 const distCSS = `/**
- * @victorfbrito/neo-ui-demo - Design Tokens & Base Styles
+ * @neoptocom/neopto-ui - Design Tokens & Base Styles
  * 
  * ⚠️  IMPORTANT: This library requires Tailwind CSS v4 in your project.
  * 
@@ -21,10 +21,10 @@ const distCSS = `/**
  *   2. Create postcss.config.js with @tailwindcss/postcss plugin
  *   3. In your CSS file:
  *      @import "tailwindcss";
- *      @source "../node_modules/@victorfbrito/neo-ui-demo/dist";
- *      @import "@victorfbrito/neo-ui-demo/styles";
+ *      @source "../node_modules/@neoptocom/neopto-ui/dist";
+ *      @import "@neoptocom/neopto-ui/styles";
  * 
- * See: https://github.com/victorfbrito/neo-ui-demo#installation
+ * See: https://github.com/neoptocom/neopto-ui#installation
  */
 
 ${tokensCSS}
