@@ -165,7 +165,7 @@ The library uses a comprehensive design token system:
 
 ## 📚 Documentation
 
-Visit our [Storybook documentation](https://neoptocom.github.io/neopto-ui) for:
+Visit our [Storybook documentation](https://neoptocom.github.io/neopto-ui/storybook-static) for:
 
 - Interactive component playground
 - Design system guidelines
