@@ -1,0 +1,15 @@
+import{j as e}from"./jsx-runtime-CDt2p4po.js";import{I as j}from"./Icon-BGfffQ3t.js";import"./index-GiUgBvb1.js";function r({variant:h="success",icon:t,className:v="",label:f,...x}){const b="inline-flex w-fit items-center justify-center gap-1 whitespace-nowrap overflow-hidden rounded-full h-6 px-2 text-xs font-semibold border",w={warning:"bg-[var(--warning)] text-white",success:"bg-[var(--success)] text-white",error:"bg-[var(--destructive)] text-white",light:"bg-[var(--muted)] text-[var(--fg)]",dark:"bg-[var(--surface)] text-[var(--fg)]"};return e.jsxs("div",{className:[b,w[h],v].join(" "),...x,children:[t?e.jsx(j,{name:t,size:"sm",className:"mr-0.5"}):null,e.jsx("span",{children:f})]})}r.__docgenInfo={description:"",methods:[],displayName:"Chip",props:{variant:{required:!1,tsType:{name:"union",raw:'"warning" | "success" | "error" | "light" | "dark"',elements:[{name:"literal",value:'"warning"'},{name:"literal",value:'"success"'},{name:"literal",value:'"error"'},{name:"literal",value:'"light"'},{name:"literal",value:'"dark"'}]},description:"",defaultValue:{value:'"success"',computed:!1}},icon:{required:!1,tsType:{name:"string"},description:""},label:{required:!1,tsType:{name:"string"},description:""},className:{defaultValue:{value:'""',computed:!1},required:!1}}};const S={title:"Components/Chip",component:r,args:{label:"Status",variant:"success"},argTypes:{variant:{control:"radio",options:["success","warning","error","light","dark"]}}},a={},s={args:{icon:"check",label:"Completed",variant:"success"}},n={render:()=>e.jsxs("div",{className:"flex flex-wrap items-center gap-3",children:[e.jsx(r,{variant:"success",icon:"check",label:"Success"}),e.jsx(r,{variant:"warning",icon:"error_outline",label:"Warning"}),e.jsx(r,{variant:"error",icon:"error",label:"Error"}),e.jsx(r,{variant:"light",icon:"help_outline",label:"Info"}),e.jsx(r,{variant:"dark",icon:"schedule",label:"Scheduled"})]})};var i,c,l;a.parameters={...a.parameters,docs:{...(i=a.parameters)==null?void 0:i.docs,source:{originalSource:"{}",...(l=(c=a.parameters)==null?void 0:c.docs)==null?void 0:l.source}}};var o,u,d;s.parameters={...s.parameters,docs:{...(o=s.parameters)==null?void 0:o.docs,source:{originalSource:`{
+  args: {
+    icon: "check",
+    label: "Completed",
+    variant: "success"
+  }
+}`,...(d=(u=s.parameters)==null?void 0:u.docs)==null?void 0:d.source}}};var p,m,g;n.parameters={...n.parameters,docs:{...(p=n.parameters)==null?void 0:p.docs,source:{originalSource:`{
+  render: () => <div className="flex flex-wrap items-center gap-3">
+      <Chip variant="success" icon="check" label="Success" />
+      <Chip variant="warning" icon="error_outline" label="Warning" />
+      <Chip variant="error" icon="error" label="Error" />
+      <Chip variant="light" icon="help_outline" label="Info" />
+      <Chip variant="dark" icon="schedule" label="Scheduled" />
+    </div>
+}`,...(g=(m=n.parameters)==null?void 0:m.docs)==null?void 0:g.source}}};const _=["Playground","WithIcon","Variants"];export{a as Playground,n as Variants,s as WithIcon,_ as __namedExportsOrder,S as default};
