@@ -53,7 +53,29 @@ const withTheme: Decorator = (Story, context) => {
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
-    controls: { expanded: true }
+    controls: { expanded: true },
+    options: {
+      storySort: (a, b) => {
+        // Extract component name (e.g., "components-button--playground" -> "button")
+        const getComponentName = (id) => {
+          const match = id.match(/components-([^-]+)/);
+          return match ? match[1] : id;
+        };
+        
+        const componentA = getComponentName(a.id);
+        const componentB = getComponentName(b.id);
+        
+        // If same component, preserve original order but ensure Docs comes first
+        if (componentA === componentB) {
+          if (a.name === 'Docs') return -1;
+          if (b.name === 'Docs') return 1;
+          return 0; // Keep original order for stories
+        }
+        
+        // Different components: sort alphabetically
+        return componentA.localeCompare(componentB, undefined, { numeric: true });
+      },
+    },
   },
   decorators: [withTheme]
 };

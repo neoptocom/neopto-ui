@@ -12,7 +12,7 @@ export type TypoVariant =
 export type TypoWeight = "normal" | "medium" | "semibold" | "bold";
 
 const styles = tv({
-  base: "text-[var(--fg)] -webkit-font-smoothing antialiased -moz-osx-font-smoothing grayscale",
+  base: "text-current",
   variants: {
     variant: {
       "display-lg": "text-5xl leading-tight",

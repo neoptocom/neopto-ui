@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useId, useMemo, useRef, useState } from "react";
-import Icon from "./Icon";
+import { IconButton } from "./IconButton";
 import Typo from "./Typo";
 import Avatar from "./Avatar";
 import AvatarGroup from "./AvatarGroup";
@@ -196,27 +196,18 @@ export default function Autocomplete({
             />
 
             {/* Action button (clear or expand) */}
-            <button
-              type="button"
+            <IconButton
+              icon={selectedOption && !open ? "close" : "expand_more"}
               onClick={
                 selectedOption && !open ? handleClear : () => setOpen((s) => !s)
               }
               disabled={disabled}
               aria-label={selectedOption && !open ? "Clear" : open ? "Collapse" : "Expand"}
-              className={[
-                "flex items-center justify-center rounded-full bg-transparent w-10 h-10",
-                disabled ? "cursor-not-allowed" : "hover:bg-[var(--muted)]"
+              iconClassName={[
+                "transition-transform duration-300 text-[var(--muted-fg)]",
+                open ? "rotate-180 text-[var(--color-brand)]" : ""
               ].join(" ")}
-            >
-              <Icon
-                name={selectedOption && !open ? "close" : "expand_more"}
-                size="md"
-                className={[
-                  "transition-transform duration-300 text-[var(--muted-fg)]",
-                  open ? "rotate-180 text-[var(--color-brand)]" : ""
-                ].join(" ")}
-              />
-            </button>
+            />
           </div>
         </div>
       </fieldset>

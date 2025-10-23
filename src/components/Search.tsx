@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useId, useMemo, useRef, useState, useCallback } from "react";
-import Icon from "./Icon";
+import { IconButton } from "./IconButton";
 import Typo from "./Typo";
 import Avatar from "./Avatar";
 import AvatarGroup from "./AvatarGroup";
@@ -30,6 +30,8 @@ export interface SearchProps
   maxHeight?: number;
   /** Optional id base (for accessibility hooks) */
   id?: string;
+  /** Optional filter children to render when filters are expanded */
+  children?: React.ReactNode;
 }
 
 export default function Search({
@@ -42,6 +44,7 @@ export default function Search({
   disabled = false,
   maxHeight = 152,
   id,
+  children,
   ...props
 }: SearchProps) {
   const inputId = id ?? useId();
@@ -49,6 +52,7 @@ export default function Search({
   const [searchQuery, setSearchQuery] = useState("");
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number>(-1);
+  const [filtersExpanded, setFiltersExpanded] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
   const searchTimeoutRef = useRef<number | null>(null);
@@ -164,14 +168,29 @@ export default function Search({
     >
       <div
         className={[
-          "w-full min-w-0 rounded-full border bg-[var(--surface)] transition-colors h-12",
+          "w-full min-w-0 border rounded-[24px] bg-[var(--surface)] transition-all",
           "border-[var(--border)] focus-within:border-[var(--color-brand)]",
-          disabled ? "opacity-60 cursor-not-allowed" : ""
+          disabled ? "opacity-60 cursor-not-allowed" : "",
+          !filtersExpanded && "h-12"
         ].join(" ")}
       >
-        <div className="relative flex pl-5 pr-3 h-full">
-          <div className="flex w-full items-center">
-
+        <div className="relative flex h-full">
+          <div className={[
+            "flex flex-col w-full overflow-hidden transition-all",
+            filtersExpanded && children ? "h-auto pb-3" : "h-full"
+          ].join(" ")}>
+          <div className="flex w-full items-center h-12 px-2">
+            {/* Filter button (if children exist) */}
+            {children && (
+              <IconButton
+                icon="filter_list"
+                onClick={() => setFiltersExpanded((prev) => !prev)}
+                disabled={disabled}
+                aria-label={filtersExpanded ? "Hide filters" : "Show filters"}
+                aria-expanded={filtersExpanded}
+                className="mr-2"
+              />
+            )}
             {/* Input */}
             <input
               id={inputId}
@@ -193,100 +212,33 @@ export default function Search({
               onKeyDown={onKeyDown}
               onBlur={() => setTimeout(closeList, 150)}
               disabled={disabled}
+              style={{ fontFamily: 'var(--font-display)', fontSize: '16px' }}
               className={[
-                "w-full rounded-full border-0 outline-none bg-transparent",
-                "text-sm text-[var(--fg)] placeholder:text-[var(--muted-fg)]",
-                "pr-2"
+                "w-full rounded-full border-0 outline-none bg-transparent h-12",
+                "leading-tight text-[var(--fg)] placeholder:text-[var(--muted-fg)]",
+                "px-2"
               ].join(" ")}
               placeholder="Pesquisar"
               onClick={() => !disabled && setOpen(true)}
             />
-
             {/* Action button (clear or expand) */}
-            <button
-              type="button"
+            <IconButton
+              icon="search"
               onClick={
                 selectedOption && !open ? handleClear : () => setOpen((s) => !s)
               }
               disabled={disabled}
               aria-label={selectedOption && !open ? "Clear" : open ? "Collapse" : "Expand"}
-              className={[
-                "flex items-center justify-center rounded-full bg-transparent w-10 h-10",
-                disabled ? "cursor-not-allowed" : "hover:bg-[var(--muted)]"
-              ].join(" ")}
-            >
-            <Icon
-              name="search"
-              size="md"
-              className="text-[var(--muted-fg)]"
             />
-            </button>
+          </div>
+          {children && (
+            <div className="w-full px-4.5 pb-3 pt-2">
+              {children}
+            </div>
+          )}
           </div>
         </div>
       </div>
-
-      {/* Options */}
-      {open && !disabled && (
-        <div
-          className={[
-            "absolute z-20 mt-2 w-full overflow-y-auto rounded-lg border border-[var(--border)]",
-            "bg-[var(--surface)] text-[var(--fg)] shadow-md backdrop-blur-sm px-3 py-1.5"
-          ].join(" ")}
-          style={{ maxHeight }}
-        >
-          {normalizedOptions.length > 0 ? (
-            <ul id={listboxId} role="listbox" ref={listRef}>
-              {normalizedOptions.map((option, index) => {
-                const active = index === activeIndex;
-                const selected =
-                  selectedOption != null &&
-                  (typeof selectedOption === "string"
-                    ? selectedOption === option.label
-                    : selectedOption.label === option.label);
-                return (
-                  <li
-                    key={`${option.label}-${index}`}
-                    role="option"
-                    aria-selected={selected}
-                    className={[
-                      "flex items-center justify-between px-4 py-2 text-sm cursor-pointer transition-colors",
-                      active ? "bg-[var(--muted)]" : "",
-                      index !== normalizedOptions.length - 1
-                        ? "border-b border-[var(--border)]"
-                        : ""
-                    ].join(" ")}
-                    onMouseEnter={() => setActiveIndex(index)}
-                    onMouseDown={(e) => e.preventDefault()} /* keep input focus */
-                    onClick={() => handleSelect(option)}
-                  >
-                    <div className="flex items-center gap-2">
-                      {anyOptionHasImage && (
-                        <Avatar name={option.label} src={option.image || undefined} />
-                      )}
-                      <Typo variant="label-lg" className="font-normal text-[var(--fg)]">
-                        {option.label}
-                      </Typo>
-                    </div>
-                    {Array.isArray(option.group) && option.group.length > 0 && (
-                      <AvatarGroup>
-                        {option.group.map((member, i) => (
-                          <Avatar key={i} name={member.name} src={member.image || undefined} />
-                        ))}
-                      </AvatarGroup>
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
-          ) : (
-            <div className="px-4 py-3">
-              <Typo variant="body-sm" className="text-[var(--muted-fg)]">
-                No results found
-              </Typo>
-            </div>
-          )}
-        </div>
-      )}
     </div>
   );
 }

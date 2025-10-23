@@ -1,5 +1,20 @@
 # @neoptocom/neopto-ui
 
+## 0.3.0
+
+### Minor Changes
+
+- Add new components and improvements:
+  - Add Counter component (number stepper with increment/decrement)
+  - Add IconButton component
+  - Add ChatButton component with animated backgrounds
+  - Improve Search component with filter support
+  - Update Typo component to inherit colors properly
+  - Update Button component to use Typo internally for consistent typography
+  - Add chat button gradient tokens to design system
+  - Add Storybook alphabetical sorting
+  - Add skeleton loading examples (fully rounded variants)
+
 ## 0.2.1
 
 ### Patch Changes

@@ -1,6 +1,9 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import Search, { type SearchOption } from "../components/Search";
+import Counter from "../components/Counter";
+import Icon from "../components/Icon";
+import Typo from "../components/Typo";
 
 const SEARCH_RESULTS: SearchOption[] = [
   { label: "Ada Lovelace", value: "ada", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=128&auto=format&fit=facearea&facepad=2" },
@@ -11,39 +14,6 @@ const SEARCH_RESULTS: SearchOption[] = [
   { label: "Donald Knuth", value: "knuth" },
   { label: "Margaret Hamilton", value: "hamilton", image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=128&auto=format&fit=facearea&facepad=2" },
   { label: "John von Neumann", value: "neumann" },
-  { label: "Claude Shannon", value: "shannon" },
-  { label: "Tim Berners-Lee", value: "berners-lee", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=128&auto=format&fit=facearea&facepad=2" },
-  { label: "Linus Torvalds", value: "torvalds" },
-  { label: "Guido van Rossum", value: "rossum", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=128&auto=format&fit=facearea&facepad=2" },
-  { label: "Brendan Eich", value: "eich" },
-  { label: "Yukihiro Matsumoto", value: "matsumoto" },
-  { label: "James Gosling", value: "gosling" },
-  { label: "Bjarne Stroustrup", value: "stroustrup" },
-  { label: "Dennis Ritchie", value: "ritchie" },
-  { label: "Ken Thompson", value: "thompson" },
-  { label: "Brian Kernighan", value: "kernighan" },
-  { label: "Richard Stallman", value: "stallman" },
-  { label: "Eric Raymond", value: "raymond" },
-  { label: "Andrew Tanenbaum", value: "tanenbaum" },
-  { label: "Vint Cerf", value: "cerf" },
-  { label: "Bob Kahn", value: "kahn" },
-  { label: "Douglas Engelbart", value: "engelbart" },
-  { label: "Ivan Sutherland", value: "sutherland" },
-  { label: "Marvin Minsky", value: "minsky" },
-  { label: "John McCarthy", value: "mccarthy" },
-  { label: "Herbert Simon", value: "simon" },
-  { label: "Allen Newell", value: "newell" },
-  { label: "Norbert Wiener", value: "wiener" },
-  { label: "Claude Elwood Shannon", value: "shannon-claude" },
-  { label: "George Boole", value: "boole" },
-  { label: "Augusta Ada King", value: "ada-king" },
-  { label: "Charles Babbage", value: "babbage" },
-  { label: "Herman Hollerith", value: "hollerith" },
-  { label: "Konrad Zuse", value: "zuse" },
-  { label: "Tommy Flowers", value: "flowers" },
-  { label: "Max Newman", value: "newman" },
-  { label: "Jack Kilby", value: "kilby" },
-  { label: "Robert Noyce", value: "noyce" },
   { label: "Gordon Moore", value: "moore" },
   { label: "Andy Grove", value: "grove" },
   { label: "Steve Jobs", value: "jobs", image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=128&auto=format&fit=facearea&facepad=2" },
@@ -59,50 +29,6 @@ const SEARCH_RESULTS: SearchOption[] = [
   { label: "Sundar Pichai", value: "pichai" },
   { label: "Jensen Huang", value: "huang" },
   { label: "Lisa Su", value: "su" },
-  { label: "Pat Gelsinger", value: "gelsinger" },
-  { label: "Jensen Huang", value: "huang-jensen" },
-  { label: "Susan Wojcicki", value: "wojcicki" },
-  { label: "Sheryl Sandberg", value: "sandberg" },
-  { label: "Marissa Mayer", value: "mayer" },
-  { label: "Ginni Rometty", value: "rometty" },
-  { label: "Meg Whitman", value: "whitman" },
-  { label: "Carly Fiorina", value: "fiorina" },
-  { label: "Mary Barra", value: "barra" },
-  { label: "Indra Nooyi", value: "nooyi" },
-  { label: "Ursula Burns", value: "burns" },
-  { label: "Ginni Rometty", value: "rometty-ginni" },
-  { label: "Virginia Rometty", value: "rometty-virginia" },
-  { label: "Rosalind Picard", value: "picard" },
-  { label: "Fei-Fei Li", value: "li" },
-  { label: "Yann LeCun", value: "lecun" },
-  { label: "Geoffrey Hinton", value: "hinton" },
-  { label: "Yoshua Bengio", value: "bengio" },
-  { label: "Andrew Ng", value: "ng" },
-  { label: "Demis Hassabis", value: "hassabis" },
-  { label: "Mustafa Suleyman", value: "suleyman" },
-  { label: "Shane Legg", value: "legg" },
-  { label: "Oriol Vinyals", value: "vinyals" },
-  { label: "Quoc Le", value: "le" },
-  { label: "Jeff Dean", value: "dean" },
-  { label: "Sanjay Ghemawat", value: "ghemawat" },
-  { label: "Luiz André Barroso", value: "barroso" },
-  { label: "Urs Hölzle", value: "holzle" },
-  { label: "Eric Schmidt", value: "schmidt" },
-  { label: "Jonathan Rosenberg", value: "rosenberg" },
-  { label: "Alan Eustace", value: "eustace" },
-  { label: "David Drummond", value: "drummond" },
-  { label: "Kent Walker", value: "walker" },
-  { label: "Ruth Porat", value: "porat" },
-  { label: "Patrick Pichette", value: "pichette" },
-  { label: "Larry Page", value: "page-larry" },
-  { label: "Sergey Brin", value: "brin-sergey" },
-  { label: "Eric Schmidt", value: "schmidt-eric" },
-  { label: "Jonathan Rosenberg", value: "rosenberg-jonathan" },
-  { label: "Alan Eustace", value: "eustace-alan" },
-  { label: "David Drummond", value: "drummond-david" },
-  { label: "Kent Walker", value: "walker-kent" },
-  { label: "Ruth Porat", value: "porat-ruth" },
-  { label: "Patrick Pichette", value: "pichette-patrick" }
 ];
 
 const meta: Meta<typeof Search> = {
@@ -207,5 +133,96 @@ export const Disabled: Story = {
   args: {
     disabled: true,
     options: SEARCH_RESULTS
+  }
+};
+
+export const WithFilters: Story = {
+  render: (args) => {
+    const [value, setValue] = React.useState<SearchOption | string | null>(null);
+    const [results, setResults] = React.useState<SearchOption[]>([]);
+    const [topK, setTopK] = React.useState<number>(20);
+    const [totalResults, setTotalResults] = React.useState<number>(20);
+    const [showTooltip1, setShowTooltip1] = React.useState(false);
+    const [showTooltip2, setShowTooltip2] = React.useState(false);
+
+    const handleSearch = React.useCallback((query: string) => {
+      if (query.trim()) {
+        const filtered = SEARCH_RESULTS.filter(item => 
+          item.label.toLowerCase().includes(query.toLowerCase())
+        );
+        setResults(filtered);
+      } else {
+        setResults([]);
+      }
+    }, []);
+
+    return (
+      <div className="max-w-md">
+        <Search 
+          {...args} 
+          options={results}
+          selectedOption={value} 
+          onSelect={setValue}
+          onSearch={handleSearch}
+        >
+          {/* Filter content */}
+          <div className="flex flex-col gap-3">
+            {/* Semantic Search - Top K */}
+            <div className="flex items-center gap-3">
+              <Counter 
+                value={topK} 
+                onChange={setTopK}
+                min={1}
+                max={100}
+              />
+              <Typo variant="label-lg" className="mr-1">Semantic Search – Top K</Typo>
+              <div className="relative">
+                <div
+                  onMouseEnter={() => setShowTooltip1(true)}
+                  onMouseLeave={() => setShowTooltip1(false)}
+                >
+                  <Icon name="help" size="sm" className="text-[var(--muted-fg)] cursor-help" />
+                </div>
+                {showTooltip1 && (
+                  <div className="absolute left-0 top-6 z-50 px-2 py-1 bg-[var(--surface)] border border-[var(--border)] rounded shadow-lg text-xs text-[var(--fg)] whitespace-nowrap">
+                    lorem ipsum dolor sit amet
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Total Results */}
+            <div className="flex items-center gap-3">
+              <Counter 
+                value={totalResults} 
+                onChange={setTotalResults}
+                min={1}
+                max={100}
+              />
+              <Typo variant="label-lg" className="mr-1">Total Results</Typo>
+              <div className="relative">
+                <div
+                  onMouseEnter={() => setShowTooltip2(true)}
+                  onMouseLeave={() => setShowTooltip2(false)}
+                >
+                  <Icon name="help" size="sm" className="text-[var(--muted-fg)] cursor-help" />
+                </div>
+                {showTooltip2 && (
+                  <div className="absolute left-0 top-6 z-50 px-2 py-1 bg-[var(--surface)] border border-[var(--border)] rounded shadow-lg text-xs text-[var(--fg)] whitespace-nowrap">
+                    lorem ipsum dolor sit amet
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </Search>
+        <div className="mt-3 text-xs text-[var(--muted-fg)]">
+          Selected: {typeof value === "string" ? value : value?.label ?? "none"}
+        </div>
+        <div className="mt-1 text-xs text-[var(--muted-fg)]">
+          Top K: {topK}, Total Results: {totalResults}
+        </div>
+      </div>
+    );
   }
 };
