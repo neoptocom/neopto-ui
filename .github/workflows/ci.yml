@@ -7,6 +7,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -17,3 +19,11 @@ jobs:
       - run: npm run typecheck
       - run: npm run build
       - run: npm run build-storybook
+      
+      # Deploy Storybook to GitHub Pages (only on main branch)
+      - name: Deploy Storybook
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./storybook-static
