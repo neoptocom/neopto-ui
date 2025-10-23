@@ -1,4 +1,5 @@
-/* AUTO-GENERATED FROM tokens.json */
+/* Design Tokens - Manually maintained */
+
 @theme {
   --font-display: 'Poppins', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
   --font-body: 'Roboto', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
@@ -41,6 +42,18 @@
   --warning: #D79C2C;
   --destructive: #E03737;
   --info: #0E91B2;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.10), 0 2px 4px -2px rgb(0 0 0 / 0.10);
+  
+  /* Motion */
+  --motion-fast: 150ms;
+  --motion-base: 200ms;
+  --easing-standard: cubic-bezier(0.2, 0.0, 0, 1);
+  
+  /* Component-specific */
+  --chat-button-gradient: linear-gradient(to bottom, #FFF, #D4D4D4);
 }
 
 .dark {
@@ -55,15 +68,5 @@
   --warning: #CEB25E;
   --destructive: #CE645E;
   --info: #5ABDCC;
-}
-
-:root {
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.10), 0 2px 4px -2px rgb(0 0 0 / 0.10);
-}
-
-:root {
-  --motion-fast: 150ms;
-  --motion-base: 200ms;
-  --easing-standard: cubic-bezier(0.2, 0.0, 0, 1);
+  --chat-button-gradient: linear-gradient(to bottom, #1A3645, #040404);
 }
