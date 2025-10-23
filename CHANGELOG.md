@@ -1,5 +1,15 @@
 # @neoptocom/neopto-ui
 
+## 0.4.1
+
+### Patch Changes
+
+- Remove border from Chip component
+- Fix chat button gradient and simplify token system:
+  - Add missing chat button gradient CSS variable
+  - Remove auto-generation of tokens.css (now manually maintained)
+  - Simplify build process by removing build-tokens script
+
 ## 0.4.0
 
 ### Minor Changes

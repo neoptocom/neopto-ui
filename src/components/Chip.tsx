@@ -16,7 +16,7 @@ export default function Chip({
 }: ChipProps) {
   const base =
     "inline-flex w-fit items-center justify-center gap-1 whitespace-nowrap overflow-hidden rounded-full h-6 px-2 " +
-    "text-xs font-semibold border";
+    "text-xs font-semibold";
 
   // Token-based backgrounds + readable text
   const variantCls: Record<NonNullable<ChipProps["variant"]>, string> = {
