@@ -1,5 +1,11 @@
 # @neoptocom/neopto-ui
 
+## 0.6.1
+
+### Patch Changes
+
+- Fix Avatar default size: change from `sm` to `md` for better visibility
+
 ## 0.6.0
 
 ### Major Changes

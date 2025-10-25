@@ -15,7 +15,7 @@ export type AvatarProps = {
   size?: "sm" | "md";
 } & Omit<React.HTMLAttributes<HTMLDivElement>, "children">;
 
-function getAvatarClasses(size: AvatarProps["size"] = "sm", className?: string): string {
+function getAvatarClasses(size: AvatarProps["size"] = "md", className?: string): string {
   const base =
     "relative box-border flex items-center justify-center overflow-hidden rounded-full " +
     "border border-[var(--border)] bg-[var(--muted)] text-[var(--fg)] select-none";
