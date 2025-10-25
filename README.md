@@ -101,8 +101,14 @@ This library uses **Tailwind CSS v4** utility classes directly in components (e.
 ### AppBackground
 
 ```tsx
-import { AppBackground } from "@neoptocom/neopto-ui";
+import { AppBackground, assets } from "@neoptocom/neopto-ui";
 
+// Use built-in NeoPTO backgrounds
+<AppBackground lightImage={assets.bgLight} darkImage={assets.bgDark}>
+  <YourApp />
+</AppBackground>
+
+// Or use custom images
 <AppBackground
   lightImage="/path/to/light-bg.jpg"
   darkImage="/path/to/dark-bg.jpg"

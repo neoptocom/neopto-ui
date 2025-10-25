@@ -15,6 +15,7 @@ import {
   Skeleton,
   Modal,
   ChatButton,
+  assets,
 } from "../src/index";
 
 function App() {
@@ -47,7 +48,7 @@ function App() {
   ];
 
   return (
-    <AppBackground>
+    <AppBackground lightImage={assets.bgLight} darkImage={assets.bgDark}>
       <div className="p-8">
         {/* Header */}
         <div className="max-w-7xl mx-auto mb-8">

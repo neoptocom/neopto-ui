@@ -1,3 +1,6 @@
+// Assets
+export * as assets from "./assets";
+
 // Components
 export { AppBackground } from "./components/AppBackground";
 export * from "./components/Input";

@@ -1,5 +1,25 @@
 # @neoptocom/neopto-ui
 
+## 0.7.1
+
+### Patch Changes
+
+- **Add background SVG assets**: Include official NeoPTO background images
+  - `assets.bgLight` - White background with cyan gradient blur
+  - `assets.bgDark` - Dark (#191C28) background with cyan gradient blur
+  - Export all assets for easy consumer access
+  - Update dev playground to showcase actual backgrounds
+
+### Usage
+
+```tsx
+import { AppBackground, assets } from "@neoptocom/neopto-ui";
+
+<AppBackground lightImage={assets.bgLight} darkImage={assets.bgDark}>
+  <YourApp />
+</AppBackground>
+```
+
 ## 0.7.0
 
 ### Minor Changes
