@@ -1,5 +1,11 @@
 # @neoptocom/neopto-ui
 
+## 0.5.1
+
+### Patch Changes
+
+- Fix documentation: Update init command to use full scoped package name `npx @neoptocom/neopto-ui` instead of `npx neopto-ui`
+
 ## 0.5.0
 
 ### Minor Changes

@@ -190,7 +190,8 @@ async function main() {
   log('     import { Button, Input } from "@neoptocom/neopto-ui";\n', 'bold');
   
   log('📚 Documentation: https://github.com/neoptocom/neopto-ui', 'blue');
-  log('💡 Need help? Check CONSUMER_SETUP.md in node_modules/@neoptocom/neopto-ui\n', 'blue');
+  log('💡 Need help? Check CONSUMER_SETUP.md in node_modules/@neoptocom/neopto-ui', 'blue');
+  log('🔧 Run this setup again anytime with: npx neopto-ui\n', 'blue');
 }
 
 main().catch((error) => {

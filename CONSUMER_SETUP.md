@@ -17,6 +17,8 @@ npm install -D tailwindcss@latest @tailwindcss/postcss
 
 ### Step 2: Run the init command
 
+After installing the package, run:
+
 ```bash
 npx neopto-ui
 ```
