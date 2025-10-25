@@ -13,21 +13,35 @@ A modern React component library built with Tailwind CSS v4 and TypeScript. Feat
 - **Tree Shakable**: Optimized bundle size with tree shaking
 - **Storybook**: Comprehensive documentation and testing environment
 
-## 📦 Installation
+## 📦 Quick Start
 
-### Step 1: Install the library
+```bash
+# Install the library and Tailwind CSS v4
+npm install @neoptocom/neopto-ui
+npm install -D tailwindcss@latest @tailwindcss/postcss
+
+# Run the init command - it handles everything automatically!
+npx neopto-ui
+```
+
+The init command will:
+- ✅ Create `postcss.config.js` if needed
+- ✅ Update your CSS file with required imports
+- ✅ Configure Tailwind to scan the library components
+
+### Manual Setup (if needed)
+
+<details>
+<summary>Click to expand manual installation steps</summary>
+
+### Step 1: Install dependencies
 
 ```bash
 npm install @neoptocom/neopto-ui
-```
-
-### Step 2: Install Tailwind CSS v4
-
-```bash
 npm install -D tailwindcss@latest @tailwindcss/postcss
 ```
 
-### Step 3: Configure PostCSS
+### Step 2: Configure PostCSS
 
 Create `postcss.config.js` in your project root:
 
@@ -39,17 +53,17 @@ export default {
 };
 ```
 
-### Step 4: Setup your CSS file
+### Step 3: Setup your CSS file
 
 In your main CSS file (e.g., `src/index.css`):
 
 ```css
 @import "tailwindcss";
 
-/* 👇 Scan the component library */
-@source "../node_modules/@neoptocom/neopto-ui/dist";
+/* Scan the component library source files */
+@source "../node_modules/@neoptocom/neopto-ui/src";
 
-/* 👇 Import library styles */
+/* Import library styles */
 @import "@neoptocom/neopto-ui/styles";
 ```
 
@@ -58,6 +72,8 @@ Then import this CSS in your `src/main.tsx`:
 ```tsx
 import "./index.css";
 ```
+
+</details>
 
 ## 🎨 Usage
 

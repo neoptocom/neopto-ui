@@ -6,53 +6,27 @@ This component library uses **Tailwind CSS v4 utility classes** directly in the 
 
 ---
 
-## 📦 Installation
+## 📦 Quick Setup (Recommended)
 
-### Step 1: Install the library
+### Step 1: Install dependencies
 
 ```bash
 npm install @neoptocom/neopto-ui
-```
-
-### Step 2: Install Tailwind CSS v4
-
-```bash
 npm install -D tailwindcss@latest @tailwindcss/postcss
 ```
 
-### Step 3: Configure PostCSS
+### Step 2: Run the init command
 
-Create `postcss.config.js` in your project root:
-
-```js
-export default {
-  plugins: {
-    "@tailwindcss/postcss": {},
-  },
-};
+```bash
+npx neopto-ui
 ```
 
-### Step 4: Setup your CSS file
+This will automatically:
+- ✅ Create `postcss.config.js` if needed
+- ✅ Update your CSS file with required imports
+- ✅ Configure Tailwind to scan the library components
 
-In your main CSS file (e.g., `src/index.css`):
-
-```css
-@import "tailwindcss";
-
-/* 👇 Scan the component library */
-@source "../node_modules/@neoptocom/neopto-ui/dist";
-
-/* 👇 Import library tokens and styles */
-@import "@neoptocom/neopto-ui/styles";
-```
-
-Then import your CSS in `src/main.tsx`:
-
-```tsx
-import "./index.css";
-```
-
-### Step 5: Use the components!
+### Step 3: Use the components!
 
 ```tsx
 import { Button, Input, Typo } from "@neoptocom/neopto-ui";
@@ -99,6 +73,51 @@ document.documentElement.classList.toggle("dark");
 - `Chip` - Tags and labels
 - `Modal` - Dialog modals
 - `Skeleton` - Loading placeholders
+
+---
+
+## 🛠️ Manual Setup (Alternative)
+
+If you prefer to set up manually or the init script didn't work:
+
+### Step 1: Install dependencies
+
+```bash
+npm install @neoptocom/neopto-ui
+npm install -D tailwindcss@latest @tailwindcss/postcss
+```
+
+### Step 2: Configure PostCSS
+
+Create `postcss.config.js` in your project root:
+
+```js
+export default {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+```
+
+### Step 3: Setup your CSS file
+
+In your main CSS file (e.g., `src/index.css`):
+
+```css
+@import "tailwindcss";
+
+/* Scan the component library source files */
+@source "../node_modules/@neoptocom/neopto-ui/src";
+
+/* Import library tokens and styles */
+@import "@neoptocom/neopto-ui/styles";
+```
+
+Then import your CSS in `src/main.tsx`:
+
+```tsx
+import "./index.css";
+```
 
 ---
 

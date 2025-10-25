@@ -1,5 +1,25 @@
 # @neoptocom/neopto-ui
 
+## 0.5.0
+
+### Minor Changes
+
+- **Add CLI init command**: Simplified setup with `npx neopto-ui` command (similar to shadcn/ui)
+  - Automatically creates `postcss.config.js` if needed
+  - Detects and updates main CSS file with required imports
+  - Configures Tailwind to scan library source files
+  
+- **Publish source files**: Now includes `src/` directory in npm package
+  - Fixes Tailwind class scanning issues in consumer applications
+  - Allows Tailwind v4 to properly detect all utility classes used by components
+  - Update `@source` directive to point to source files instead of dist
+
+### Documentation
+
+- Update README.md with quick start guide featuring the new init command
+- Update CONSUMER_SETUP.md with both quick setup and manual setup options
+- Add comprehensive troubleshooting information
+
 ## 0.4.1
 
 ### Patch Changes
