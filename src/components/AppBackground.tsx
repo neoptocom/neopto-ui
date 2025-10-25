@@ -43,7 +43,7 @@ export function AppBackground({
       {/* Light mode background image */}
       {lightImage && (
         <div
-          className="fixed inset-0 -z-10 dark:hidden"
+          className="fixed inset-0 -z-10 transition-opacity duration-500 dark:opacity-0"
           style={{
             backgroundImage: `url(${lightImage})`,
             backgroundSize: "cover",
@@ -56,7 +56,7 @@ export function AppBackground({
       {/* Dark mode background image */}
       {darkImage && (
         <div
-          className="fixed inset-0 -z-10 hidden dark:block"
+          className="fixed inset-0 -z-10 transition-opacity duration-500 opacity-0 dark:opacity-100"
           style={{
             backgroundImage: `url(${darkImage})`,
             backgroundSize: "cover",

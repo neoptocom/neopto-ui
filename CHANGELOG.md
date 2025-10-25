@@ -1,5 +1,13 @@
 # @neoptocom/neopto-ui
 
+## 0.7.2
+
+### Patch Changes
+
+- **Fix AppBackground transitions**: Add smooth fade transition between light and dark mode backgrounds
+  - Changed from `hidden/block` to `opacity-0/opacity-100` for smooth transitions
+  - Added 500ms transition duration for elegant theme switching
+
 ## 0.7.1
 
 ### Patch Changes
