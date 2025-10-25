@@ -98,6 +98,19 @@ This library uses **Tailwind CSS v4** utility classes directly in components (e.
 
 ## 🧩 Components
 
+### AppBackground
+
+```tsx
+import { AppBackground } from "@neoptocom/neopto-ui";
+
+<AppBackground
+  lightImage="/path/to/light-bg.jpg"
+  darkImage="/path/to/dark-bg.jpg"
+>
+  <YourApp />
+</AppBackground>;
+```
+
 ### Button
 
 ```tsx

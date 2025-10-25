@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {
+  AppBackground,
   Button,
   Input,
   Typo,
@@ -46,24 +47,25 @@ function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-background-primary p-8 transition-colors">
-      {/* Header */}
-      <div className="max-w-7xl mx-auto mb-8">
-        <div className="flex items-center justify-between mb-4">
-          <Typo variant="headline-lg" bold="bold">
-            NeoPTO UI - Dev Playground
+    <AppBackground>
+      <div className="p-8">
+        {/* Header */}
+        <div className="max-w-7xl mx-auto mb-8">
+          <div className="flex items-center justify-between mb-4">
+            <Typo variant="headline-lg" bold="bold">
+              NeoPTO UI - Dev Playground
+            </Typo>
+            <Button onClick={toggleDarkMode} variant="secondary" size="sm">
+              <Icon name={isDark ? "light_mode" : "dark_mode"} />
+              {isDark ? "Light" : "Dark"} Mode
+            </Button>
+          </div>
+          <Typo variant="body-md" className="text-text-secondary">
+            Test and preview all components in real-time
           </Typo>
-          <Button onClick={toggleDarkMode} variant="secondary" size="sm">
-            <Icon name={isDark ? "light_mode" : "dark_mode"} />
-            {isDark ? "Light" : "Dark"} Mode
-          </Button>
         </div>
-        <Typo variant="body-md" className="text-text-secondary">
-          Test and preview all components in real-time
-        </Typo>
-      </div>
 
-      <div className="max-w-7xl mx-auto space-y-12">
+        <div className="max-w-7xl mx-auto space-y-12">
         {/* Typography */}
         <Section title="Typography">
           <div className="space-y-2">
@@ -259,15 +261,16 @@ function App() {
             </div>
           </div>
         </Section>
-      </div>
+        </div>
 
-      {/* Footer */}
-      <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-border-primary">
-        <Typo variant="body-sm" className="text-text-tertiary text-center">
-          NeoPTO UI Component Library - Development Playground
-        </Typo>
+        {/* Footer */}
+        <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-border-primary">
+          <Typo variant="body-sm" className="text-text-tertiary text-center">
+            NeoPTO UI Component Library - Development Playground
+          </Typo>
+        </div>
       </div>
-    </div>
+    </AppBackground>
   );
 }
 

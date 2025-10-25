@@ -1,5 +1,26 @@
 # @neoptocom/neopto-ui
 
+## 0.7.0
+
+### Minor Changes
+
+- **Add AppBackground component**: New component for consistent app backgrounds across all projects
+  - Supports separate light and dark mode background images via props
+  - Falls back to elegant gradient when no images provided
+  - Automatically switches based on dark mode state
+  - Perfect for wrapping your entire app for consistent theming
+
+### Usage
+
+```tsx
+<AppBackground
+  lightImage="/path/to/light-bg.jpg"
+  darkImage="/path/to/dark-bg.jpg"
+>
+  <YourApp />
+</AppBackground>
+```
+
 ## 0.6.2
 
 ### Patch Changes
