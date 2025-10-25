@@ -100,11 +100,13 @@ This library uses **Tailwind CSS v4** utility classes directly in components (e.
 
 ### AppBackground
 
-```tsx
-import { AppBackground, assets } from "@neoptocom/neopto-ui";
+A full-page background component with built-in light/dark mode support and smooth transitions.
 
-// Use built-in NeoPTO backgrounds
-<AppBackground lightImage={assets.bgLight} darkImage={assets.bgDark}>
+```tsx
+import { AppBackground } from "@neoptocom/neopto-ui";
+
+// Use default NeoPTO branded backgrounds (recommended)
+<AppBackground>
   <YourApp />
 </AppBackground>
 
@@ -114,8 +116,10 @@ import { AppBackground, assets } from "@neoptocom/neopto-ui";
   darkImage="/path/to/dark-bg.jpg"
 >
   <YourApp />
-</AppBackground>;
+</AppBackground>
 ```
+
+**Best Practice:** Add `AppBackground` to your root layout (`app/layout.tsx`) so it wraps your entire app and persists across pages.
 
 ### Button
 

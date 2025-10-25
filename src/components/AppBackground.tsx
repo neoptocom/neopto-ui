@@ -1,11 +1,12 @@
 import * as React from "react";
+import * as assets from "../assets";
 
 export type AppBackgroundProps = {
   /** Content to render inside the background */
   children: React.ReactNode;
-  /** Background image URL for light mode */
+  /** Background image URL for light mode (defaults to library's light background) */
   lightImage?: string;
-  /** Background image URL for dark mode */
+  /** Background image URL for dark mode (defaults to library's dark background) */
   darkImage?: string;
   /** Additional CSS classes */
   className?: string;
@@ -13,8 +14,8 @@ export type AppBackgroundProps = {
 
 export function AppBackground({
   children,
-  lightImage,
-  darkImage,
+  lightImage = assets.bgLight,
+  darkImage = assets.bgDark,
   className = "",
 }: AppBackgroundProps) {
   const hasImages = lightImage || darkImage;

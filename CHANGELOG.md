@@ -1,5 +1,16 @@
 # @neoptocom/neopto-ui
 
+## 0.7.4
+
+### Patch Changes
+
+- **AppBackground defaults**: Built-in NeoPTO backgrounds now used by default
+  - `AppBackground` now automatically uses library's light/dark SVG backgrounds
+  - Consumers no longer need to import `assets` for branded backgrounds
+  - Simply use `<AppBackground>{children}</AppBackground>` out of the box
+  - Custom images can still be provided via `lightImage` and `darkImage` props
+  - Updated documentation with simpler usage examples
+
 ## 0.7.3
 
 ### Patch Changes
