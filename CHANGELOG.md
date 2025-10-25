@@ -1,5 +1,15 @@
 # @neoptocom/neopto-ui
 
+## 0.7.5
+
+### Patch Changes
+
+- **Documentation update**: Add dark mode variant configuration to setup guides
+  - Updated README and CONSUMER_SETUP with `@variant dark` requirement
+  - Added important note that this line is required for dark mode to work
+  - Clarifies setup for AppBackground and other dark mode features
+  - Consumers must add `@variant dark (&:where(.dark, .dark *));` to their CSS
+
 ## 0.7.4
 
 ### Patch Changes

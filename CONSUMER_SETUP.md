@@ -34,12 +34,17 @@ In your main CSS file (e.g., `src/index.css`):
 ```css
 @import "tailwindcss";
 
+/* Enable dark mode support */
+@variant dark (&:where(.dark, .dark *));
+
 /* Scan the component library source files */
 @source "../node_modules/@neoptocom/neopto-ui/src";
 
 /* Import library tokens and styles */
 @import "@neoptocom/neopto-ui/styles";
 ```
+
+**Important:** The `@variant dark` line is required for dark mode to work properly with components like `AppBackground`.
 
 Then import your CSS in `src/main.tsx`:
 

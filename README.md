@@ -41,6 +41,9 @@ If your CSS file is at `src/app/globals.css` (App Router), use:
 ```css
 @import "tailwindcss";
 
+/* Enable dark mode support */
+@variant dark (&:where(.dark, .dark *));
+
 /* Scan the component library source files */
 @source "../../node_modules/@neoptocom/neopto-ui/src";
 
@@ -49,10 +52,11 @@ If your CSS file is at `src/app/globals.css` (App Router), use:
 
 /* Scan your own project files */
 @source "../";
-
 ```
 
 **Note:** The path is relative to your CSS file location. Adjust `../` levels accordingly.
+
+**Important:** The `@variant dark` line is required for dark mode to work properly with components like `AppBackground`.
 
 ```
 
