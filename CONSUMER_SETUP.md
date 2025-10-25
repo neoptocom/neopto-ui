@@ -6,7 +6,7 @@ This component library uses **Tailwind CSS v4 utility classes** directly in the 
 
 ---
 
-## 📦 Quick Setup (Recommended)
+## 📦 Installation
 
 ### Step 1: Install dependencies
 
@@ -15,20 +15,39 @@ npm install @neoptocom/neopto-ui
 npm install -D tailwindcss@latest @tailwindcss/postcss
 ```
 
-### Step 2: Run the init command
+### Step 2: Configure PostCSS
 
-After installing the package, run:
+Create `postcss.config.js` in your project root:
 
-```bash
-npx neopto-ui
+```js
+export default {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
 ```
 
-This will automatically:
-- ✅ Create `postcss.config.js` if needed
-- ✅ Update your CSS file with required imports
-- ✅ Configure Tailwind to scan the library components
+### Step 3: Setup your CSS file
 
-### Step 3: Use the components!
+In your main CSS file (e.g., `src/index.css`):
+
+```css
+@import "tailwindcss";
+
+/* Scan the component library source files */
+@source "../node_modules/@neoptocom/neopto-ui/src";
+
+/* Import library tokens and styles */
+@import "@neoptocom/neopto-ui/styles";
+```
+
+Then import your CSS in `src/main.tsx`:
+
+```tsx
+import "./index.css";
+```
+
+### Step 4: Use the components!
 
 ```tsx
 import { Button, Input, Typo } from "@neoptocom/neopto-ui";
@@ -75,51 +94,9 @@ document.documentElement.classList.toggle("dark");
 - `Chip` - Tags and labels
 - `Modal` - Dialog modals
 - `Skeleton` - Loading placeholders
-
----
-
-## 🛠️ Manual Setup (Alternative)
-
-If you prefer to set up manually or the init script didn't work:
-
-### Step 1: Install dependencies
-
-```bash
-npm install @neoptocom/neopto-ui
-npm install -D tailwindcss@latest @tailwindcss/postcss
-```
-
-### Step 2: Configure PostCSS
-
-Create `postcss.config.js` in your project root:
-
-```js
-export default {
-  plugins: {
-    "@tailwindcss/postcss": {},
-  },
-};
-```
-
-### Step 3: Setup your CSS file
-
-In your main CSS file (e.g., `src/index.css`):
-
-```css
-@import "tailwindcss";
-
-/* Scan the component library source files */
-@source "../node_modules/@neoptocom/neopto-ui/src";
-
-/* Import library tokens and styles */
-@import "@neoptocom/neopto-ui/styles";
-```
-
-Then import your CSS in `src/main.tsx`:
-
-```tsx
-import "./index.css";
-```
+- `Counter` - Number stepper
+- `IconButton` - Icon-only buttons
+- `ChatButton` - Animated chat button
 
 ---
 
@@ -131,15 +108,21 @@ import "./index.css";
 
 **Solution:** Make sure you:
 
-1. ✅ Imported the library CSS: `import '@neoptocom/neopto-ui/styles'`
-2. ✅ Added the library path to `tailwind.config.js` content array
-3. ✅ Have Tailwind CSS installed and configured
+1. ✅ Imported the library CSS: `@import "@neoptocom/neopto-ui/styles"`
+2. ✅ Added the `@source` directive to scan the library source files
+3. ✅ Have Tailwind CSS v4 installed and configured with `@tailwindcss/postcss`
 
 ### CSS custom properties not working
 
 **Problem:** Colors/spacing look wrong.
 
 **Solution:** Make sure the library CSS is imported **before** your app styles so the CSS custom properties are defined.
+
+### Tailwind classes not being generated
+
+**Problem:** Some component styles are missing.
+
+**Solution:** Ensure the `@source` directive points to the library's **source files** (`/src`), not the compiled dist folder. The source files contain all the Tailwind utility classes that need to be scanned.
 
 ---
 

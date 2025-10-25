@@ -13,28 +13,9 @@ A modern React component library built with Tailwind CSS v4 and TypeScript. Feat
 - **Tree Shakable**: Optimized bundle size with tree shaking
 - **Storybook**: Comprehensive documentation and testing environment
 
-## 📦 Quick Start
+## 📦 Installation
 
-```bash
-# Install the library and Tailwind CSS v4
-npm install @neoptocom/neopto-ui
-npm install -D tailwindcss@latest @tailwindcss/postcss
-
-# Run the init command - it handles everything automatically!
-npx neopto-ui
-```
-
-The init command will:
-- ✅ Create `postcss.config.js` if needed
-- ✅ Update your CSS file with required imports
-- ✅ Configure Tailwind to scan the library components
-
-### Manual Setup (if needed)
-
-<details>
-<summary>Click to expand manual installation steps</summary>
-
-### Step 1: Install dependencies
+### Step 1: Install the library and Tailwind CSS v4
 
 ```bash
 npm install @neoptocom/neopto-ui
@@ -72,8 +53,6 @@ Then import this CSS in your `src/main.tsx`:
 ```tsx
 import "./index.css";
 ```
-
-</details>
 
 ## 🎨 Usage
 

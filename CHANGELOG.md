@@ -1,5 +1,13 @@
 # @neoptocom/neopto-ui
 
+## 0.5.2
+
+### Patch Changes
+
+- **Remove CLI init script**: Simplified setup by removing the init command based on user feedback
+- Return to straightforward `@source` directive approach in documentation
+- Cleaner installation process with standard three-step setup
+
 ## 0.5.1
 
 ### Patch Changes
