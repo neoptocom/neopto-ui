@@ -1,5 +1,14 @@
 # @neoptocom/neopto-ui
 
+## 0.6.2
+
+### Patch Changes
+
+- Improve README documentation:
+  - Add Next.js App Router example with correct relative path (`../../node_modules`)
+  - Add note about scanning own project files with `@source`
+  - Clarify that paths are relative to CSS file location
+
 ## 0.6.1
 
 ### Patch Changes

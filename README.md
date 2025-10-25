@@ -36,16 +36,24 @@ export default {
 
 ### Step 3: Setup your CSS file
 
-In your main CSS file (e.g., `src/index.css`):
+If your CSS file is at `src/app/globals.css` (App Router), use:
 
 ```css
 @import "tailwindcss";
 
 /* Scan the component library source files */
-@source "../node_modules/@neoptocom/neopto-ui/src";
+@source "../../node_modules/@neoptocom/neopto-ui/src";
 
 /* Import library styles */
 @import "@neoptocom/neopto-ui/styles";
+
+/* Scan your own project files */
+@source "../";
+
+```
+
+**Note:** The path is relative to your CSS file location. Adjust `../` levels accordingly.
+
 ```
 
 Then import this CSS in your `src/main.tsx`:
