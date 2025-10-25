@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { AppBackground } from "../components/AppBackground";
-import { Typo } from "../components/Typo";
+import Typo from "../components/Typo";
 import { Button } from "../components/Button";
 
 const meta = {
