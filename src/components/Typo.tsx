@@ -1,5 +1,4 @@
 import * as React from "react";
-import { tv, type VariantProps } from "tailwind-variants";
 
 export type TypoVariant =
   | "display-lg" | "display-md" | "display-sm"
@@ -11,41 +10,48 @@ export type TypoVariant =
 
 export type TypoWeight = "normal" | "medium" | "semibold" | "bold";
 
-const styles = tv({
-  base: "text-current",
-  variants: {
-    variant: {
-      "display-lg": "text-5xl leading-tight",
-      "display-md": "text-4xl leading-tight",
-      "display-sm": "text-4xl leading-tight",
-      "headline-lg": "text-3xl leading-tight",
-      "headline-md": "text-3xl leading-tight",
-      "headline-sm": "text-3xl leading-tight",
-      "title-lg": "text-xl leading-tight",
-      "title-md": "text-lg leading-tight",
-      "title-sm": "text-base leading-tight",
-      "label-lg": "text-sm leading-tight",
-      "label-md": "text-xs leading-tight",
-      "label-sm": "text-xs leading-tight",
-      "body-lg": "text-base leading-relaxed",
-      "body-md": "text-sm leading-relaxed",
-      "body-sm": "text-xs leading-relaxed",
-      "button": "text-base leading-normal"
-    },
-    weight: {
-      normal: "font-normal",
-      medium: "font-medium",
-      semibold: "font-semibold",
-      bold: "font-bold"
-    },
-    muted: {
-      true: "text-[var(--muted-fg)]"
-    }
-  },
-  defaultVariants: {
-    weight: "normal"
-  }
-});
+function getTypoClasses(
+  variant: TypoVariant,
+  weight: TypoWeight = "normal",
+  muted?: boolean,
+  className?: string
+): string {
+  const base = "text-current";
+
+  const variants: Record<TypoVariant, string> = {
+    "display-lg": "text-5xl leading-tight",
+    "display-md": "text-4xl leading-tight",
+    "display-sm": "text-4xl leading-tight",
+    "headline-lg": "text-3xl leading-tight",
+    "headline-md": "text-3xl leading-tight",
+    "headline-sm": "text-3xl leading-tight",
+    "title-lg": "text-xl leading-tight",
+    "title-md": "text-lg leading-tight",
+    "title-sm": "text-base leading-tight",
+    "label-lg": "text-sm leading-tight",
+    "label-md": "text-xs leading-tight",
+    "label-sm": "text-xs leading-tight",
+    "body-lg": "text-base leading-relaxed",
+    "body-md": "text-sm leading-relaxed",
+    "body-sm": "text-xs leading-relaxed",
+    "button": "text-base leading-normal"
+  };
+
+  const weights: Record<TypoWeight, string> = {
+    normal: "font-normal",
+    medium: "font-medium",
+    semibold: "font-semibold",
+    bold: "font-bold"
+  };
+
+  return [
+    base,
+    variants[variant],
+    weights[weight],
+    muted ? "text-[var(--muted-fg)]" : "",
+    className
+  ].filter(Boolean).join(" ");
+}
 
 export type TypoProps<T extends React.ElementType = "span"> = {
   /**
@@ -83,7 +89,7 @@ export default function Typo<T extends React.ElementType = "span">({
   
   return (
     <Component
-      className={styles({ variant, weight: bold, muted, className })}
+      className={getTypoClasses(variant, bold, muted, className)}
       style={{ fontFamily: getFontFamily(variant) }}
       {...props}
     >

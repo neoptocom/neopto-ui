@@ -1,5 +1,22 @@
 # @neoptocom/neopto-ui
 
+## 0.6.0
+
+### Major Changes
+
+- **Remove tailwind-variants dependency**: Refactored all components to use explicit class strings instead of dynamic class composition
+  - All Tailwind classes are now directly visible in source files for proper scanning by Tailwind v4
+  - Fixes issues where consumer applications couldn't generate all necessary utility classes
+  - Affects: `Button`, `IconButton`, `Avatar`, `Typo` components
+  - **Breaking**: No API changes, but this is a significant internal refactor
+
+### Benefits
+
+- ✅ Better Tailwind v4 compatibility - all classes are statically analyzable
+- ✅ Smaller bundle size - removed runtime dependency
+- ✅ More transparent code - explicit class strings are easier to understand
+- ✅ Consumer projects will have all utility classes properly generated
+
 ## 0.5.2
 
 ### Patch Changes

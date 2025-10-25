@@ -1,44 +1,45 @@
 import * as React from "react";
-import { tv, type VariantProps } from "tailwind-variants";
 import Icon from "./Icon";
 
-const iconButtonStyles = tv({
-  base: [
-    "flex items-center justify-center rounded-full flex-shrink-0",
-    "transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
-    "focus-visible:ring-cyan-500/40 disabled:cursor-not-allowed disabled:opacity-50"
-  ].join(" "),
-  variants: {
-    variant: {
-      ghost: "bg-transparent hover:bg-[var(--muted)] active:bg-[var(--muted)]",
-      primary: "bg-cyan-500 text-white hover:bg-cyan-400 active:bg-cyan-600",
-      secondary: "border border-[var(--border)] bg-[var(--surface)] hover:bg-[var(--muted)] active:bg-[var(--muted)]"
-    },
-    size: {
-      sm: "w-8 h-8",
-      md: "w-10 h-10",
-      lg: "w-12 h-12"
-    }
-  },
-  defaultVariants: {
-    variant: "ghost",
-    size: "md"
-  }
-});
+export type IconButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  /** Button visual variant */
+  variant?: "ghost" | "primary" | "secondary";
+  /** Button size */
+  size?: "sm" | "md" | "lg";
+  /** Material Symbols icon name */
+  icon: string;
+  /** Icon size (defaults to button size) */
+  iconSize?: "sm" | "md" | "lg";
+  /** Icon fill (0 = outlined, 1 = filled) */
+  iconFill?: 0 | 1;
+  /** Optional custom className for the icon */
+  iconClassName?: string;
+};
 
-type IconButtonVariants = VariantProps<typeof iconButtonStyles>;
+function getIconButtonClasses(
+  variant: IconButtonProps["variant"] = "ghost",
+  size: IconButtonProps["size"] = "md",
+  className?: string
+): string {
+  const base =
+    "flex items-center justify-center rounded-full flex-shrink-0 " +
+    "transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 " +
+    "focus-visible:ring-cyan-500/40 disabled:cursor-not-allowed disabled:opacity-50";
 
-export type IconButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
-  IconButtonVariants & {
-    /** Material Symbols icon name */
-    icon: string;
-    /** Icon size (defaults to button size) */
-    iconSize?: "sm" | "md" | "lg";
-    /** Icon fill (0 = outlined, 1 = filled) */
-    iconFill?: 0 | 1;
-    /** Optional custom className for the icon */
-    iconClassName?: string;
+  const variants = {
+    ghost: "bg-transparent hover:bg-[var(--muted)] active:bg-[var(--muted)]",
+    primary: "bg-cyan-500 text-white hover:bg-cyan-400 active:bg-cyan-600",
+    secondary: "border border-[var(--border)] bg-[var(--surface)] hover:bg-[var(--muted)] active:bg-[var(--muted)]"
   };
+
+  const sizes = {
+    sm: "w-8 h-8",
+    md: "w-10 h-10",
+    lg: "w-12 h-12"
+  };
+
+  return [base, variants[variant], sizes[size], className].filter(Boolean).join(" ");
+}
 
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   (
@@ -71,7 +72,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
     return (
       <button
         ref={ref}
-        className={iconButtonStyles({ variant, size, className })}
+        className={getIconButtonClasses(variant, size, className)}
         {...props}
       >
         <Icon

@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useState, useMemo } from "react";
-import { tv, type VariantProps } from "tailwind-variants";
 import Typo from "./Typo";
 
 export type AvatarProps = {
@@ -12,21 +11,22 @@ export type AvatarProps = {
   color?: string;
   /** Accessible alt text; defaults to the person's name */
   alt?: string;
-} & VariantProps<typeof avatarStyles> &
-  Omit<React.HTMLAttributes<HTMLDivElement>, "children">;
+  /** Avatar size */
+  size?: "sm" | "md";
+} & Omit<React.HTMLAttributes<HTMLDivElement>, "children">;
 
-const avatarStyles = tv({
-  base:
+function getAvatarClasses(size: AvatarProps["size"] = "sm", className?: string): string {
+  const base =
     "relative box-border flex items-center justify-center overflow-hidden rounded-full " +
-    "border border-[var(--border)] bg-[var(--muted)] text-[var(--fg)] select-none",
-  variants: {
-    size: {
-      sm: "w-[28px] h-[28px]",
-      md: "w-[60px] h-[60px]"
-    }
-  },
-  defaultVariants: { size: "sm" }
-});
+    "border border-[var(--border)] bg-[var(--muted)] text-[var(--fg)] select-none";
+
+  const sizes = {
+    sm: "w-[28px] h-[28px]",
+    md: "w-[60px] h-[60px]"
+  };
+
+  return [base, sizes[size], className].filter(Boolean).join(" ");
+}
 
 function getInitials(name: string) {
   if (!name) return "…";
@@ -59,7 +59,7 @@ export default function Avatar({
 
   return (
     <div
-      className={avatarStyles({ size, className })}
+      className={getAvatarClasses(size, className)}
       aria-label={alt ?? name}
       role="img"
       {...props}
