@@ -1,5 +1,15 @@
 # @neoptocom/neopto-ui
 
+## 0.7.3
+
+### Patch Changes
+
+- **Fix dark mode detection**: Configure Tailwind v4 dark mode variant properly
+  - Add explicit `@variant dark` configuration for class-based dark mode
+  - Fix AppBackground opacity transitions not responding to theme changes
+  - Adjust z-index layering for proper background stacking (light: -10, dark: -9)
+  - Dark mode now properly toggles between light and dark backgrounds with smooth transitions
+
 ## 0.7.2
 
 ### Patch Changes

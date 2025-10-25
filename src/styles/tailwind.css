@@ -1,5 +1,9 @@
 /* Tailwind v4+ core */
 @import "tailwindcss";
+
+/* Configure dark mode to use class strategy */
+@variant dark (&:where(.dark, .dark *));
+
 @import "./tokens.css";
 
 /* Ensure Tailwind scans your source & story files */
