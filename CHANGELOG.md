@@ -1,5 +1,17 @@
 # @neoptocom/neopto-ui
 
+## 0.8.1
+
+### Patch Changes
+
+- **Chip component enhancement**: Add custom color support
+  - Add `backgroundColor` prop for custom background colors
+  - Add `textColor` prop for custom text colors
+  - Custom colors override variant styles with inline styles (no specificity conflicts)
+  - Supports all CSS color formats: hex, rgb, rgba, CSS variables, etc.
+  - Backward compatible - existing variants work the same way
+  - Proper style prop merging
+
 ## 0.8.0
 
 ### Minor Changes
