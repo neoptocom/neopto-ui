@@ -1,5 +1,20 @@
 # @neoptocom/neopto-ui
 
+## 0.8.0
+
+### Minor Changes
+
+- **Typo component enhancement**: Update typography with precise design system specifications
+  - Add exact font sizes, line-heights, and letter-spacing from Figma design system
+  - All Display variants (57px, 45px, 36px) with proper line-heights
+  - All Headline variants (32px, 28px, 24px) with proper line-heights
+  - All Title variants (22px, 16px, 14px) with letter-spacing adjustments
+  - All Label variants (14px, 12px, 11px) with letter-spacing
+  - All Body variants (16px, 14px, 12px) with letter-spacing
+  - Typography specs now applied via inline styles and always preserved
+  - Fix style prop merging to preserve fontFamily, fontSize, lineHeight, and letterSpacing
+  - Users can still override other style properties without breaking typography
+
 ## 0.7.5
 
 ### Patch Changes
