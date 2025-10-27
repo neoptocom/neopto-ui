@@ -25,7 +25,7 @@ function getButtonClasses(
     const variants = {
         primary: "bg-cyan-500 text-white hover:bg-cyan-400 active:bg-cyan-600 disabled:bg-neutral-400",
         secondary: "border border-cyan-500 text-cyan-500 bg-transparent hover:bg-cyan-50 active:bg-cyan-100 disabled:border-neutral-400 disabled:text-neutral-400",
-        ghost: "bg-transparent text-cyan-500 hover:bg-cyan-50 active:bg-cyan-100 disabled:text-neutral-400"
+        ghost: "bg-transparent text-[var(--fg)] hover:bg-[var(--muted)] active:bg-[var(--muted)] disabled:opacity-50"
     };
 
     const sizes = {
