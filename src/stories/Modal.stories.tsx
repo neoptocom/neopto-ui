@@ -31,6 +31,7 @@ function ModalDemo(props: Partial<React.ComponentProps<typeof Modal>>) {
 }
 
 export const Default: Story = {
+  args: { open: false },
   render: () => (
     <ModalDemo>
       <Typo variant="headline-md">Welcome!</Typo>
@@ -42,6 +43,7 @@ export const Default: Story = {
 };
 
 export const WithTitle: Story = {
+  args: { open: false },
   render: () => (
     <ModalDemo title="Modal Title">
       <Typo variant="body-md">
@@ -55,6 +57,7 @@ export const WithTitle: Story = {
 };
 
 export const NoBackdropClose: Story = {
+  args: { open: false },
   render: () => (
     <ModalDemo 
       title="Important Notice" 
@@ -74,6 +77,7 @@ export const NoBackdropClose: Story = {
 };
 
 export const CustomStyling: Story = {
+  args: { open: false },
   render: () => (
     <ModalDemo 
       title="Large Modal"
@@ -97,6 +101,7 @@ export const CustomStyling: Story = {
 };
 
 export const FormModal: Story = {
+  args: { open: false },
   render: () => {
     const [open, setOpen] = useState(false);
     const [name, setName] = useState("");
@@ -159,6 +164,7 @@ export const FormModal: Story = {
 };
 
 export const ConfirmationDialog: Story = {
+  args: { open: false },
   render: () => {
     const [open, setOpen] = useState(false);
 
@@ -169,7 +175,7 @@ export const ConfirmationDialog: Story = {
 
     return (
       <div className="p-8">
-        <Button variant="destructive" onClick={() => setOpen(true)}>
+        <Button variant="primary" onClick={() => setOpen(true)}>
           Delete Item
         </Button>
         <Modal 
@@ -188,7 +194,7 @@ export const ConfirmationDialog: Story = {
             >
               Cancel
             </button>
-            <Button variant="destructive" onClick={handleConfirm}>
+            <Button variant="primary" onClick={handleConfirm}>
               Delete
             </Button>
           </div>
@@ -204,6 +210,7 @@ export const ConfirmationDialog: Story = {
  * that can be toggled on/off via the `showDecorations` prop.
  */
 export const WithCardDecorations: Story = {
+  args: { open: false },
   render: () => {
     const [open, setOpen] = useState(false);
     const [showDecorations, setShowDecorations] = useState(true);
