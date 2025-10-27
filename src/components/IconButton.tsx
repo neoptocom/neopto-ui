@@ -22,7 +22,7 @@ function getIconButtonClasses(
   className?: string
 ): string {
   const base =
-    "flex items-center justify-center rounded-full flex-shrink-0 " +
+    "cursor-pointer flex items-center justify-center rounded-full flex-shrink-0 " +
     "transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 " +
     "focus-visible:ring-cyan-500/40 disabled:cursor-not-allowed disabled:opacity-50";
 
