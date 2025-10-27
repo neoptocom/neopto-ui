@@ -85,6 +85,10 @@ export function Modal({
 
   if (!mounted) return null;
 
+  // Smart class merging: only add defaults if not provided
+  const hasMaxWidth = className?.includes("max-w-");
+  const modalClasses = `w-full ${!hasMaxWidth ? "max-w-lg" : ""} ${className || ""}`.trim();
+
   const modal = (
     <div className={isDark ? "dark" : ""}>
       <BackgroundBlur
@@ -93,7 +97,7 @@ export function Modal({
         zIndex={zIndex}
       >
       <Card
-        className={`w-full ${className || "max-w-lg"}`}
+        className={modalClasses}
         role="dialog"
         aria-modal="true"
         aria-labelledby={title ? "modal-title" : undefined}

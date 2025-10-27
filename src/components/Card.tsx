@@ -29,9 +29,13 @@ export function Card({
     ...style,
   };
 
+  // Smart class merging: only add default padding if not provided
+  const hasPadding = className && /\b(p-|px-|py-|pt-|pb-|pl-|pr-)\d/.test(className);
+  const cardClasses = `${!hasPadding ? "p-6" : ""} ${className || ""}`.trim();
+
   return (
     <div
-      className={className || "p-6"}
+      className={cardClasses}
       style={mergedStyle}
       {...props}
     >
