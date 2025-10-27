@@ -85,7 +85,7 @@ export function Modal({
   // Smart class merging: only add defaults if not provided
   const hasMaxWidth = className?.includes("max-w-");
   const hasMaxHeight = className?.includes("max-h-");
-  const modalClasses = `w-full ${!hasMaxWidth ? "max-w-lg" : ""} ${!hasMaxHeight ? "max-h-[80vh] overflow-y-auto" : ""} ${className || ""}`.trim();
+  const modalClasses = `w-full ${!hasMaxWidth ? "max-w-lg" : ""} ${!hasMaxHeight ? "max-h-[80vh]" : ""} ${className || ""}`.trim();
 
   const modal = (
     <div className={isDark ? "dark" : ""}>
