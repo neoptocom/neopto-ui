@@ -52,6 +52,68 @@ ${tokensCSS}
   -webkit-font-smoothing: antialiased;
   color: inherit;
 }
+
+/* Unified Scrollbar Styles */
+:root {
+  --scrollbar-width: 6px;
+  --scrollbar-thumb: #797980;
+  --scrollbar-thumb-hover: #9C9C9C;
+  --scrollbar-track: transparent;
+}
+
+.dark {
+  --scrollbar-thumb: #4b4d59;
+  --scrollbar-thumb-hover: #797980;
+}
+
+/* Default scrollbar - applies to most scrollable containers */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+*::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+  height: var(--scrollbar-width);
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 1rem;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 1rem;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+  background-clip: padding-box;
+}
+
+/* Scrollbar width variants */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-medium::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Hide scrollbar utility */
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
 `;
 
 // Ensure dist directory exists
