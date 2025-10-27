@@ -92,13 +92,13 @@ export function Modal({
         onClose={closeOnBackdrop ? onClose : undefined}
         zIndex={zIndex}
       >
-        <Card
-          className={`w-full max-w-lg ${className}`}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby={title ? "modal-title" : undefined}
-          showDecorations={showDecorations}
-        >
+      <Card
+        className={`w-full ${className || "max-w-lg"}`}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={title ? "modal-title" : undefined}
+        showDecorations={showDecorations}
+      >
         {title && (
           <h2 id="modal-title" className="mb-4 text-xl font-semibold">
             {title}
