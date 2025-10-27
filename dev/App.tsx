@@ -14,7 +14,7 @@ import {
   Search,
   Skeleton,
   Modal,
-  ChatButton,
+  AgentButton,
 } from "../src/index";
 
 function App() {
@@ -107,15 +107,15 @@ function App() {
           </div>
         </Section>
 
-        {/* Chat Button */}
-        <Section title="Chat Button">
+        {/* Agent Button */}
+        <Section title="Agent Button">
           <div className="flex gap-4">
-            <ChatButton 
-              onOpenChat={() => alert("Chat opened!")}
+            <AgentButton 
+              onOpenChat={() => alert("Agent opened!")}
               hasNotification={false}
             />
-            <ChatButton 
-              onOpenChat={() => alert("Chat opened!")}
+            <AgentButton 
+              onOpenChat={() => alert("Agent opened!")}
               hasNotification={true}
               notificationMessage="New message!"
             />
