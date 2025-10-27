@@ -1,5 +1,19 @@
 # @neoptocom/neopto-ui
 
+## 0.9.1
+
+### Patch Changes
+
+- **New component: Card**: Glassmorphism card container
+  - Beautiful frosted glass effect with 75px backdrop blur
+  - Semi-transparent blue background: rgba(112, 133, 233, 0.05)
+  - 30px border radius for smooth corners
+  - Default 24px padding (customizable via className)
+  - Safari compatible with WebKit prefix
+  - Full HTML div props support (onClick, className, style, etc.)
+  - Perfect for modals, content containers, and overlay elements
+  - Works great with BackgroundBlur component
+
 ## 0.9.0
 
 ### Minor Changes
