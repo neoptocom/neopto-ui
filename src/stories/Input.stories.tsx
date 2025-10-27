@@ -36,3 +36,14 @@ export const Types: Story = {
     </div>
   )
 };
+
+export const Borderless: Story = {
+  render: () => (
+    <div className="flex flex-col gap-4 w-96">
+      <Input variant="borderless" placeholder="Borderless input" type="text" />
+      <Input variant="borderless" placeholder="Borderless email" type="email" />
+      <Input variant="borderless" placeholder="Borderless search..." />
+      <Input variant="borderless" placeholder="Disabled borderless" disabled />
+    </div>
+  )
+};
