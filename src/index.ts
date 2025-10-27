@@ -37,4 +37,4 @@ export type { IconButtonProps } from "./components/IconButton";
 export type { IconProps } from "./components/Icon";
 export type { ChipProps } from "./components/Chip";
 export type { CounterProps } from "./components/Counter";
-export type { ChatButtonProps } from "./components/Chat";
+export type { AgentButtonProps } from "./components/Chat";

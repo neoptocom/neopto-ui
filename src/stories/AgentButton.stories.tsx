@@ -1,13 +1,13 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ChatButton } from "../components/Chat";
+import { AgentButton } from "../components/Chat";
 import Typo from "../components/Typo";
 import agentLogoDark from "../assets/agent-neopto-dark.svg";
 import agentLogoLight from "../assets/agent-neopto.svg";
 
-const meta: Meta<typeof ChatButton> = {
-  title: "Components/ChatButton",
-  component: ChatButton,
+const meta: Meta<typeof AgentButton> = {
+  title: "Components/AgentButton",
+  component: AgentButton,
   args: {
     hasNotification: false,
     notificationMessage: "Hello! How can I help you today?",
@@ -28,7 +28,7 @@ const meta: Meta<typeof ChatButton> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof ChatButton>;
+type Story = StoryObj<typeof AgentButton>;
 
 export const Playground: Story = {
   render: (args) => {
@@ -36,7 +36,7 @@ export const Playground: Story = {
 
     return (
       <>
-        <ChatButton
+        <AgentButton
           {...args}
           onOpenChat={() => {
             setChatOpen(true);
@@ -79,7 +79,7 @@ export const AutoToggleNotification: Story = {
     }, []);
 
     return (
-      <ChatButton
+      <AgentButton
         {...args}
         hasNotification={hasNotification}
         notificationMessage="This notification toggles every 5 seconds!"

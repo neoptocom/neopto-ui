@@ -3,14 +3,14 @@ import AnimatedBgCircle from "./AnimatedBgCircle";
 import AnimatedBgRectangle from "./AnimatedBgRectangle";
 import Typo from "../Typo";
 
-export interface ChatButtonProps {
-  /** Callback when chat button is clicked */
+export interface AgentButtonProps {
+  /** Callback when agent button is clicked */
   onOpenChat: () => void;
   /** Whether there's a new notification */
   hasNotification?: boolean;
   /** The notification message to display */
   notificationMessage?: string;
-  /** Logo source for the chat agent */
+  /** Logo source for the agent */
   logoSrc?: string;
   /** Alt text for the logo */
   logoAlt?: string;
@@ -18,14 +18,14 @@ export interface ChatButtonProps {
   animationColors?: string[];
 }
 
-const ChatButton = ({
+const AgentButton = ({
   onOpenChat,
   hasNotification = false,
   notificationMessage = "",
   logoSrc,
-  logoAlt = "Chat Agent",
+  logoAlt = "Agent",
   animationColors = ["#7DADB9", "#3864F5", "#55468D", "#479A8D"],
-}: ChatButtonProps) => {
+}: AgentButtonProps) => {
   const [showText, setShowText] = useState(false);
   const [delayedHasNotification, setDelayedHasNotification] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -128,5 +128,5 @@ const ChatButton = ({
   );
 };
 
-export default ChatButton;
+export default AgentButton;
 
