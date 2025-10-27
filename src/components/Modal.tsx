@@ -1,13 +1,25 @@
 import * as React from "react";
 import { createPortal } from "react-dom";
+import { BackgroundBlur } from "./BackgroundBlur";
+import { Card } from "./Card";
 
 export type ModalProps = {
+  /** Whether the modal is open */
   open: boolean;
+  /** Callback when modal should close */
   onClose?: () => void;
+  /** Modal content */
   children?: React.ReactNode;
+  /** Optional title (rendered as heading) */
   title?: string;
-  /** When true, closes when the overlay is clicked */
-  closeOnOverlay?: boolean;
+  /** When true, closes when the backdrop is clicked (default: true) */
+  closeOnBackdrop?: boolean;
+  /** Custom className for the Card */
+  className?: string;
+  /** z-index for the modal (default: 50) */
+  zIndex?: number;
+  /** Show decorative elements on the Card (default: true) */
+  showDecorations?: boolean;
 };
 
 function useIsomorphicLayoutEffect(effect: React.EffectCallback, deps?: React.DependencyList) {
@@ -19,10 +31,36 @@ export function Modal({
   open,
   onClose,
   title,
-  closeOnOverlay = true,
-  children
+  closeOnBackdrop = true,
+  children,
+  className = "",
+  zIndex = 50,
+  showDecorations = true,
 }: ModalProps) {
   const [mounted, setMounted] = React.useState(false);
+  const [isDark, setIsDark] = React.useState(false);
+
+  // Detect dark mode
+  React.useEffect(() => {
+    const checkDarkMode = () => {
+      const hasDarkClass = document.documentElement.classList.contains("dark") || 
+                           document.body.classList.contains("dark") ||
+                           document.querySelector(".dark") !== null;
+      setIsDark(hasDarkClass);
+    };
+
+    checkDarkMode();
+
+    // Listen for changes to dark mode
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+      subtree: true,
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   // Prevent body scroll when open
   useIsomorphicLayoutEffect(() => {
@@ -35,6 +73,7 @@ export function Modal({
     };
   }, [open]);
 
+  // ESC key to close
   React.useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
@@ -45,39 +84,32 @@ export function Modal({
   }, [open, onClose]);
 
   if (!mounted) return null;
-  if (!open) return null;
 
-  const overlay = (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center"
-      aria-labelledby="modal-title"
-      role="dialog"
-      aria-modal="true"
-    >
-      <div
-        className="absolute inset-0 bg-black/50"
-        onClick={() => closeOnOverlay && onClose?.()}
-      />
-      <div className="relative z-10 w-full max-w-lg rounded-[var(--radius-lg)] bg-[var(--surface)] text-[var(--fg)] p-6 shadow-xl">
-        {title ? (
-          <h2 id="modal-title" className="mb-2 text-lg font-semibold">
+  const modal = (
+    <div className={isDark ? "dark" : ""}>
+      <BackgroundBlur
+        open={open}
+        onClose={closeOnBackdrop ? onClose : undefined}
+        zIndex={zIndex}
+      >
+        <Card
+          className={`w-full max-w-lg ${className}`}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby={title ? "modal-title" : undefined}
+          showDecorations={showDecorations}
+        >
+        {title && (
+          <h2 id="modal-title" className="mb-4 text-xl font-semibold">
             {title}
           </h2>
-        ) : null}
+        )}
         <div>{children}</div>
-        <div className="mt-4 flex justify-end gap-2">
-          <button
-            onClick={onClose}
-            className="btn btn-outline"
-            type="button"
-          >
-            Close
-          </button>
-        </div>
-      </div>
+      </Card>
+    </BackgroundBlur>
     </div>
   );
 
   const container = document.body;
-  return createPortal(overlay, container);
+  return createPortal(modal, container);
 }
