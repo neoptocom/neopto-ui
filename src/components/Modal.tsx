@@ -10,8 +10,6 @@ export type ModalProps = {
   onClose?: () => void;
   /** Modal content */
   children?: React.ReactNode;
-  /** Optional title (rendered as heading) */
-  title?: string;
   /** When true, closes when the backdrop is clicked (default: true) */
   closeOnBackdrop?: boolean;
   /** Custom className for the Card */
@@ -30,7 +28,6 @@ function useIsomorphicLayoutEffect(effect: React.EffectCallback, deps?: React.De
 export function Modal({
   open,
   onClose,
-  title,
   closeOnBackdrop = true,
   children,
   className = "",
@@ -100,15 +97,9 @@ export function Modal({
         className={modalClasses}
         role="dialog"
         aria-modal="true"
-        aria-labelledby={title ? "modal-title" : undefined}
         showDecorations={showDecorations}
       >
-        {title && (
-          <h2 id="modal-title" className="mb-4 text-xl font-semibold">
-            {title}
-          </h2>
-        )}
-        <div>{children}</div>
+        {children}
       </Card>
     </BackgroundBlur>
     </div>

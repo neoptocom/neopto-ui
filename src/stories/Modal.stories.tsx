@@ -42,27 +42,14 @@ export const Default: Story = {
   ),
 };
 
-export const WithTitle: Story = {
-  args: { open: false },
-  render: () => (
-    <ModalDemo title="Modal Title">
-      <Typo variant="body-md">
-        This modal includes a title heading. You can still add any content you want below it.
-      </Typo>
-      <Typo variant="body-sm" className="mt-4 text-[var(--muted-fg)]">
-        Try clicking the backdrop to close, or press ESC.
-      </Typo>
-    </ModalDemo>
-  ),
-};
 
 export const NoBackdropClose: Story = {
   args: { open: false },
   render: () => (
     <ModalDemo 
-      title="Important Notice" 
       closeOnBackdrop={false}
     >
+      <Typo variant="headline-md" bold="semibold" className="mb-4">Important Notice</Typo>
       <Typo variant="body-md">
         This modal cannot be closed by clicking the backdrop.
       </Typo>
@@ -80,9 +67,9 @@ export const CustomStyling: Story = {
   args: { open: false },
   render: () => (
     <ModalDemo 
-      title="Large Modal"
       className="max-w-2xl p-12"
     >
+      <Typo variant="headline-md" bold="semibold" className="mb-4">Large Modal</Typo>
       <Typo variant="body-md">
         This modal has custom styling with a larger max-width and more padding.
       </Typo>
@@ -119,9 +106,9 @@ export const FormModal: Story = {
         <Modal 
           open={open} 
           onClose={() => setOpen(false)}
-          title="Contact Form"
         >
           <form onSubmit={handleSubmit}>
+            <Typo variant="headline-md" bold="semibold" className="mb-4">Contact Form</Typo>
             <div className="space-y-4">
               <div>
                 <label className="block mb-2 text-sm font-medium">Name</label>
@@ -181,9 +168,9 @@ export const ConfirmationDialog: Story = {
         <Modal 
           open={open} 
           onClose={() => setOpen(false)}
-          title="Confirm Deletion"
           closeOnBackdrop={false}
         >
+          <Typo variant="headline-md" bold="semibold" className="mb-4">Confirm Deletion</Typo>
           <Typo variant="body-md">
             Are you sure you want to delete this item? This action cannot be undone.
           </Typo>
@@ -242,7 +229,8 @@ export const WithCardDecorations: Story = {
     );
 
     return (
-      <ModalDemo title="Card with Decorative Elements">
+      <ModalDemo>
+        <Typo variant="headline-md" bold="semibold" className="mb-4">Card with Decorative Elements</Typo>
         <div className="space-y-4">
           <Typo variant="body-md">
             The Card component now includes decorative SVG elements from your Figma design:
