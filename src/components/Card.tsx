@@ -31,7 +31,7 @@ export function Card({
 
   return (
     <div
-      className={`p-6 ${className}`}
+      className={className || "p-6"}
       style={mergedStyle}
       {...props}
     >
