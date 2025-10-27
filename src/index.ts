@@ -3,6 +3,7 @@ export * as assets from "./assets";
 
 // Components
 export { AppBackground } from "./components/AppBackground";
+export { BackgroundBlur } from "./components/BackgroundBlur";
 export * from "./components/Input";
 export * from "./components/Modal";
 export { default as Typo } from "./components/Typo";
@@ -20,6 +21,7 @@ export * from "./components/Chat";
 
 // Types
 export type { AppBackgroundProps } from "./components/AppBackground";
+export type { BackgroundBlurProps } from "./components/BackgroundBlur";
 export type { InputProps } from "./components/Input";
 export type { ModalProps } from "./components/Modal";
 export type { TypoProps, TypoVariant, TypoWeight } from "./components/Typo";

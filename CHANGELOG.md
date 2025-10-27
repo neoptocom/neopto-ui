@@ -1,5 +1,20 @@
 # @neoptocom/neopto-ui
 
+## 0.9.0
+
+### Minor Changes
+
+- **New component: BackgroundBlur**: Blur overlay wrapper for modals and popups
+  - Smooth 500ms fade in/out transitions with opacity animation
+  - 10px backdrop blur with 10% black overlay
+  - Click-to-close functionality (optional via `onClose` prop)
+  - Smart event handling - clicks on children don't trigger close
+  - Configurable z-index (default: 40)
+  - Auto-mount/unmount with proper transition timing
+  - Safari compatible with WebKit prefix
+  - Flexible positioning with className support
+  - Perfect for modals, drawers, and overlay content
+
 ## 0.8.1
 
 ### Patch Changes
