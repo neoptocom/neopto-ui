@@ -20,6 +20,7 @@ export { default as Chip } from "./components/Chip";
 export { default as Counter } from "./components/Counter";
 export * from "./components/Chat";
 export * from "./components/MessageBubble";
+export * from "./components/Separator";
 
 // Types
 export type { AppBackgroundProps } from "./components/AppBackground";
@@ -40,3 +41,4 @@ export type { ChipProps } from "./components/Chip";
 export type { CounterProps } from "./components/Counter";
 export type { AgentButtonProps } from "./components/Chat";
 export type { MessageBubbleProps } from "./components/MessageBubble";
+export type { SeparatorProps } from "./components/Separator";

@@ -1,5 +1,13 @@
 # @neoptocom/neopto-ui
 
+## 0.12.1
+
+### Patch Changes
+
+- - Changed Card component default `showDecorations` to false
+  - Added Separator component with comprehensive Storybook stories
+  - Added Card component Storybook stories
+
 ## 0.12.0
 
 ### Minor Changes

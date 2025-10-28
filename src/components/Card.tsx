@@ -5,7 +5,7 @@ export type CardProps = React.HTMLAttributes<HTMLDivElement> & {
   children: React.ReactNode;
   /** Additional CSS classes */
   className?: string;
-  /** Show decorative elements (default: true) */
+  /** Show decorative elements (default: false) */
   showDecorations?: boolean;
 };
 
@@ -13,7 +13,7 @@ export function Card({
   children,
   className = "",
   style,
-  showDecorations = true,
+  showDecorations = false,
   ...props
 }: CardProps) {
   // Merge user styles with card styles
