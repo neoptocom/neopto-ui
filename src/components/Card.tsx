@@ -44,7 +44,7 @@ export function Card({
 
   // Smart class merging: only add default padding if not provided
   const hasPadding = className && /\b(p-|px-|py-|pt-|pb-|pl-|pr-)\d/.test(className);
-  const cardClasses = ` z-0 ${!hasPadding ? "p-6" : ""} ${className || ""}`.trim();
+  const cardClasses = `${!hasPadding ? "p-6" : ""} ${className || ""}`.trim();
 
   return (
     <div
@@ -63,7 +63,7 @@ export function Card({
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
-              zIndex: 0,
+              zIndex: 1,
             }}
           />
           {/* Dark mode background */}
@@ -74,7 +74,7 @@ export function Card({
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
-              zIndex: -1,
+              zIndex: 1,
             }}
           />
         </>
@@ -129,7 +129,7 @@ export function Card({
           </defs>
         </svg>
       )}
-      <div style={{ display: "contents" }}>
+      <div style={{ position: "relative", zIndex: 2, display: "inherit", flex: "inherit", flexDirection: "inherit", gap: "inherit", width: "100%", height: "100%" }}>
         {children}
       </div>
     </div>

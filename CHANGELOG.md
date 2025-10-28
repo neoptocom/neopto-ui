@@ -1,5 +1,11 @@
 # @neoptocom/neopto-ui
 
+## 1.0.2
+
+### Patch Changes
+
+- Fixed Card component background image visibility with proper z-index layering. Updated wrapper to inherit layout properties (display, flex, gap) for better layout compatibility.
+
 ## 1.0.1
 
 ### Patch Changes
