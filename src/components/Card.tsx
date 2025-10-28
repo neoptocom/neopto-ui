@@ -10,6 +10,8 @@ export type CardProps = React.HTMLAttributes<HTMLDivElement> & {
   showDecorations?: boolean;
   /** Card variant (default: "default") */
   variant?: "default" | "app-background";
+  /** Apply elevated shadow effect (default: false) */
+  elevated?: boolean;
 };
 
 export function Card({
@@ -18,6 +20,7 @@ export function Card({
   style,
   showDecorations = false,
   variant = "default",
+  elevated = false,
   ...props
 }: CardProps) {
   const isAppBackground = variant === "app-background";
@@ -32,7 +35,8 @@ export function Card({
     WebkitBackdropFilter: isAppBackground ? undefined : "blur(75px)", // Safari support
     color: "var(--fg)",
     overflow: "hidden",
-    transition: "background-color 0.3s ease, color 0.3s ease",
+    transition: "background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease",
+    boxShadow: elevated ? "var(--shadow-elevated)" : undefined,
     ...style,
     // Apply position: relative by default, but allow user override via style prop
     position: style?.position || "relative",

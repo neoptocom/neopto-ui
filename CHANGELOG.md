@@ -1,5 +1,12 @@
 # @neoptocom/neopto-ui
 
+## 0.14.0
+
+### Minor Changes
+
+- - Added elevated prop to Card component for shadow effect
+  - Added --shadow-elevated design token for reusable elevated shadow across project
+
 ## 0.13.0
 
 ### Minor Changes

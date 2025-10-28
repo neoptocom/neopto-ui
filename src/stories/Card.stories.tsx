@@ -82,6 +82,64 @@ export const AppBackgroundLarge: Story = {
   ),
 };
 
+export const Elevated: Story = {
+  render: () => (
+    <div className="max-w-md">
+      <Card elevated>
+        <Typo variant="headline-sm" bold="semibold">Elevated Card</Typo>
+        <Typo variant="body-md" className="mt-2">
+          This card uses the elevated shadow effect for a floating appearance.
+        </Typo>
+        <div className="mt-4">
+          <Button variant="primary">Take Action</Button>
+        </div>
+      </Card>
+    </div>
+  ),
+};
+
+export const ElevatedComparison: Story = {
+  render: () => (
+    <div className="grid grid-cols-2 gap-6 max-w-4xl">
+      <div>
+        <Typo variant="label-lg" bold="semibold" className="mb-3">Default</Typo>
+        <Card>
+          <Typo variant="title-md" bold="semibold">Regular Card</Typo>
+          <Typo variant="body-sm" className="mt-2">
+            Standard card with glassmorphic effect, no shadow.
+          </Typo>
+        </Card>
+      </div>
+      <div>
+        <Typo variant="label-lg" bold="semibold" className="mb-3">Elevated</Typo>
+        <Card elevated>
+          <Typo variant="title-md" bold="semibold">Elevated Card</Typo>
+          <Typo variant="body-sm" className="mt-2">
+            Enhanced with elevated shadow for emphasis.
+          </Typo>
+        </Card>
+      </div>
+    </div>
+  ),
+};
+
+export const ElevatedAppBackground: Story = {
+  render: () => (
+    <div className="max-w-md">
+      <Card variant="app-background" elevated className="p-8">
+        <Typo variant="headline-sm" bold="semibold">Elevated + App Background</Typo>
+        <Typo variant="body-md" className="mt-3">
+          Combining the app-background variant with elevated shadow creates a stunning effect.
+        </Typo>
+        <div className="mt-6 flex gap-3">
+          <Button variant="primary">Primary</Button>
+          <Button variant="secondary">Secondary</Button>
+        </div>
+      </Card>
+    </div>
+  ),
+};
+
 export const CustomPadding: Story = {
   render: () => (
     <div className="max-w-md space-y-4">
