@@ -2,29 +2,30 @@ import * as React from "react";
 
 export type InputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> & {
   /** Input visual variant */
-  variant?: "default" | "borderless";
+  variant?: "default" | "inline";
 };
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, disabled, variant = "default", ...props }, ref) => {
-    const isBorderless = variant === "borderless";
+    const isInline = variant === "inline";
     
     return (
       <input
         ref={ref}
         disabled={disabled}
         className={[
-          "w-full h-12 px-4 rounded-full bg-transparent outline-none transition-colors",
+          "w-full bg-transparent outline-none transition-colors",
+          isInline ? "" : "h-12 px-4 rounded-full",
           "text-sm placeholder:text-[var(--muted-fg)]",
-          !isBorderless && "border",
+          !isInline && "border",
           disabled
-            ? "text-[#3F424F] cursor-not-allowed" + (isBorderless ? "" : " border-[#3F424F]")
+            ? "text-[#3F424F] cursor-not-allowed" + (isInline ? "" : " border-[#3F424F]")
             : [
                 "text-[var(--muted-fg)]",
-                isBorderless ? "" : "border-[var(--muted-fg)]",
-                isBorderless ? "" : "hover:border-[var(--border)]",
+                isInline ? "" : "border-[var(--muted-fg)]",
+                isInline ? "" : "hover:border-[var(--border)]",
                 "focus:text-[var(--fg)]",
-                isBorderless ? "" : "focus:border-[var(--color-brand)]"
+                isInline ? "" : "focus:border-[var(--color-brand)]"
               ].join(" "),
           className
         ].join(" ")}

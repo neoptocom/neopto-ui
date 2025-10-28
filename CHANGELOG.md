@@ -1,5 +1,12 @@
 # @neoptocom/neopto-ui
 
+## 1.0.0
+
+### Major Changes
+
+- - BREAKING: Renamed Input variant from "borderless" to "inline"
+  - Removed height and padding from inline variant for more flexible inline usage
+
 ## 0.14.0
 
 ### Minor Changes
