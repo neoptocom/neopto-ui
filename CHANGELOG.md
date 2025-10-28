@@ -1,5 +1,11 @@
 # @neoptocom/neopto-ui
 
+## 1.0.1
+
+### Patch Changes
+
+- Fixed Card component to properly render children as direct descendants for layout styles (gap, flex, grid) to work correctly. Removed wrapper div that was breaking layout inheritance.
+
 ## 1.0.0
 
 ### Major Changes

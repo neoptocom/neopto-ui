@@ -44,7 +44,7 @@ export function Card({
 
   // Smart class merging: only add default padding if not provided
   const hasPadding = className && /\b(p-|px-|py-|pt-|pb-|pl-|pr-)\d/.test(className);
-  const cardClasses = `${!hasPadding ? "p-6" : ""} ${className || ""}`.trim();
+  const cardClasses = ` z-0 ${!hasPadding ? "p-6" : ""} ${className || ""}`.trim();
 
   return (
     <div
@@ -74,7 +74,7 @@ export function Card({
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
-              zIndex: 0,
+              zIndex: -1,
             }}
           />
         </>
@@ -88,7 +88,7 @@ export function Card({
             width: "100%",
             height: "100%",
             pointerEvents: "none",
-            zIndex: 0,
+            zIndex: -1,
           }}
           viewBox="0 0 967 745"
           fill="none"
@@ -129,7 +129,7 @@ export function Card({
           </defs>
         </svg>
       )}
-      <div style={{ position: "relative", zIndex: 1, height: "100%" }}>
+      <div style={{ display: "contents" }}>
         {children}
       </div>
     </div>
