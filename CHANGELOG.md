@@ -1,5 +1,11 @@
 # @neoptocom/neopto-ui
 
+## 1.3.1
+
+### Patch Changes
+
+- Fixed Textarea resize control - removed default resize-y to allow className="resize-none" to work correctly.
+
 ## 1.3.0
 
 ### Minor Changes

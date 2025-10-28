@@ -14,7 +14,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         ref={ref}
         disabled={disabled}
         className={[
-          "w-full bg-transparent outline-none transition-colors resize-y",
+          "w-full bg-transparent outline-none transition-colors",
           isInline ? "" : "min-h-[96px] px-4 py-3 rounded-3xl",
           "font-['Poppins'] text-sm placeholder:text-[var(--muted-fg)]",
           !isInline && "border",
