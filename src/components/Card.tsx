@@ -23,10 +23,11 @@ export function Card({
     backdropFilter: "blur(75px)",
     WebkitBackdropFilter: "blur(75px)", // Safari support
     color: "var(--fg)",
-    position: "relative",
     overflow: "hidden",
     transition: "background-color 0.3s ease, color 0.3s ease",
     ...style,
+    // Only set position: relative if decorations are shown (for SVG positioning) and user hasn't provided their own
+    ...(showDecorations && !style?.position && { position: "relative" }),
   };
 
   // Smart class merging: only add default padding if not provided

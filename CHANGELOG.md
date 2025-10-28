@@ -1,5 +1,11 @@
 # @neoptocom/neopto-ui
 
+## 0.12.3
+
+### Patch Changes
+
+- - Fixed Card component to respect custom position style prop (e.g., position: absolute)
+
 ## 0.12.2
 
 ### Patch Changes
