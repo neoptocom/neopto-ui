@@ -1,5 +1,11 @@
 # @neoptocom/neopto-ui
 
+## 1.4.1
+
+### Patch Changes
+
+- Added 40% opacity to disabled AgentButton for better visual feedback.
+
 ## 1.4.0
 
 ### Minor Changes

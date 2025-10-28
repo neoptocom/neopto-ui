@@ -76,7 +76,8 @@ const AgentButton = ({
       } ${isMounted ? "opacity-100" : "opacity-0"}`}
       style={{
         filter: disabled ? "grayscale(100%)" : "grayscale(0%)",
-        transition: "filter 1s ease-in-out",
+        opacity: disabled ? 0.3 : 1,
+        transition: "filter 1s ease-in-out, opacity 1s ease-in-out",
       }}
     >
       {circleAnimations.map((circle, index) => (
@@ -114,7 +115,7 @@ const AgentButton = ({
           disabled={disabled}
           className={`flex flex-row-reverse items-center gap-1.5 fixed p-3 rounded-full shadow-md h-16 mr-4 transition-all duration-600 ease-in-out border-2 border-[var(--border)] ${
             delayedHasNotification ? "w-[400px]" : "w-16"
-          } ${disabled ? "cursor-not-allowed" : "cursor-pointer"}`}
+          } ${disabled ? "cursor-default" : "cursor-pointer"}`}
           style={{
             background: "var(--chat-button-gradient)",
           }}
