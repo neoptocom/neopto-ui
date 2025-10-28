@@ -18,7 +18,7 @@ function getButtonClasses(
     className?: string
 ): string {
     const base = 
-        "cursor-pointer inline-flex items-center justify-center gap-2 rounded-[var(--radius-2xl)] transition-colors " +
+        "cursor-pointer inline-flex items-center justify-center gap-2 rounded-[1.875rem] transition-colors " +
         "focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500/40 " +
         "disabled:cursor-not-allowed disabled:opacity-50";
 

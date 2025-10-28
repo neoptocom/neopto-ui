@@ -41,8 +41,6 @@ function getTypoClasses(
   muted?: boolean,
   className?: string
 ): string {
-  const base = "text-current";
-
   const weights: Record<TypoWeight, string> = {
     normal: "font-normal",
     medium: "font-medium",
@@ -51,7 +49,6 @@ function getTypoClasses(
   };
 
   return [
-    base,
     weights[weight],
     muted ? "text-[var(--muted-fg)]" : "",
     className

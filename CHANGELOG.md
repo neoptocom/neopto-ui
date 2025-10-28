@@ -1,5 +1,15 @@
 # @neoptocom/neopto-ui
 
+## 0.12.0
+
+### Minor Changes
+
+- - Added MessageBubble component for chat interfaces
+  - Added Google Fonts (Poppins and Roboto) loading in CSS
+  - Fixed Typo component to properly support custom color classes
+  - Aligned border radius tokens with Tailwind defaults (rounded-2xl now uses standard 16px)
+  - Added Input borderless variant support
+
 ## 0.9.1
 
 ### Patch Changes
@@ -112,7 +122,7 @@ import { AppBackground, assets } from "@neoptocom/neopto-ui";
 
 <AppBackground lightImage={assets.bgLight} darkImage={assets.bgDark}>
   <YourApp />
-</AppBackground>
+</AppBackground>;
 ```
 
 ## 0.7.0
@@ -190,7 +200,6 @@ import { AppBackground, assets } from "@neoptocom/neopto-ui";
   - Automatically creates `postcss.config.js` if needed
   - Detects and updates main CSS file with required imports
   - Configures Tailwind to scan library source files
-  
 - **Publish source files**: Now includes `src/` directory in npm package
   - Fixes Tailwind class scanning issues in consumer applications
   - Allows Tailwind v4 to properly detect all utility classes used by components

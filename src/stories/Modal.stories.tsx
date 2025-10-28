@@ -74,11 +74,11 @@ export const CustomStyling: Story = {
         This modal has custom styling with a larger max-width and more padding.
       </Typo>
       <div className="mt-6 grid grid-cols-2 gap-4">
-        <div className="p-4 bg-[var(--muted)] rounded-2xl">
+        <div className="p-4 bg-[var(--muted)] [border-radius:1.875rem]">
           <Typo variant="label-lg" bold="semibold">Feature 1</Typo>
           <Typo variant="body-sm" className="mt-2">Description here</Typo>
         </div>
-        <div className="p-4 bg-[var(--muted)] rounded-2xl">
+        <div className="p-4 bg-[var(--muted)] [border-radius:1.875rem]">
           <Typo variant="label-lg" bold="semibold">Feature 2</Typo>
           <Typo variant="body-sm" className="mt-2">Description here</Typo>
         </div>
