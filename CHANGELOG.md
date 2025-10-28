@@ -1,5 +1,11 @@
 # @neoptocom/neopto-ui
 
+## 1.2.1
+
+### Patch Changes
+
+- Fixed Card decorations z-index to render above app-background images. Added AppBackgroundWithDecorations story to showcase the combination.
+
 ## 1.2.0
 
 ### Minor Changes

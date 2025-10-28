@@ -94,7 +94,7 @@ export function Card({
             width: "100%",
             height: "100%",
             pointerEvents: "none",
-            zIndex: -1,
+            zIndex: 2,
           }}
           viewBox="0 0 967 745"
           fill="none"
@@ -135,7 +135,7 @@ export function Card({
           </defs>
         </svg>
       )}
-      <div style={{ position: "relative", zIndex: 2, display: "inherit", flex: "inherit", flexDirection: "inherit", gap: "inherit", width: "100%", height: "100%" }}>
+      <div style={{ position: "relative", zIndex: 3, display: "inherit", flex: "inherit", flexDirection: "inherit", gap: "inherit", width: "100%", height: "100%" }}>
         {children}
       </div>
     </div>

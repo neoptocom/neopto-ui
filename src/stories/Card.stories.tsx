@@ -55,6 +55,22 @@ export const AppBackgroundVariant: Story = {
   ),
 };
 
+export const AppBackgroundWithDecorations: Story = {
+  render: () => (
+    <div className="max-w-md">
+      <Card variant="app-background" showDecorations={true}>
+        <Typo variant="headline-sm" bold="semibold">App Background + Decorations</Typo>
+        <Typo variant="body-md" className="mt-2">
+          This card combines the app-background variant with decorative SVG gradient borders. The decorations render above the background image.
+        </Typo>
+        <div className="mt-4">
+          <Button variant="primary">Explore</Button>
+        </div>
+      </Card>
+    </div>
+  ),
+};
+
 export const AppBackgroundLarge: Story = {
   render: () => (
     <div className="max-w-2xl">
