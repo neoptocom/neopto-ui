@@ -1,5 +1,11 @@
 # @neoptocom/neopto-ui
 
+## 0.12.2
+
+### Patch Changes
+
+- - Fixed Card component inner wrapper div to fill 100% height when fixed height is set on parent
+
 ## 0.12.1
 
 ### Patch Changes
