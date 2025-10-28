@@ -77,13 +77,13 @@ const AgentButton = ({
       style={{
         filter: disabled ? "grayscale(100%)" : "grayscale(0%)",
         opacity: disabled ? 0.3 : 1,
-        transition: "filter 1s ease-in-out, opacity 1s ease-in-out",
+        transition: "filter 0.5s ease-in-out, opacity 0.5s ease-in-out",
       }}
     >
       {circleAnimations.map((circle, index) => (
         <div
           key={`circle-${index}`}
-          className={`absolute ${circle.style} h-20 min-w-20 w-20 overflow-visible flex justify-between transition-opacity duration-1000 ease-in-out`}
+          className={`absolute ${circle.style} h-20 min-w-20 w-20 overflow-visible flex justify-between transition-opacity duration-500 ease-in-out`}
           style={{ opacity: disabled ? 0 : 1 }}
         >
           <AnimatedBgCircle
@@ -103,7 +103,7 @@ const AgentButton = ({
           } overflow-visible flex justify-between`}
           style={{
             opacity: disabled ? 0 : delayedHasNotification ? 1 : 0,
-            transitionDuration: "1s",
+            transitionDuration: "0.5s",
           }}
         >
           <AnimatedBgRectangle colors={animationColors} delay={rect.delay} />

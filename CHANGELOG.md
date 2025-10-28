@@ -1,5 +1,11 @@
 # @neoptocom/neopto-ui
 
+## 1.4.2
+
+### Patch Changes
+
+- Updated AgentButton disabled state: reduced transition duration to 0.5s and adjusted opacity to 30% for faster, more responsive visual feedback.
+
 ## 1.4.1
 
 ### Patch Changes
