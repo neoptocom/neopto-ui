@@ -12,6 +12,10 @@ export type CardProps = React.HTMLAttributes<HTMLDivElement> & {
   variant?: "default" | "app-background";
   /** Apply elevated shadow effect (default: false) */
   elevated?: boolean;
+  /** Background image URL for light mode (only for app-background variant) */
+  lightImage?: string;
+  /** Background image URL for dark mode (only for app-background variant) */
+  darkImage?: string;
 };
 
 export function Card({
@@ -21,6 +25,8 @@ export function Card({
   showDecorations = false,
   variant = "default",
   elevated = false,
+  lightImage,
+  darkImage,
   ...props
 }: CardProps) {
   const isAppBackground = variant === "app-background";
@@ -59,7 +65,7 @@ export function Card({
           <div
             className="absolute inset-0 transition-opacity duration-500 opacity-100 dark:opacity-0"
             style={{
-              backgroundImage: `url(${assets.bgLight})`,
+              backgroundImage: `url(${lightImage || assets.bgLight})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -70,7 +76,7 @@ export function Card({
           <div
             className="absolute inset-0 transition-opacity duration-500 opacity-0 dark:opacity-100"
             style={{
-              backgroundImage: `url(${assets.bgDark})`,
+              backgroundImage: `url(${darkImage || assets.bgDark})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",

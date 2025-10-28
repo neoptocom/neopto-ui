@@ -1,5 +1,11 @@
 # @neoptocom/neopto-ui
 
+## 1.2.0
+
+### Minor Changes
+
+- Added lightImage and darkImage props to Card component for app-background variant, allowing consumers to pass custom background image URLs.
+
 ## 1.1.1
 
 ### Patch Changes
