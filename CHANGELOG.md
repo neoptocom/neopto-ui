@@ -1,5 +1,17 @@
 # @neoptocom/neopto-ui
 
+## 1.1.1
+
+### Patch Changes
+
+- Fixed Card app-background variant z-index stacking and wrapper inheritance to ensure backgrounds are visible and layout styles work correctly.
+
+## 1.1.0
+
+### Minor Changes
+
+- Added lightImage and darkImage props to Card component for app-background variant. Consumers can now pass custom image URLs or use bundled defaults.
+
 ## 1.0.2
 
 ### Patch Changes
