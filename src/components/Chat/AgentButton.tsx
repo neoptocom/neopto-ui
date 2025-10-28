@@ -16,6 +16,8 @@ export interface AgentButtonProps {
   logoAlt?: string;
   /** Custom animation colors */
   animationColors?: string[];
+  /** Whether the button is disabled (greyscale, no animations) */
+  disabled?: boolean;
 }
 
 const AgentButton = ({
@@ -25,6 +27,7 @@ const AgentButton = ({
   logoSrc,
   logoAlt = "Agent",
   animationColors = ["#7DADB9", "#3864F5", "#55468D", "#479A8D"],
+  disabled = false,
 }: AgentButtonProps) => {
   const [showText, setShowText] = useState(false);
   const [delayedHasNotification, setDelayedHasNotification] = useState(false);
@@ -68,14 +71,19 @@ const AgentButton = ({
 
   return (
     <div
-      className={`flex justify-end items-center fixed bottom-3 right-8 z-40 h-24 transition-all duration-600 ease-in-out ${
+      className={`flex justify-end items-center fixed bottom-3 right-8 z-40 h-24 transition-all duration-1000 ease-in-out ${
         delayedHasNotification ? "w-[432px]" : "w-24"
       } ${isMounted ? "opacity-100" : "opacity-0"}`}
+      style={{
+        filter: disabled ? "grayscale(100%)" : "grayscale(0%)",
+        transition: "filter 1s ease-in-out",
+      }}
     >
       {circleAnimations.map((circle, index) => (
         <div
           key={`circle-${index}`}
-          className={`absolute ${circle.style} h-20 min-w-20 transition-all duration-600 ease-in-out w-20 overflow-visible flex justify-between`}
+          className={`absolute ${circle.style} h-20 min-w-20 w-20 overflow-visible flex justify-between transition-opacity duration-1000 ease-in-out`}
+          style={{ opacity: disabled ? 0 : 1 }}
         >
           <AnimatedBgCircle
             colors={animationColors}
@@ -87,11 +95,15 @@ const AgentButton = ({
       {rectAnimations.map((rect, index) => (
         <div
           key={`rect-${index}`}
-          className={`absolute ${rect.style} h-20 transition-all duration-600 ease-in-out ${
+          className={`absolute ${rect.style} h-20 transition-all ease-in-out ${
             delayedHasNotification
-              ? "w-[324px] opacity-100 px-0"
-              : "w-20 px-10 opacity-0"
+              ? "w-[324px] px-0"
+              : "w-20 px-10"
           } overflow-visible flex justify-between`}
+          style={{
+            opacity: disabled ? 0 : delayedHasNotification ? 1 : 0,
+            transitionDuration: "1s",
+          }}
         >
           <AnimatedBgRectangle colors={animationColors} delay={rect.delay} />
         </div>
@@ -99,9 +111,10 @@ const AgentButton = ({
       {isMounted && (
         <button
           onClick={onOpenChat}
-          className={`flex flex-row-reverse items-center gap-1.5 fixed p-3 rounded-full shadow-md cursor-pointer h-16 mr-4 transition-all duration-600 ease-in-out border-2 border-[var(--border)] ${
+          disabled={disabled}
+          className={`flex flex-row-reverse items-center gap-1.5 fixed p-3 rounded-full shadow-md h-16 mr-4 transition-all duration-600 ease-in-out border-2 border-[var(--border)] ${
             delayedHasNotification ? "w-[400px]" : "w-16"
-          }`}
+          } ${disabled ? "cursor-not-allowed" : "cursor-pointer"}`}
           style={{
             background: "var(--chat-button-gradient)",
           }}

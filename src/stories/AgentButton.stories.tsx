@@ -92,3 +92,79 @@ export const AutoToggleNotification: Story = {
   },
 };
 
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+    hasNotification: true,
+    notificationMessage: "This button is disabled (greyscale, no animations)",
+  },
+};
+
+export const DisabledWhenChatOpen: Story = {
+  render: (args) => {
+    const [chatOpen, setChatOpen] = React.useState(false);
+
+    return (
+      <>
+        <AgentButton
+          {...args}
+          disabled={chatOpen}
+          hasNotification={!chatOpen}
+          notificationMessage="Click to open chat (button will become disabled)"
+          onOpenChat={() => {
+            setChatOpen(true);
+            console.log("Chat opened!");
+          }}
+        />
+        {chatOpen && (
+          <div className="fixed bottom-24 right-8 bg-[var(--surface)] border border-[var(--border)] rounded-lg p-4 shadow-lg z-50 max-w-md">
+            <Typo variant="body-md" className="text-[var(--fg)]">
+              Chat is open! Notice the button is now disabled (greyscale with no animations).
+            </Typo>
+            <button
+              onClick={() => setChatOpen(false)}
+              className="mt-2 px-3 py-1 bg-[var(--color-brand)] text-white rounded-full"
+            >
+              <Typo variant="label-sm">Close Chat</Typo>
+            </button>
+          </div>
+        )}
+      </>
+    );
+  },
+};
+
+export const DisabledTransition: Story = {
+  render: (args) => {
+    const [disabled, setDisabled] = React.useState(false);
+
+    React.useEffect(() => {
+      const interval = setInterval(() => {
+        setDisabled((prev) => !prev);
+      }, 4000);
+
+      return () => clearInterval(interval);
+    }, []);
+
+    return (
+      <>
+        <AgentButton
+          {...args}
+          disabled={disabled}
+          hasNotification={!disabled}
+          notificationMessage="Watch the smooth 1-second transition!"
+          onOpenChat={() => console.log("Chat opened!")}
+        />
+        <div className="fixed top-8 left-8 bg-[var(--surface)] border border-[var(--border)] rounded-lg p-4 shadow-lg">
+          <Typo variant="body-md" className="text-[var(--fg)]">
+            State: <strong>{disabled ? "Disabled" : "Enabled"}</strong>
+          </Typo>
+          <Typo variant="label-sm" className="text-[var(--muted-fg)] mt-1">
+            Toggles every 4 seconds
+          </Typo>
+        </div>
+      </>
+    );
+  },
+};
+

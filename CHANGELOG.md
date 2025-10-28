@@ -1,5 +1,11 @@
 # @neoptocom/neopto-ui
 
+## 1.4.0
+
+### Minor Changes
+
+- Added disabled state to AgentButton with greyscale filter, hidden animations, and smooth 1-second transitions. Added Storybook examples for disabled states.
+
 ## 1.3.1
 
 ### Patch Changes
