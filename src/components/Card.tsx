@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as assets from "../assets";
 
 export type CardProps = React.HTMLAttributes<HTMLDivElement> & {
   /** Content to render inside the card */
@@ -7,6 +8,8 @@ export type CardProps = React.HTMLAttributes<HTMLDivElement> & {
   className?: string;
   /** Show decorative elements (default: false) */
   showDecorations?: boolean;
+  /** Card variant (default: "default") */
+  variant?: "default" | "app-background";
 };
 
 export function Card({
@@ -14,20 +17,25 @@ export function Card({
   className = "",
   style,
   showDecorations = false,
+  variant = "default",
   ...props
 }: CardProps) {
+  const isAppBackground = variant === "app-background";
+
   // Merge user styles with card styles
   const mergedStyle: React.CSSProperties = {
     borderRadius: "30px",
-    backgroundColor: "color-mix(in srgb, var(--surface) 85%, transparent)",
-    backdropFilter: "blur(75px)",
-    WebkitBackdropFilter: "blur(75px)", // Safari support
+    backgroundColor: isAppBackground 
+      ? "transparent" 
+      : "color-mix(in srgb, var(--surface) 85%, transparent)",
+    backdropFilter: isAppBackground ? undefined : "blur(75px)",
+    WebkitBackdropFilter: isAppBackground ? undefined : "blur(75px)", // Safari support
     color: "var(--fg)",
     overflow: "hidden",
     transition: "background-color 0.3s ease, color 0.3s ease",
     ...style,
-    // Only set position: relative if decorations are shown (for SVG positioning) and user hasn't provided their own
-    ...(showDecorations && !style?.position && { position: "relative" }),
+    // Apply position: relative by default, but allow user override via style prop
+    position: style?.position || "relative",
   };
 
   // Smart class merging: only add default padding if not provided
@@ -40,6 +48,33 @@ export function Card({
       style={mergedStyle}
       {...props}
     >
+      {/* App background variant images */}
+      {isAppBackground && (
+        <>
+          {/* Light mode background */}
+          <div
+            className="absolute inset-0 transition-opacity duration-500 opacity-100 dark:opacity-0"
+            style={{
+              backgroundImage: `url(${assets.bgLight})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              zIndex: 0,
+            }}
+          />
+          {/* Dark mode background */}
+          <div
+            className="absolute inset-0 transition-opacity duration-500 opacity-0 dark:opacity-100"
+            style={{
+              backgroundImage: `url(${assets.bgDark})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              zIndex: 0,
+            }}
+          />
+        </>
+      )}
       {showDecorations && (
         <svg
           style={{

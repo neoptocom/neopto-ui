@@ -39,6 +39,49 @@ export const WithDecorations: Story = {
   ),
 };
 
+export const AppBackgroundVariant: Story = {
+  render: () => (
+    <div className="max-w-md">
+      <Card variant="app-background">
+        <Typo variant="headline-sm" bold="semibold">App Background Card</Typo>
+        <Typo variant="body-md" className="mt-2">
+          This card uses the same background images as AppBackground component. It automatically switches between light and dark mode backgrounds.
+        </Typo>
+        <div className="mt-4">
+          <Button variant="primary">Learn More</Button>
+        </div>
+      </Card>
+    </div>
+  ),
+};
+
+export const AppBackgroundLarge: Story = {
+  render: () => (
+    <div className="max-w-2xl">
+      <Card variant="app-background" className="p-8" style={{ minHeight: "400px" }}>
+        <Typo variant="headline-lg" bold="bold">Large App Background Card</Typo>
+        <Typo variant="body-lg" className="mt-4">
+          The app-background variant looks great with larger cards. The background image scales to fill the entire card.
+        </Typo>
+        <div className="mt-8 grid grid-cols-2 gap-6">
+          <div>
+            <Typo variant="title-md" bold="semibold">Feature One</Typo>
+            <Typo variant="body-sm" className="mt-2 text-[var(--muted-fg)]">
+              Description of the first feature goes here.
+            </Typo>
+          </div>
+          <div>
+            <Typo variant="title-md" bold="semibold">Feature Two</Typo>
+            <Typo variant="body-sm" className="mt-2 text-[var(--muted-fg)]">
+              Description of the second feature goes here.
+            </Typo>
+          </div>
+        </div>
+      </Card>
+    </div>
+  ),
+};
+
 export const CustomPadding: Story = {
   render: () => (
     <div className="max-w-md space-y-4">

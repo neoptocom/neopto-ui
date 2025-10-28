@@ -1,5 +1,11 @@
 # @neoptocom/neopto-ui
 
+## 0.13.0
+
+### Minor Changes
+
+- - Added app-background variant to Card component with light/dark mode background images
+
 ## 0.12.3
 
 ### Patch Changes
