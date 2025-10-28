@@ -1,5 +1,11 @@
 # @neoptocom/neopto-ui
 
+## 1.3.0
+
+### Minor Changes
+
+- Added Textarea component for multi-line input with default and inline variants. Updated Input component to use Poppins font family for text and placeholder.
+
 ## 1.2.1
 
 ### Patch Changes

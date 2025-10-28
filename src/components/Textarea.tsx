@@ -1,21 +1,21 @@
 import * as React from "react";
 
-export type InputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> & {
-  /** Input visual variant */
+export type TextareaProps = Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'> & {
+  /** Textarea visual variant */
   variant?: "default" | "inline";
 };
 
-export const Input = React.forwardRef<HTMLInputElement, InputProps>(
+export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, disabled, variant = "default", ...props }, ref) => {
     const isInline = variant === "inline";
     
     return (
-      <input
+      <textarea
         ref={ref}
         disabled={disabled}
         className={[
-          "w-full bg-transparent outline-none transition-colors",
-          isInline ? "" : "h-12 px-4 rounded-full",
+          "w-full bg-transparent outline-none transition-colors resize-y",
+          isInline ? "" : "min-h-[96px] px-4 py-3 rounded-3xl",
           "font-['Poppins'] text-sm placeholder:text-[var(--muted-fg)]",
           !isInline && "border",
           disabled
@@ -34,4 +34,5 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     );
   }
 );
-Input.displayName = "Input";
+Textarea.displayName = "Textarea";
+
