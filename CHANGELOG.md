@@ -1,5 +1,12 @@
 # @neoptocom/neopto-ui
 
+## 1.4.3
+
+### Patch Changes
+
+- Updated AgentButton disabled state: reduced transition duration to 0.5s and adjusted opacity to 30% for faster, more responsive visual feedback.
+- Fixed Material Symbols icon flash on load by changing font-display from 'swap' to 'block'. Icons now remain invisible during font load instead of showing fallback text, eliminating the visual flash.
+
 ## 1.4.2
 
 ### Patch Changes

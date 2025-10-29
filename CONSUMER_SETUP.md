@@ -133,4 +133,4 @@ document.documentElement.classList.toggle("dark");
 
 ## 📚 Full Documentation
 
-Visit the [Storybook documentation](https://neoptocom.github.io/neopto-ui/storybook-static) for interactive examples and API documentation.
+Visit the [Storybook documentation](https://neoptocom.github.io/neopto-ui) for interactive examples and API documentation.

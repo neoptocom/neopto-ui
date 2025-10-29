@@ -35,7 +35,7 @@ ${tokensCSS}
   font-style: normal;
   font-weight: 100 700;
   src: url(https://fonts.gstatic.com/s/materialsymbolsrounded/v272/sykg-zNym6YjUruM-QrEh7-nyTnjDwKNJ_190FjzaqkNCeE.woff2) format('woff2');
-  font-display: swap;
+  font-display: block;
 }
 
 .material-symbols-rounded {
