@@ -1,5 +1,11 @@
 # @neoptocom/neopto-ui
 
+## 1.4.4
+
+### Patch Changes
+
+- 20074a0: Fixed Material Symbols icon flash on load by changing font-display from 'swap' to 'block'. Icons now remain invisible during font load instead of showing fallback text, eliminating the visual flash.
+
 ## 1.4.3
 
 ### Patch Changes
