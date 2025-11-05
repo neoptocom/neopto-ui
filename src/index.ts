@@ -22,6 +22,7 @@ export { default as Counter } from "./components/Counter";
 export * from "./components/Chat";
 export * from "./components/MessageBubble";
 export * from "./components/Separator";
+export { Breadcrumb } from "./components/Breadcrumb";
 
 // Types
 export type { AppBackgroundProps } from "./components/AppBackground";
@@ -44,3 +45,4 @@ export type { CounterProps } from "./components/Counter";
 export type { AgentButtonProps } from "./components/Chat";
 export type { MessageBubbleProps } from "./components/MessageBubble";
 export type { SeparatorProps } from "./components/Separator";
+export type { BreadcrumbProps, BreadcrumbItem } from "./components/Breadcrumb";
