@@ -1,5 +1,11 @@
 # @neoptocom/neopto-ui
 
+## 1.5.0
+
+### Minor Changes
+
+- Added an optional floating label wrapper to `Input`, plus an `error` state with matching Storybook examples. Consumers can now render inputs with legends and consistent error styling.
+
 ## 1.4.4
 
 ### Patch Changes
