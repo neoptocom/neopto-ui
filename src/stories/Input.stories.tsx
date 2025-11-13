@@ -47,3 +47,29 @@ export const Inline: Story = {
     </div>
   )
 };
+
+export const WithLabel: Story = {
+  render: () => (
+    <div className="flex flex-col gap-4 w-96">
+      <Input label="Project name" placeholder="Neo PTO" />
+      <Input label="Email" type="email" placeholder="you@example.com" />
+      <Input label="Password" type="password" placeholder="••••••••" />
+      <Input label="Disabled field" placeholder="Not editable" disabled />
+    </div>
+  )
+};
+
+export const Error: Story = {
+  render: () => (
+    <div className="flex flex-col gap-4 w-96">
+      <Input error placeholder="Unlabeled error" />
+      <Input label="Email" type="email" placeholder="you@example.com" error />
+      <Input
+        label="Password"
+        type="password"
+        placeholder="This is required"
+        error
+      />
+    </div>
+  )
+};
