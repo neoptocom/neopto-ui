@@ -33,4 +33,19 @@ export const Variants: Story = {
   )
 };
 
+export const Deletable: Story = {
+  args: {
+    label: "Filter: Active",
+    variant: "light",
+    onDelete: () => console.log("delete")
+  },
+  render: (args) => (
+    <div className="flex flex-wrap items-center gap-3">
+      <Chip {...args} onDelete={args.onDelete} />
+      <Chip label="Team: Core" onDelete={args.onDelete} variant="dark" />
+      <Chip label="Status: Pending" onDelete={args.onDelete} variant="warning" />
+    </div>
+  )
+};
+
 

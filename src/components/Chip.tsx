@@ -9,6 +9,8 @@ export type ChipProps = React.HTMLAttributes<HTMLDivElement> & {
   backgroundColor?: string;
   /** Custom text color (overrides variant) */
   textColor?: string;
+  /** Optional handler to render a delete affordance */
+  onDelete?: React.MouseEventHandler<HTMLButtonElement>;
 };
 
 export default function Chip({
@@ -19,6 +21,7 @@ export default function Chip({
   backgroundColor,
   textColor,
   style,
+  onDelete,
   ...props
 }: ChipProps) {
   const base =
@@ -42,17 +45,27 @@ export default function Chip({
   const mergedStyle: React.CSSProperties = {
     ...style,
     ...(backgroundColor && { backgroundColor }),
-    ...(textColor && { color: textColor }),
+    ...(textColor && { color: textColor })
   };
 
   return (
-    <div 
-      className={[base, colorClasses, className].join(" ")} 
+    <div
+      className={[base, colorClasses, className].join(" ")}
       style={mergedStyle}
       {...props}
     >
       {icon ? <Icon name={icon} size="sm" className="mr-0.5" /> : null}
       <span>{label}</span>
+      {onDelete ? (
+        <button
+          type="button"
+          onClick={onDelete}
+          className="ml-1 flex h-4 w-4 items-center justify-center rounded-full transition-colors hover:bg-black/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-black/30"
+          aria-label="Remove"
+        >
+          <Icon name="close" size="sm" />
+        </button>
+      ) : null}
     </div>
   );
 }
