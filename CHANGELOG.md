@@ -1,5 +1,11 @@
 # @neoptocom/neopto-ui
 
+## 1.5.1
+
+### Patch Changes
+
+- Added a deletable chip affordance: when `onDelete` is provided, `Chip` renders a trailing close icon button and the Storybook examples demonstrate removal actions.
+
 ## 1.5.0
 
 ### Minor Changes

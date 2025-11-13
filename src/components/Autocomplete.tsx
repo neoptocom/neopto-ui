@@ -6,7 +6,9 @@ import Avatar from "./Avatar";
 import AvatarGroup from "./AvatarGroup";
 
 export type AutocompleteOption = {
-  label: string;
+  name?: string;
+  /** @deprecated Prefer using `name`. */
+  label?: string;
   value: any;
   image?: string;
   group?: Array<{ name: string; image?: string }>;
@@ -55,16 +57,31 @@ export default function Autocomplete({
   // Normalize options
   const normalizedOptions: AutocompleteOption[] = useMemo(() => {
     if (Array.isArray(options) && typeof options[0] === "string") {
-      return (options as string[]).map((str) => ({ label: str, value: str }));
+      return (options as string[]).map((str) => ({
+        name: str,
+        label: str,
+        value: str
+      }));
     }
-    return options as AutocompleteOption[];
+    return (options as AutocompleteOption[]).map((option) => {
+      const fallback = option.name ?? option.label ?? "";
+      return {
+        ...option,
+        name: option.name ?? fallback,
+        label: option.label ?? fallback
+      };
+    });
   }, [options]);
 
   // Filter options
   const filtered = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
     if (!q) return normalizedOptions;
-    return normalizedOptions.filter((o) => o.label.toLowerCase().includes(q));
+    return normalizedOptions.filter((o) => {
+      const name = o.name?.toLowerCase() ?? "";
+      const label = o.label?.toLowerCase() ?? "";
+      return name.includes(q) || label.includes(q);
+    });
   }, [normalizedOptions, searchQuery]);
 
   const anyOptionHasImage = useMemo(
@@ -72,12 +89,14 @@ export default function Autocomplete({
     [normalizedOptions]
   );
 
+  const optionDisplay = (option?: AutocompleteOption | string | null) => {
+    if (!option) return "";
+    if (typeof option === "string") return option;
+    return option.name ?? option.label ?? "";
+  };
+
   const displayValue =
-    selectedOption != null
-      ? typeof selectedOption === "string"
-        ? selectedOption
-        : selectedOption.label
-      : searchQuery;
+    selectedOption != null ? optionDisplay(selectedOption) : searchQuery;
 
   function openList() {
     if (disabled) return;
@@ -225,14 +244,17 @@ export default function Autocomplete({
             <ul id={listboxId} role="listbox" ref={listRef}>
               {filtered.map((option, index) => {
                 const active = index === activeIndex;
+                const optionName = option.name ?? option.label ?? "";
                 const selected =
                   selectedOption != null &&
                   (typeof selectedOption === "string"
-                    ? selectedOption === option.label
-                    : selectedOption.label === option.label);
+                    ? selectedOption === optionName ||
+                      selectedOption === (option.label ?? "")
+                    : (selectedOption.name ?? selectedOption.label ?? "") ===
+                      optionName);
                 return (
                   <li
-                    key={`${option.label}-${index}`}
+                    key={`${optionName || index}-${index}`}
                     role="option"
                     aria-selected={selected}
                     className={[
@@ -248,10 +270,13 @@ export default function Autocomplete({
                   >
                     <div className="flex items-center gap-2">
                       {anyOptionHasImage && (
-                        <Avatar name={option.label} src={option.image || undefined} />
+                        <Avatar
+                          name={optionName}
+                          src={option.image || undefined}
+                        />
                       )}
                       <Typo variant="label-lg" className="font-normal text-[var(--fg)]">
-                        {option.label}
+                        {optionName}
                       </Typo>
                     </div>
                     {Array.isArray(option.group) && option.group.length > 0 && (
