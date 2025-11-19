@@ -1,5 +1,70 @@
 # @neoptocom/neopto-ui
 
+## 1.6.5
+
+### Patch Changes
+
+- Enhanced Chip component: added `bgClassName` prop for custom Tailwind background colors, `title` prop for tooltips, automatic text color detection based on background brightness (light backgrounds use dark text, dark backgrounds use white text), text ellipsis with truncate class, and removed deprecated `backgroundColor` prop.
+- Updated Chip Storybook stories: added examples demonstrating custom background colors with automatic text color detection for both light and dark backgrounds.
+
+## 1.6.4
+
+### Patch Changes
+
+- Added Storybook example for DateInput with background images: demonstrates calendar popup with light/dark mode background images using bg-light and bg-dark assets.
+
+## 1.6.3
+
+### Patch Changes
+
+- Fixed DateInput Storybook stories: updated to use React.useState for better compatibility with Storybook's parser.
+- Removed backgroundImage props from Calendar and DateInput components.
+
+## 1.6.2
+
+### Patch Changes
+
+- Added `backgroundImage` prop to Calendar component: allows custom background images with semi-transparent overlay for better readability.
+- Added `calendarBackgroundImage` prop to DateInput component: passes custom background image to the calendar popup.
+
+## 1.6.1
+
+### Patch Changes
+
+- Improved Calendar component styling: updated header layout with Typo component, enhanced month/year display with brand color accent, improved navigation button positioning, and localized day/month names.
+
+## 1.6.0
+
+### Minor Changes
+
+- Added DateInput component: a date picker input with calendar popup. Features automatic date formatting (dd/MM/yyyy), manual typing support, calendar icon, and integration with the existing Input component styling. Supports min/max date constraints, error states, and works with or without labels.
+- Added Calendar component: a reusable calendar picker with month navigation, date selection, today highlighting, and support for date range constraints.
+
+## 1.5.5
+
+### Patch Changes
+
+- Updated Autocomplete component height for improved visual consistency.
+
+## 1.5.4
+
+### Patch Changes
+
+- Added `icon` prop to Input component: displays a Material Symbols icon on the inner right of the input. Works with all variants (default, inline) and supports both standalone and labeled inputs.
+
+## 1.5.3
+
+### Patch Changes
+
+- Improved Autocomplete component: refined IconButton positioning and enhanced option normalization for better consistency.
+
+## 1.5.2
+
+### Patch Changes
+
+- Added 'name' on top of 'label' in the Autocomplete component.
+
+
 ## 1.5.1
 
 ### Patch Changes
