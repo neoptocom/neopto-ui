@@ -46,8 +46,9 @@ jobs:
       - run: npm run build:docs
       - name: Copy docs to root for deployment
         run: |
-          mkdir -p docs
+          rm -rf docs/assets docs/index.html 2>/dev/null || true
           cp -r docs-dist/* docs/
+          ls -la docs/ | head -10
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
