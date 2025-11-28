@@ -6,6 +6,13 @@ This component library uses **Tailwind CSS v4 utility classes** directly in the 
 
 ---
 
+## 📚 Full Documentation
+
+Visit the [documentation site](https://neoptocom.github.io/neopto-ui/docs) for interactive examples and API documentation.
+
+
+---
+
 ## 📦 Installation
 
 ### Step 1: Install dependencies
@@ -130,7 +137,3 @@ document.documentElement.classList.toggle("dark");
 **Solution:** Ensure the `@source` directive points to the library's **source files** (`/src`), not the compiled dist folder. The source files contain all the Tailwind utility classes that need to be scanned.
 
 ---
-
-## 📚 Full Documentation
-
-Visit the [documentation site](https://neoptocom.github.io/neopto-ui/docs) for interactive examples and API documentation.
