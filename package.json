@@ -1,6 +1,6 @@
 {
   "name": "@neoptocom/neopto-ui",
-  "version": "1.6.5",
+  "version": "1.6.7",
   "private": false,
   "description": "A modern React component library built with Tailwind CSS v4 and TypeScript. Features dark mode, design tokens, and comprehensive Storybook documentation. Requires Tailwind v4+.",
   "keywords": [
@@ -50,6 +50,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "storybook:docs": "storybook build --docs --output-dir storybook-static && cp storybook-static/index.json storybook-static/docs.json",
+    "docs": "vite --config docs/vite.config.ts",
+    "build:docs": "vite build --config docs/vite.config.ts",
     "prepublishOnly": "npm run build && npm run typecheck",
     "changeset": "changeset",
     "version-packages": "changeset version",
@@ -84,5 +86,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "react-router-dom": "^7.9.6"
   }
 }
