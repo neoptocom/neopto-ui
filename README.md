@@ -1,6 +1,6 @@
 # NeoPTO UI
 
-A modern React component library built with Tailwind CSS v4 and TypeScript. Features dark mode, design tokens, and comprehensive Storybook documentation.
+A modern React component library built with Tailwind CSS v4 and TypeScript. Features dark mode, design tokens, and comprehensive documentation.
 
 > ⚠️ **Requirements:** This library requires **Tailwind CSS v4** and **@tailwindcss/postcss** in your project. See installation steps below.
 
@@ -11,7 +11,7 @@ A modern React component library built with Tailwind CSS v4 and TypeScript. Feat
 - **Type Safe**: Full TypeScript support with exported types
 - **Accessible**: Built with accessibility in mind
 - **Tree Shakable**: Optimized bundle size with tree shaking
-- **Storybook**: Comprehensive documentation and testing environment
+- **Documentation**: Comprehensive documentation site with interactive examples
 
 ## 📦 Installation
 
@@ -195,12 +195,14 @@ The library uses a comprehensive design token system:
 
 ## 📚 Documentation
 
-Visit our [Storybook documentation](https://neoptocom.github.io/neopto-ui/) for:
+Visit our [documentation site](https://neoptocom.github.io/neopto-ui/docs) for:
 
 - Interactive component playground
 - Design system guidelines
 - Usage examples
 - Accessibility information
+- Getting started guide
+- Design tokens reference
 
 ## 🤝 Contributing
 

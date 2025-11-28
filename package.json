@@ -2,7 +2,7 @@
   "name": "@neoptocom/neopto-ui",
   "version": "1.6.7",
   "private": false,
-  "description": "A modern React component library built with Tailwind CSS v4 and TypeScript. Features dark mode, design tokens, and comprehensive Storybook documentation. Requires Tailwind v4+.",
+  "description": "A modern React component library built with Tailwind CSS v4 and TypeScript. Features dark mode, design tokens, and comprehensive documentation. Requires Tailwind v4+.",
   "keywords": [
     "react",
     "components",
@@ -18,7 +18,7 @@
     "type": "git",
     "url": "https://github.com/neoptocom/neopto-ui.git"
   },
-  "homepage": "https://github.com/neoptocom/neopto-ui#readme",
+  "homepage": "https://neoptocom.github.io/neopto-ui/docs",
   "bugs": {
     "url": "https://github.com/neoptocom/neopto-ui/issues"
   },
