@@ -6,7 +6,7 @@ import "../../src/styles/tailwind.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <BrowserRouter basename="/docs">
+    <BrowserRouter basename="/neopto-ui/docs">
       <App />
     </BrowserRouter>
   </React.StrictMode>

@@ -6,7 +6,7 @@ import path from "path";
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   root: "docs",
-  base: "/docs/",
+  base: "/neopto-ui/docs/",
   build: {
     outDir: "../docs-dist",
     emptyOutDir: true,
@@ -26,6 +26,7 @@ export default defineConfig({
       "@": path.resolve(__dirname, "../src"),
     },
   },
+  publicDir: false,
   optimizeDeps: {
     // Suppress dynamic import warnings during dev
     exclude: [],
