@@ -43,6 +43,11 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run build-storybook
+      - run: npm run build:docs
+      - name: Copy docs to root for deployment
+        run: |
+          mkdir -p docs
+          cp -r docs-dist/* docs/
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact

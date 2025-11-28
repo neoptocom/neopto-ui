@@ -79,6 +79,10 @@ jspm_packages/
 # Storybook build outputs (commented out for GitHub Pages)
 # storybook-static/
 
+# Docs build output (commented out for GitHub Pages)
+# docs/
+docs-dist/
+
 # Temporary folders
 tmp/
 temp/
