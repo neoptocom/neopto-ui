@@ -48,9 +48,15 @@ function getTypoClasses(
     bold: "font-bold"
   };
 
+  // Add default horizontal spacing (margin-right) for spacing between side-by-side Typo components
+  // Users can override with className="mr-0" if needed
+  const hasMarginRight = className?.includes("mr-");
+  const horizontalSpacing = hasMarginRight ? "" : "mr-2";
+  
   return [
     weights[weight],
     muted ? "text-[var(--muted-fg)]" : "",
+    horizontalSpacing,
     className
   ].filter(Boolean).join(" ");
 }

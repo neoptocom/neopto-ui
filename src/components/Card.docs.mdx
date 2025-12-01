@@ -1,0 +1,71 @@
+import { Meta, Canvas, Story, ArgsTable } from "@storybook/blocks";
+import { Card } from "./Card";
+import * as CardStories from "./Card.stories";
+
+<Meta of={CardStories} />
+
+# Card
+
+Cards provide glassmorphic containers for grouping content. They offer decorative borders, elevated
+shadows, and an app-background variant that mirrors hero surfaces.
+
+## Usage
+
+```tsx
+import { Card } from "@neoptocom/neopto-ui";
+
+<Card>
+  <h3>Weekly summary</h3>
+  <p>Use cards to separate content into digestible surfaces.</p>
+</Card>;
+```
+
+<Canvas>
+  <Story of={CardStories.Playground} />
+</Canvas>
+
+<ArgsTable of={CardStories.Playground} />
+
+## Variants
+
+- `showDecorations` adds gradient strokes suited for marketing hero cards.
+- `variant="app-background"` injects the NeoPTO hero artwork and auto-switches with theme.
+- `elevated` applies a high-emphasis drop shadow—combine with default or app backgrounds.
+
+<Canvas>
+  <Story of={CardStories.AppBackground} />
+</Canvas>
+
+## Layout tips
+
+- Allow cards to breathe: default padding is `p-6`, override via the `className` prop for custom
+  spacing.
+- Stack cards in responsive grids to create dashboards or settings panels.
+- Avoid nesting too many cards; use muted surfaces inside when grouping secondary information.
+
+<Canvas>
+  <Story of={CardStories.DashboardLayout} />
+</Canvas>
+
+## Accessibility
+
+Cards render as semantic `<div>` elements. Provide meaningful headings and maintain contrast ratios
+when overlaying text on app backgrounds. For interactive cards, wrap focusable elements instead of
+attaching click handlers to the card root.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

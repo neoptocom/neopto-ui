@@ -73,3 +73,14 @@ export const Error: Story = {
     </div>
   )
 };
+
+export const WithIcon: Story = {
+  render: () => (
+    <div className="flex flex-col gap-4 w-96">
+      <Input variant="inline" icon="search" placeholder="Search..." />
+      <Input icon="email" type="email" placeholder="Email" />
+      <Input label="Username" icon="person" placeholder="johndoe" />
+      <Input label="Password" icon="lock" type="password" placeholder="Required field" error />
+    </div>
+  )
+};

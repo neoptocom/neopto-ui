@@ -1,0 +1,75 @@
+import { Meta, Canvas, Story, ArgsTable } from "@storybook/blocks";
+import { Breadcrumb } from "./Breadcrumb";
+import * as BreadcrumbStories from "./Breadcrumb.stories";
+
+<Meta of={BreadcrumbStories} />
+
+# Breadcrumb
+
+The `Breadcrumb` component displays the current location within a hierarchy and optional navigation
+links for parent levels. It supports icons, external links, and click handlers for in-app routing.
+
+## When to use
+
+- Help users understand where they are in a nested content structure.
+- Offer a quick path back to previous sections without duplicating navigation in headers or sidebars.
+- Pair with routed or client-side navigation; items accept either `href` or `onClick`.
+
+## Basic usage
+
+```tsx
+import { Breadcrumb } from "@neoptocom/neopto-ui";
+
+const items = [
+  { label: "Home", href: "/" },
+  { label: "Docs", href: "/docs" },
+  { label: "Components" }
+];
+
+<Breadcrumb items={items} showHomeIcon />;
+```
+
+<Canvas>
+  <Story of={BreadcrumbStories.Playground} />
+</Canvas>
+
+<ArgsTable of={BreadcrumbStories.Playground} />
+
+## Design guidance
+
+- Keep labels short; truncate or abbreviate long section names where possible.
+- Provide icons sparingly to reinforce key contexts (e.g., folders vs. people).
+- Use `showHomeIcon` to reinforce a “home” entry without duplicating the label.
+- Avoid mixing `href` and `onClick` handlers on the same item.
+
+## Composing with state
+
+Combine breadcrumb click handlers with your router or state machine to switch views without a full
+page load. The interactive example demonstrates an in-app documents flow.
+
+<Canvas>
+  <Story of={BreadcrumbStories.InteractiveNavigation} />
+</Canvas>
+
+## Accessibility
+
+- Breadcrumbs are wrapped in a `<nav aria-label="Breadcrumb">` for screen readers.
+- The final item receives `aria-current="page"` automatically.
+- Clickable items expose keyboard handlers, so always keep labels descriptive.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

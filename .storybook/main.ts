@@ -13,6 +13,8 @@ const config: StorybookConfig = {
     "@storybook/addon-interactions"
   ],
   docs: { autodocs: true },
+  // Base path for GitHub Pages - for project sites, use /repo-name/storybook-static/
+  base: process.env.STORYBOOK_BASE_PATH || "/neopto-ui/storybook-static/",
   async viteFinal(baseConfig) {
     baseConfig.plugins = baseConfig.plugins ?? [];
     baseConfig.plugins.push(
@@ -25,6 +27,9 @@ const config: StorybookConfig = {
           prop.parent ? !/node_modules/.test(prop.parent.fileName) : true
       })
     );
+    
+    // Ensure Vite base path matches Storybook base path
+    baseConfig.base = process.env.STORYBOOK_BASE_PATH || "/neopto-ui/storybook-static/";
 
     return baseConfig;
   }

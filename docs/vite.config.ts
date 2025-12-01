@@ -26,7 +26,7 @@ export default defineConfig({
       "@": path.resolve(__dirname, "../src"),
     },
   },
-  publicDir: false,
+  publicDir: "public",
   optimizeDeps: {
     // Suppress dynamic import warnings during dev
     exclude: [],

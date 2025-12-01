@@ -13,7 +13,7 @@ export const Blocks: Story = {
     <div className="space-y-3">
       <Skeleton className="h-4 w-48" />
       <Skeleton className="h-4 w-72" />
-      <Skeleton className="h-24 w-full rounded-[--radius-lg]" />
+      <Skeleton className="h-24 w-full rounded-lg" />
     </div>
   )
 };

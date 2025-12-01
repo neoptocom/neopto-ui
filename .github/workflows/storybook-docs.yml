@@ -1,0 +1,50 @@
+name: Storybook Docs
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+jobs:
+  verify-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Storybook docs
+        run: npm run storybook:docs
+
+      - name: Ensure docs.json is committed
+        run: |
+          if ! git diff --exit-code --quiet storybook-static/docs.json; then
+            echo "::error::storybook-static/docs.json is out of date. Run 'npm run storybook:docs' and commit the result."
+            exit 1
+          fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

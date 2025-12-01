@@ -23,6 +23,8 @@ export * from "./components/Chat";
 export * from "./components/MessageBubble";
 export * from "./components/Separator";
 export { Breadcrumb } from "./components/Breadcrumb";
+export { DateInput } from "./components/DateInput";
+export { default as Calendar } from "./components/Calendar";
 
 // Types
 export type { AppBackgroundProps } from "./components/AppBackground";
@@ -46,3 +48,5 @@ export type { AgentButtonProps } from "./components/Chat";
 export type { MessageBubbleProps } from "./components/MessageBubble";
 export type { SeparatorProps } from "./components/Separator";
 export type { BreadcrumbProps, BreadcrumbItem } from "./components/Breadcrumb";
+export type { DateInputProps } from "./components/DateInput";
+export type { CalendarProps } from "./components/Calendar";

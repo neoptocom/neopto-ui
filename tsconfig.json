@@ -22,6 +22,7 @@
   "include": [
     "src",
     "dev",
+    "docs",
     ".storybook",
     "vite.config.ts",
     "tsup.config.ts"

@@ -7,7 +7,7 @@ import React from "react";
 export const globalTypes = {
   theme: {
     description: "Global theme for components",
-    defaultValue: "light",
+    defaultValue: "dark",
     toolbar: {
       title: "Theme",
       items: [

@@ -1,5 +1,18 @@
 # @neoptocom/neopto-ui
 
+## 1.6.7
+
+### Patch Changes
+
+- Added DateInput calendar wrapper background fail fallback.
+
+
+## 1.6.6
+
+### Patch Changes
+
+- Fix DateInput calendar wrapper props so background assets render correctly.
+
 ## 1.6.5
 
 ### Patch Changes
@@ -63,7 +76,6 @@
 ### Patch Changes
 
 - Added 'name' on top of 'label' in the Autocomplete component.
-
 
 ## 1.5.1
 

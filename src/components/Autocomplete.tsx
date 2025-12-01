@@ -167,7 +167,7 @@ export default function Autocomplete({
     >
       <fieldset
         className={[
-          "w-full min-w-0 rounded-full border bg-[var(--surface)] transition-colors h-16",
+          "w-full min-w-0 rounded-full border bg-[var(--surface)] transition-colors h-14",
           "border-[var(--border)] focus-within:border-[var(--color-brand)]",
           disabled ? "opacity-60 cursor-not-allowed" : ""
         ].join(" ")}
@@ -222,6 +222,7 @@ export default function Autocomplete({
               }
               disabled={disabled}
               aria-label={selectedOption && !open ? "Clear" : open ? "Collapse" : "Expand"}
+              className="absolute right-1 top-[-20%]"
               iconClassName={[
                 "transition-transform duration-300 text-[var(--muted-fg)]",
                 open ? "rotate-180 text-[var(--color-brand)]" : ""

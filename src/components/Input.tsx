@@ -1,4 +1,5 @@
 import * as React from "react";
+import Icon from "./Icon";
 
 export type InputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> & {
   /** Input visual variant */
@@ -11,6 +12,8 @@ export type InputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, "size
   legendProps?: React.HTMLAttributes<HTMLLegendElement>;
   /** Flag to visually mark the input as errored */
   error?: boolean;
+  /** Optional icon name to display on the inner right of the input */
+  icon?: string;
 };
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -23,6 +26,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       fieldsetProps,
       legendProps,
       error = false,
+      icon,
       ...props
     },
     ref
@@ -30,10 +34,14 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const isInlineVariant = variant === "inline";
     const shouldUseInlineStyles = isInlineVariant || Boolean(label);
     const isError = error && !disabled;
+    const hasIcon = Boolean(icon);
 
     const inputClasses: string[] = [
       "w-full bg-transparent outline-none transition-colors",
-      shouldUseInlineStyles ? "h-9" : "h-12 px-4 rounded-full",
+      shouldUseInlineStyles ? "h-9" : "h-12 rounded-full",
+      shouldUseInlineStyles 
+        ? (hasIcon ? "pr-8" : "") 
+        : (hasIcon ? "px-4 pr-10" : "px-4"),
       "font-['Poppins'] text-sm placeholder:text-[var(--muted-fg)]"
     ];
 
@@ -67,7 +75,18 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <input ref={ref} disabled={disabled} className={inputClassName} {...props} />
     );
 
+    // Standalone input (no label)
     if (!label) {
+      if (hasIcon) {
+        return (
+          <div className="relative">
+            {inputElement}
+            <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+              <Icon name={icon!} className="text-[var(--muted-fg)] opacity-50" />
+            </div>
+          </div>
+        );
+      }
       return inputElement;
     }
 
@@ -113,7 +132,14 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           {label}
         </legend>
         <div className="relative flex pl-5 pr-3 pb-1 h-full">
-          <div className="flex w-full">{inputElement}</div>
+          <div className="flex w-full relative">
+            {inputElement}
+            {hasIcon && (
+              <div className="absolute right-1 top-1/2 -translate-y-1/2 pointer-events-none">
+                <Icon name={icon!} className="text-[var(--muted-fg)] opacity-50" />
+              </div>
+            )}
+          </div>
         </div>
       </fieldset>
     );

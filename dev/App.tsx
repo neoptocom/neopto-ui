@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   AppBackground,
   Button,
@@ -18,12 +18,19 @@ import {
 } from "../src/index";
 
 function App() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
   const [counter, setCounter] = useState(0);
   const [searchValue, setSearchValue] = useState("");
   const [inputValue, setInputValue] = useState("");
   const [selectedOption, setSelectedOption] = useState<{ label: string; value: string } | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
+
+  useEffect(() => {
+    // Initialize dark mode on mount
+    if (!document.documentElement.classList.contains("dark")) {
+      document.documentElement.classList.add("dark");
+    }
+  }, []);
 
   const toggleDarkMode = () => {
     setIsDark(!isDark);

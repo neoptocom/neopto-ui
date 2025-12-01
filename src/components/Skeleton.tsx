@@ -6,10 +6,10 @@ export type SkeletonProps = React.HTMLAttributes<HTMLDivElement> & {
 
 const roundMap: Record<NonNullable<SkeletonProps["rounded"]>, string> = {
   none: "rounded-none",
-  sm: "rounded-[var(--radius-sm)]",
-  md: "rounded-[var(--radius-md)]",
-  lg: "rounded-[var(--radius-lg)]",
-  xl: "rounded-[var(--radius-xl)]",
+  sm: "rounded",
+  md: "rounded-md",
+  lg: "rounded-lg",
+  xl: "rounded-xl",
   full: "rounded-full"
 };
 

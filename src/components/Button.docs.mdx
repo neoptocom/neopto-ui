@@ -1,0 +1,71 @@
+import { Meta, Canvas, Story, ArgsTable } from "@storybook/blocks";
+import { Button } from "./Button";
+import * as ButtonStories from "./Button.stories";
+
+<Meta of={ButtonStories} />
+
+# Button
+
+Buttons trigger primary user actions. They support three visual variants, three sizes, optional full
+width layout, and icon affordances.
+
+## Usage
+
+```tsx
+import { Button } from "@neoptocom/neopto-ui";
+
+<Button variant="primary" size="md">
+  Save changes
+</Button>;
+```
+
+<Canvas>
+  <Story of={ButtonStories.Playground} />
+</Canvas>
+
+<ArgsTable of={ButtonStories.Playground} />
+
+## Variants
+
+Use variants to communicate hierarchy:
+
+- `primary`: main call to action.
+- `secondary`: supporting actions with visual emphasis.
+- `ghost`: low emphasis actions within already prominent surfaces.
+
+<Canvas>
+  <Story of={ButtonStories.Variants} />
+</Canvas>
+
+## Layout
+
+- Aim for one primary button per view; demote additional actions to secondary/ghost.
+- Combine icons with concise labels for quicker scanning.
+- Apply `fullWidth` for responsive mobile layouts or wizard footers.
+
+<Canvas>
+  <Story of={ButtonStories.FullWidthCallToAction} />
+</Canvas>
+
+## Accessibility
+
+- Buttons use semantic `<button>` elements with focus styles.
+- Provide descriptive text even when using icons to ensure screen readers announce intent.
+- Disable buttons sparingly—pair with helper text when an action is unavailable.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

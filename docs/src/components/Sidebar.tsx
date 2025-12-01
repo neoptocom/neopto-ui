@@ -4,6 +4,7 @@ import { componentsConfig, componentCategories } from "../config/components";
 import Typo from "../../../src/components/Typo";
 import Icon from "../../../src/components/Icon";
 import { useLanguage } from "../contexts/LanguageContext";
+import { VERSION } from "../config/version";
 
 type SidebarProps = {
   isOpen: boolean;
@@ -109,7 +110,7 @@ export default function Sidebar({ isOpen, onClose, currentPath }: SidebarProps) 
             <div className="inline-flex items-center justify-center  gap-2 px-3 py-1.5 bg-[--color-brand]/10 text-[--color-brand] rounded-full">
               <Icon name="stars" size="sm" />
               <Typo variant="label-sm" bold="medium">
-                Version 1.6.7
+                Version {VERSION}
               </Typo>
             </div>
           </div>
