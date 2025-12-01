@@ -1,9 +1,10 @@
 import * as React from "react";
 import Icon from "./Icon";
+import { X } from "lucide-react";
 
 export type ChipProps = React.HTMLAttributes<HTMLDivElement> & {
   variant?: "warning" | "success" | "error" | "light" | "dark";
-  icon?: string;
+  icon?: React.ReactNode;
   label?: string;
   /** Custom text color (overrides variant) */
   textColor?: string;
@@ -129,7 +130,7 @@ export default function Chip({
       title={title}
       {...props}
     >
-      {icon ? <Icon name={icon} size="sm" className="mr-0.5 flex-shrink-0" /> : null}
+      {icon ? icon : null}
       <span className="truncate">{label}</span>
       {onDelete ? (
         <button
@@ -138,7 +139,7 @@ export default function Chip({
           className="ml-1 flex h-4 w-4 items-center justify-center rounded-full transition-colors hover:bg-black/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-black/30 flex-shrink-0"
           aria-label="Remove"
         >
-          <Icon name="close" size="sm" />
+          <X size={12} className="flex-shrink-0" />
         </button>
       ) : null}
     </div>

@@ -1,5 +1,11 @@
 # @neoptocom/neopto-ui
 
+## 1.6.8
+
+### Patch Changes
+
+- Replace Material icons with Lucide React icons in Breadcrumbs and Chip
+
 ## 1.6.7
 
 ### Patch Changes

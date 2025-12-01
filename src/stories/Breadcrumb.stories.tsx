@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import { Breadcrumb, type BreadcrumbItem } from "./Breadcrumb";
+import { Breadcrumb, type BreadcrumbItem } from "../components/Breadcrumb";
+import { LayoutDashboard, Files, Rocket } from "lucide-react";
 
 const meta: Meta<typeof Breadcrumb> = {
   title: "Components/Breadcrumb",
@@ -26,9 +27,9 @@ export const Playground: Story = {};
 export const WithIcons: Story = {
   args: {
     items: [
-      { label: "Dashboard", href: "/", icon: "dashboard" },
-      { label: "Projects", href: "/projects", icon: "folder" },
-      { label: "Neptune Launch", icon: "rocket_launch" }
+      { label: "Dashboard", href: "/", icon: <LayoutDashboard size={12} /> },
+      { label: "Projects", href: "/projects", icon: <Files size={12} /> },
+      { label: "Neptune Launch", icon: <Rocket size={12} /> }
     ]
   }
 };
@@ -44,7 +45,6 @@ export const InteractiveNavigation: Story = {
     const sections: BreadcrumbItem[] = [
       { label: "Getting Started", href: "/docs/getting-started" },
       { label: "Guides", href: "/docs/guides" },
-      { label: "Auth", icon: "lock" }
     ];
 
     const [activeSection, setActiveSection] = useState(sections[sections.length - 1]);

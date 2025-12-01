@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Chip from "../components/Chip";
+import { Check } from "lucide-react";
 
 const meta: Meta<typeof Chip> = {
   title: "Components/Chip",
@@ -18,7 +19,7 @@ type Story = StoryObj<typeof Chip>;
 export const Playground: Story = {};
 
 export const WithIcon: Story = {
-  args: { icon: "check", label: "Completed", variant: "success" }
+  args: { icon: <Check size={12} className="flex-shrink-0" />, label: "Completed", variant: "success" }
 };
 
 export const Variants: Story = {

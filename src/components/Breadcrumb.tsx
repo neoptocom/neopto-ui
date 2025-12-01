@@ -8,7 +8,7 @@ export interface BreadcrumbItem {
   /** Optional href for navigation */
   href?: string;
   /** Optional icon name (Material Symbols) */
-  icon?: string;
+  icon?: React.ReactNode;
   /** Optional click handler */
   onClick?: () => void;
 }
@@ -66,8 +66,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
                   }}
                   className="group flex items-center gap-1 cursor-pointer text-[var(--muted-fg)]"
                 >
-                  {isFirst && showHomeIcon && <Icon name="home" size="sm" />}
-                  {item.icon && !showHomeIcon && <Icon name={item.icon} size="sm" />}
+                  {item.icon && item.icon}
                   <Typo variant="label-md" bold="semibold" className="group-hover:underline">{item.label}</Typo>
                 </a>
               ) : (
@@ -88,8 +87,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
                   }
                   aria-current={isLast ? "page" : undefined}
                 >
-                  {isFirst && showHomeIcon && <Icon name="home" size="sm" />}
-                  {item.icon && !showHomeIcon && <Icon name={item.icon} size="sm" />}
+                  {item.icon && item.icon}
                   <Typo variant="label-md" bold={isLast ? "bold" : "semibold"} className={item.onClick && !isLast ? "group-hover:underline" : ""}>{item.label}</Typo>
                 </span>
               )}
