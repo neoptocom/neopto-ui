@@ -1,0 +1,94 @@
+# Three.js / React Three Fiber Project Rules
+
+## Project Structure
+
+### File Organization
+- Components live in `src/components/` directory
+- Styles are in `src/styles`
+
+### Component Structure
+- Use functional components with default exports
+- Keep components focused and single-purpose
+- Components should be self-contained and reusable
+
+## React Three Fiber Patterns
+
+## Component Patterns
+
+### Functional Components
+```javascript
+export default function ComponentName() {
+  // hooks
+  const { userList } = useUsers()
+  
+  // effects and logic
+  
+  return (
+    <li> 
+        {userList.map(u, i) => (
+            <ul key={i}>
+            User: {u.name}, Phone: {u.phone}
+            </ul>
+        )}
+    </li>
+  )
+}
+```
+
+### Default Exports
+- Always use default exports for components
+- Import components without curly braces: `import ComponentName from './components/ComponentName'`
+
+## Code Style
+
+### Imports
+- Group imports: React first, then R3F, then drei, then local
+- Use named imports from libraries: `import { Canvas, useThree } from '@react-three/fiber'`
+- Use default imports for local components: `import ComponentName from './components/ComponentName'`
+
+### Code Organization
+- Hooks at the top of component
+- Effects after hooks
+- Return statement at the end
+- Keep JSX clean and readable
+
+## Do's and Don'ts
+
+### Do's
+- ✅ Use functional components with default exports
+- ✅ Use hooks for state and side effects
+- ✅ Clean up timeouts and subscriptions in useEffect
+- ✅ Use Suspense for async loading
+- ✅ Keep components focused and single-purpose
+- ✅ Use camelCase for Three.js props
+- ✅ Use array syntax for vectors and rotations
+
+### Don'ts
+- ❌ Don't use class components
+- ❌ Don't forget to clean up timeouts
+- ❌ Don't create new objects in render loops
+- ❌ Don't use named exports for components
+- ❌ Don't mutate props directly
+
+### File Structure Reference
+- `src/App.js` - Main Canvas and scene setup
+- `src/index.js` - Entry point with Suspense and Loader
+- `src/components/` - All 3D components
+- `public/` - Static assets including GLB models
+- `src/styles.css` - Global styles
+
+## When Adding New Components
+
+1. Create file in `src/components/ComponentName.tsx`
+2. Create storybook page for this component
+3. Create docs page for this component (use same examples as storybook)
+
+## When committing changes
+
+1. Update changeset with new changes
+2. Commit the changes
+
+## Debugging Tips
+
+- Check browser console for warnings
+
