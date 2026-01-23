@@ -16,7 +16,7 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     variant: {
       control: "inline-radio",
-      options: ["primary", "secondary", "ghost"]
+      options: ["primary", "secondary", "ghost", "inline"]
     },
     size: {
       control: "inline-radio",
@@ -52,6 +52,11 @@ export const Variants: Story = {
       <Button variant="ghost">
         <Typo variant="title-sm" bold="semibold">
           Ghost
+        </Typo>
+      </Button>
+      <Button variant="inline">
+        <Typo variant="title-sm" bold="semibold">
+          Inline
         </Typo>
       </Button>
     </div>
@@ -94,6 +99,10 @@ export const WithIcons: Story = {
       <Button variant="ghost">
         <Icon name="settings" />
         <span>Settings</span>
+      </Button>
+      <Button variant="inline">
+        <Icon name="settings" />
+        <span>Inline</span>
       </Button>
     </div>
   )

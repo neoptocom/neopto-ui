@@ -2,7 +2,7 @@ import * as React from "react";
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
     /** Button visual variant */
-    variant?: "primary" | "secondary" | "ghost";
+    variant?: "primary" | "secondary" | "ghost" | "inline";
     /** Button size */
     size?: "sm" | "md" | "lg";
     /** Make button full width */
@@ -25,7 +25,8 @@ function getButtonClasses(
     const variants = {
         primary: "bg-cyan-500 text-white hover:bg-cyan-400 active:bg-cyan-600 disabled:bg-neutral-400",
         secondary: "border border-cyan-500 text-cyan-500 bg-transparent hover:bg-cyan-50 active:bg-cyan-100 disabled:border-neutral-400 disabled:text-neutral-400",
-        ghost: "bg-transparent text-[var(--fg)] hover:bg-[var(--muted)] active:bg-[var(--muted)] disabled:opacity-50"
+        ghost: "bg-transparent text-[var(--fg)] hover:bg-[var(--muted)] active:bg-[var(--muted)] disabled:opacity-50",
+        inline: "text-cyan-500 bg-transparent active:bg-cyan-100 disabled:text-neutral-400"
     };
 
     const sizes = {
@@ -37,7 +38,7 @@ function getButtonClasses(
     return [
         base,
         variants[variant],
-        sizes[size],
+        variant === "inline" ? "px-2" : sizes[size],
         fullWidth ? "w-full" : "",
         className
     ].filter(Boolean).join(" ");
