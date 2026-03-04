@@ -1,5 +1,13 @@
 # @neoptocom/neopto-ui
 
+## 1.6.10
+
+### Patch Changes
+
+- e56f7e1: Add Avatar size variant `bg` (90x90).
+- 490f987: Fix DateInput calendar wrapper props so background assets render correctly.
+- 8a2176c: Replace Material Icons with Lucide React Icons in Breadcrumbs component and Chip component
+
 ## 1.6.8
 
 ### Patch Changes
@@ -11,7 +19,6 @@
 ### Patch Changes
 
 - Added DateInput calendar wrapper background fail fallback.
-
 
 ## 1.6.6
 
