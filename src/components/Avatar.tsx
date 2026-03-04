@@ -12,7 +12,7 @@ export type AvatarProps = {
   /** Accessible alt text; defaults to the person's name */
   alt?: string;
   /** Avatar size */
-  size?: "sm" | "md";
+  size?: "sm" | "md" | "bg";
 } & Omit<React.HTMLAttributes<HTMLDivElement>, "children">;
 
 function getAvatarClasses(size: AvatarProps["size"] = "md", className?: string): string {
@@ -22,7 +22,8 @@ function getAvatarClasses(size: AvatarProps["size"] = "md", className?: string):
 
   const sizes = {
     sm: "w-[28px] h-[28px]",
-    md: "w-[60px] h-[60px]"
+    md: "w-[60px] h-[60px]",
+    bg: "w-[90px] h-[90px]"
   };
 
   return [base, sizes[size], className].filter(Boolean).join(" ");
@@ -53,7 +54,12 @@ export default function Avatar({
     return s;
   }, [color, style]);
 
-  const textVariant = size === "sm" ? ("label-md" as const) : ("headline-md" as const);
+  const textVariant =
+    size === "sm"
+      ? ("label-md" as const)
+      : size === "bg"
+        ? ("headline-lg" as const)
+        : ("headline-md" as const);
 
   const showImage = !!src && !imgError;
 
