@@ -6,7 +6,7 @@ import { assets } from "..";
 
 export type DateInputProps = Omit<
   React.InputHTMLAttributes<HTMLInputElement>,
-  "value" | "onChange" | "type"
+  "value" | "onChange" | "type" | "size"
 > & {
   /** Label text displayed above the input */
   label?: string;
