@@ -1,5 +1,11 @@
 # @neoptocom/neopto-ui
 
+## 1.6.12
+
+### Patch Changes
+
+- 5901d8f: Fix DateInput typing compatibility with Input size variants by omitting native numeric input size prop.
+
 ## 1.6.11
 
 ### Patch Changes
