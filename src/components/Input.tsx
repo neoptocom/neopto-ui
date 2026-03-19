@@ -4,6 +4,8 @@ import Icon from "./Icon";
 export type InputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> & {
   /** Input visual variant */
   variant?: "default" | "inline";
+  /** Input size */
+  size?: "sm" | "md" | "lg";
   /** Optional floating label (renders a fieldset wrapper when provided) */
   label?: string;
   /** Additional props for the surrounding fieldset when label is set */
@@ -22,6 +24,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       className,
       disabled,
       variant = "default",
+      size = "md",
       label,
       fieldsetProps,
       legendProps,
@@ -35,14 +38,36 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const shouldUseInlineStyles = isInlineVariant || Boolean(label);
     const isError = error && !disabled;
     const hasIcon = Boolean(icon);
+    const inputSizeClass = shouldUseInlineStyles
+      ? size === "sm"
+        ? "h-4"
+        : size === "lg"
+          ? "h-10"
+          : "h-9"
+      : size === "sm"
+        ? "h-6 rounded-full"
+        : size === "lg"
+          ? "h-14 rounded-full"
+          : "h-12 rounded-full";
+    const inputPaddingClass = shouldUseInlineStyles
+      ? hasIcon
+        ? "pr-8"
+        : ""
+      : size === "sm"
+        ? hasIcon
+          ? "px-3 pr-9"
+          : "px-3"
+        : hasIcon
+          ? "px-4 pr-10"
+          : "px-4";
+    const inputTextSizeClass = size === "sm" ? "text-xs placeholder:text-xs" : "text-sm placeholder:text-sm";
 
     const inputClasses: string[] = [
       "w-full bg-transparent outline-none transition-colors",
-      shouldUseInlineStyles ? "h-9" : "h-12 rounded-full",
-      shouldUseInlineStyles 
-        ? (hasIcon ? "pr-8" : "") 
-        : (hasIcon ? "px-4 pr-10" : "px-4"),
-      "font-['Poppins'] text-sm placeholder:text-[var(--muted-fg)]"
+      inputSizeClass,
+      inputPaddingClass,
+      inputTextSizeClass,
+      "font-['Poppins'] placeholder:text-[var(--muted-fg)]"
     ];
 
     if (!shouldUseInlineStyles) {
@@ -94,8 +119,12 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
     const { className: legendClassNameProp = "", ...restLegendProps } = legendProps ?? {};
 
+    const fieldsetHeightClass =
+      size === "sm" ? "h-8" : size === "lg" ? "h-16" : "h-14";
+
     const fieldsetClassName = [
-      "w-full min-w-0 rounded-full border bg-[var(--surface)] transition-colors h-14",
+      "w-full min-w-0 rounded-full border bg-[var(--surface)] transition-colors",
+      fieldsetHeightClass,
       isError ? "border-[var(--destructive)]" : "border-[var(--border)]",
       isError
         ? "focus-within:border-[var(--destructive)]"
@@ -111,9 +140,11 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       : isError
       ? "text-[var(--destructive)]"
       : "text-[var(--muted-fg)]";
+    const legendSizeClass = size === "sm" ? "text-xs" : "text-sm";
 
     const legendClassNameCombined = [
-      "ml-4 px-1 text-sm leading-none relative font-normal select-none",
+      "ml-4 px-1 leading-none relative font-normal select-none",
+      legendSizeClass,
       legendColorClass,
       legendClassNameProp
     ]

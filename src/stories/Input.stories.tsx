@@ -37,6 +37,30 @@ export const Types: Story = {
   )
 };
 
+export const Sizes: Story = {
+  render: () => (
+    <div className="flex flex-col gap-6 w-96">
+      <div className="flex flex-col gap-3">
+        <Input size="sm" placeholder="Small input" />
+        <Input size="md" placeholder="Medium input" />
+        <Input size="lg" placeholder="Large input" />
+      </div>
+
+      <div className="flex flex-col gap-3">
+        <Input size="sm" variant="inline" placeholder="Small inline input" />
+        <Input size="md" variant="inline" placeholder="Medium inline input" />
+        <Input size="lg" variant="inline" placeholder="Large inline input" />
+      </div>
+
+      <div className="flex flex-col gap-3">
+        <Input size="sm" label="Small labeled" placeholder="Small labeled input" />
+        <Input size="md" label="Medium labeled" placeholder="Medium labeled input" />
+        <Input size="lg" label="Large labeled" placeholder="Large labeled input" />
+      </div>
+    </div>
+  )
+};
+
 export const Inline: Story = {
   render: () => (
     <div className="flex flex-col gap-4 w-96">
