@@ -1,5 +1,11 @@
 # @neoptocom/neopto-ui
 
+## 1.6.11
+
+### Patch Changes
+
+- aa2060e: Add Input size variants with tuned small-size dimensions and typography, plus Storybook size examples.
+
 ## 1.6.10
 
 ### Patch Changes
