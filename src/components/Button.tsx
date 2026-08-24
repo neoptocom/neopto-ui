@@ -4,7 +4,7 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
     /** Button visual variant */
     variant?: "primary" | "secondary" | "ghost" | "inline";
     /** Button size */
-    size?: "sm" | "md" | "lg";
+    size?: "xs" | "sm" | "md" | "lg";
     /** Make button full width */
     fullWidth?: boolean;
     /** Icon component to display instead of text */
@@ -30,6 +30,7 @@ function getButtonClasses(
     };
 
     const sizes = {
+        xs: "h-6 px-2",
         sm: "h-9 px-3",
         md: "h-12 px-[18px]",
         lg: "h-14 px-6"

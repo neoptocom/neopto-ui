@@ -20,7 +20,7 @@ const meta: Meta<typeof Button> = {
     },
     size: {
       control: "inline-radio",
-      options: ["sm", "md", "lg"]
+      options: ["xs", "sm", "md", "lg"]
     },
     fullWidth: {
       control: "boolean"
@@ -66,6 +66,11 @@ export const Variants: Story = {
 export const Sizes: Story = {
   render: () => (
     <div className="flex flex-wrap items-center gap-4">
+      <Button size="xs">
+        <Typo variant="label-sm" bold="semibold">
+          Extra small
+        </Typo>
+      </Button>
       <Button size="sm">
         <Typo variant="title-sm" bold="semibold">
           Small

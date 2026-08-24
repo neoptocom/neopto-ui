@@ -39,7 +39,8 @@ const meta: Meta<typeof Search> = {
     selectedOption: null,
     disabled: false,
     maxHeight: 180,
-    searchDelay: 300
+    searchDelay: 300,
+    placeholder: "Pesquisar"
   }
 };
 

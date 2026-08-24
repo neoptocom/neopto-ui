@@ -19,7 +19,7 @@ export function getComponentProps(componentId: string): ComponentProp[] {
       },
       {
         name: "size",
-        type: '"sm" | "md" | "lg"',
+        type: '"xs" | "sm" | "md" | "lg"',
         default: '"md"',
         description: "Button size",
       },

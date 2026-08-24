@@ -1,5 +1,17 @@
 # @neoptocom/neopto-ui
 
+## 1.6.14
+
+### Patch Changes
+
+- Add optional `placeholder` prop to `Search` (default: `"Pesquisar"`).
+
+## 1.6.13
+
+### Patch Changes
+
+- Add Button size `xs` with `h-6` for compact actions.
+
 ## 1.6.12
 
 ### Patch Changes

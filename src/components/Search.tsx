@@ -28,6 +28,8 @@ export interface SearchProps
   disabled?: boolean;
   /** Maximum height of the options dropdown */
   maxHeight?: number;
+  /** Placeholder shown when the input is empty and nothing is selected */
+  placeholder?: string;
   /** Optional id base (for accessibility hooks) */
   id?: string;
   /** Optional filter children to render when filters are expanded */
@@ -43,6 +45,7 @@ export default function Search({
   searchDelay = 300,
   disabled = false,
   maxHeight = 152,
+  placeholder = "Pesquisar",
   id,
   children,
   ...props
@@ -218,7 +221,7 @@ export default function Search({
                 "leading-tight text-[var(--fg)] placeholder:text-[var(--muted-fg)]",
                 "px-2"
               ].join(" ")}
-              placeholder="Pesquisar"
+              placeholder={placeholder}
               onClick={() => !disabled && setOpen(true)}
             />
             {/* Action button (clear or expand) */}
@@ -239,6 +242,71 @@ export default function Search({
           </div>
         </div>
       </div>
+
+      {open && !disabled && (
+        <div
+          className={[
+            "absolute z-20 mt-2 w-full overflow-y-auto rounded-3xl border border-[var(--border)]",
+            "bg-[var(--surface)] text-[var(--fg)] shadow-md"
+          ].join(" ")}
+          style={{ maxHeight }}
+        >
+          {normalizedOptions.length > 0 ? (
+            <ul id={listboxId} role="listbox" ref={listRef}>
+              {normalizedOptions.map((option, index) => {
+                const active = index === activeIndex;
+                const selected =
+                  selectedOption != null &&
+                  (typeof selectedOption === "string"
+                    ? selectedOption === option.label
+                    : selectedOption.label === option.label);
+                return (
+                  <li
+                    key={`${option.label || index}-${index}`}
+                    role="option"
+                    aria-selected={selected}
+                    className={[
+                      "flex items-center justify-between px-4 py-2 text-sm cursor-pointer transition-colors",
+                      active ? "bg-[var(--muted)]" : "",
+                      index !== normalizedOptions.length - 1
+                        ? "border-b border-[var(--border)]"
+                        : ""
+                    ].join(" ")}
+                    onMouseEnter={() => setActiveIndex(index)}
+                    onMouseDown={(e) => e.preventDefault()}
+                    onClick={() => handleSelect(option)}
+                  >
+                    <div className="flex items-center gap-2">
+                      {anyOptionHasImage && (
+                        <Avatar
+                          name={option.label}
+                          src={option.image || undefined}
+                        />
+                      )}
+                      <Typo variant="label-lg" className="font-normal text-[var(--fg)]">
+                        {option.label}
+                      </Typo>
+                    </div>
+                    {Array.isArray(option.group) && option.group.length > 0 && (
+                      <AvatarGroup>
+                        {option.group.map((member, i) => (
+                          <Avatar key={i} name={member.name} src={member.image || undefined} />
+                        ))}
+                      </AvatarGroup>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          ) : (
+            <div className="px-4 py-3">
+              <Typo variant="body-sm" className="text-[var(--muted-fg)]">
+                No results found
+              </Typo>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
