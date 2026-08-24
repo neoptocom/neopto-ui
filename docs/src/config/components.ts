@@ -116,6 +116,13 @@ export const componentsConfig: ComponentConfig[] = [
     importPath: "import { Skeleton } from '@neoptocom/neopto-ui';",
   },
   {
+    id: "toast",
+    name: "Toast",
+    category: "Feedback",
+    descriptionKey: "toastDescription",
+    importPath: "import { ToastProvider, useToast } from '@neoptocom/neopto-ui';",
+  },
+  {
     id: "icon",
     name: "Icon",
     category: "Content",

@@ -25,6 +25,7 @@ export * from "./components/Separator";
 export { Breadcrumb } from "./components/Breadcrumb";
 export { DateInput } from "./components/DateInput";
 export { default as Calendar } from "./components/Calendar";
+export { Toast, ToastProvider, useToast } from "./components/Toast";
 
 // Types
 export type { AppBackgroundProps } from "./components/AppBackground";
@@ -50,3 +51,10 @@ export type { SeparatorProps } from "./components/Separator";
 export type { BreadcrumbProps, BreadcrumbItem } from "./components/Breadcrumb";
 export type { DateInputProps } from "./components/DateInput";
 export type { CalendarProps } from "./components/Calendar";
+export type {
+  ToastProps,
+  ToastProviderProps,
+  ToastOptions,
+  ToastItem,
+  ToastType,
+} from "./components/Toast";

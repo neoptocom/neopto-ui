@@ -21,6 +21,7 @@ import { Breadcrumb } from "../../../src/components/Breadcrumb";
 import { Separator } from "../../../src/components/Separator";
 import { AppBackground } from "../../../src/components/AppBackground";
 import { MessageBubble } from "../../../src/components/MessageBubble";
+import { ToastProvider, useToast } from "../../../src/components/Toast";
 import { useState, type ReactNode } from "react";
 import { TranslateFn } from "./translations";
 
@@ -327,6 +328,22 @@ export function getComponentExamples(
 <Skeleton className="h-4 w-3/4" />`,
       },
     ],
+    toast: [
+      {
+        title: t("exampleToast"),
+        description: t("toastExampleDesc"),
+        demo: <ToastDemo />,
+        code: `const { toast } = useToast();
+
+<Button onClick={() => toast({
+  title: "Saved",
+  message: "Your changes were saved.",
+  type: "success",
+})}>
+  Show toast
+</Button>`,
+      },
+    ],
     icon: [
       {
         title: t("exampleIcons"),
@@ -523,4 +540,55 @@ function CalendarDemo() {
 function CounterDemo() {
   const [count, setCount] = useState(1);
   return <Counter value={count} onChange={setCount} min={0} max={10} />;
+}
+
+function ToastDemoInner() {
+  const { toast } = useToast();
+  return (
+    <div className="flex flex-wrap gap-3">
+      <Button
+        onClick={() =>
+          toast({
+            title: "Saved",
+            message: "Your changes were saved.",
+            type: "success",
+          })
+        }
+      >
+        Success
+      </Button>
+      <Button
+        variant="secondary"
+        onClick={() =>
+          toast({
+            title: "Something went wrong",
+            message: "Please try again.",
+            type: "error",
+          })
+        }
+      >
+        Error
+      </Button>
+      <Button
+        variant="ghost"
+        onClick={() =>
+          toast({
+            title: "Heads up",
+            message: "Review before continuing.",
+            type: "warning",
+          })
+        }
+      >
+        Warning
+      </Button>
+    </div>
+  );
+}
+
+function ToastDemo() {
+  return (
+    <ToastProvider>
+      <ToastDemoInner />
+    </ToastProvider>
+  );
 }
