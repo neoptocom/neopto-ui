@@ -29,8 +29,8 @@ export default function ComponentShowcase() {
     );
   }
 
-  const examples = getComponentExamples(component.id);
-  const props = getComponentProps(component.id);
+  const examples = getComponentExamples(component.id, t);
+  const props = getComponentProps(component.id, t);
 
   return (
     <div className="max-w-4xl space-y-12">
@@ -48,19 +48,19 @@ export default function ComponentShowcase() {
             {component.name}
           </Typo>
           <Typo variant="body-lg" className="text-text-secondary">
-            {component.description}
+            {t(component.descriptionKey)}
           </Typo>
         </div>
       </div>
 
       {/* Installation */}
-      <Section title="Installation">
+      <Section title={t("installation")}>
         <CodeBlock code={component.importPath} language="tsx" />
       </Section>
 
       {/* Props */}
       {props.length > 0 && (
-        <Section title="Props">
+        <Section title={t("props")}>
           <PropsTable props={props} />
         </Section>
       )}

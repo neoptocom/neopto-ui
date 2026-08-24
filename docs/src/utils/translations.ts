@@ -6,30 +6,35 @@ export const translations = {
     toggleMenu: "Alternar menu",
     githubRepository: "Repositório GitHub",
     toggleDarkMode: "Modo claro/escuro",
+    selectLanguage: "Selecionar idioma",
     light: "Claro",
     dark: "Escuro",
-    
+
     // Home Page
     version: "Versão",
     buildBeautifulUIs: "Crie Interfaces responsivas com NeoPTO",
-    homeDescription: "Uma biblioteca moderna de componentes React construída com Tailwind CSS v4 e TypeScript. Inclui modo escuro, design tokens e documentação completa.",
+    homeDescription:
+      "Uma biblioteca moderna de componentes React construída com Tailwind CSS v4 e TypeScript. Inclui modo escuro, design tokens e documentação completa.",
     getStarted: "Começar",
     viewOnGitHub: "Ver no GitHub",
     designTokens: "Design Tokens",
-    designTokensDescription: "Construído com um sistema abrangente de design tokens para estilização consistente e fácil personalização de temas.",
-    darkMode: "Dark Mode",
-    darkModeDescription: "Suporte completo ao modo escuro com transições suaves e detecção automática de tema.",
+    designTokensDescription:
+      "Construído com um sistema abrangente de design tokens para estilização consistente e fácil personalização de temas.",
+    darkMode: "Modo escuro",
+    darkModeDescription:
+      "Suporte completo ao modo escuro com transições suaves e detecção automática de tema.",
     typescript: "TypeScript",
-    typescriptDescription: "Componentes totalmente tipados com suporte a IntelliSense e definições de tipo abrangentes.",
+    typescriptDescription:
+      "Componentes totalmente tipados com suporte a IntelliSense e definições de tipo abrangentes.",
     components: "Componentes",
     componentsDescription: "Explore {count} componentes prontos para uso organizados por categoria.",
     componentsCount: "{count} componentes",
-    quickLinks: "Quick Links",
+    quickLinks: "Links rápidos",
     gettingStarted: "Começar",
     gettingStartedDescription: "Aprenda como instalar e usar a biblioteca",
     designTokensPage: "Design Tokens",
     designTokensPageDescription: "Explore cores, tipografia e espaçamento",
-    
+
     // Getting Started Page
     gettingStartedTitle: "Começar",
     gettingStartedSubtitle: "Aprenda como instalar e usar NeoPTO UI em seu projeto React.",
@@ -38,84 +43,241 @@ export const translations = {
     configuration: "Configuração",
     configurationDescription: "Configure Tailwind CSS v4 e PostCSS",
     createPostcssFile: "Crie um arquivo {file} na raiz do seu projeto:",
-    cssSetup: "CSS Setup",
+    cssSetup: "Configuração do CSS",
     cssSetupDescription: "Configure seu arquivo CSS para usar a biblioteca",
     inYourMainCss: "Em seu arquivo CSS principal (ex.: {file}):",
     thenImportCss: "Em seguida, importe seu CSS em seu {file}:",
-    basicUsage: "Basic Usage",
+    basicUsage: "Uso básico",
     basicUsageDescription: "Comece a usar componentes em seu aplicativo",
-    darkModeSection: "Dark Mode",
+    darkModeSection: "Modo escuro",
     darkModeSectionDescription: "Alternar modo escuro adicionando a classe dark ao elemento raiz",
     enableDarkMode: "Habilitar modo escuro",
     disableDarkMode: "Desabilitar modo escuro",
     toggleDarkModeCode: "Alternar modo escuro",
     appBackground: "App Background",
     appBackgroundDescription: "Use o componente AppBackground para fundos de página",
-    requirements: "Requirements",
+    requirements: "Requisitos",
     requirementsDescription: "Informações importantes sobre dependências",
-    requirementsWarning: "⚠️ Esta biblioteca requer Tailwind CSS v4+. Certifique-se de ter a versão mais recente instalada.",
-    
+    requirementsWarning:
+      "⚠️ Esta biblioteca requer Tailwind CSS v4+. Certifique-se de ter a versão mais recente instalada.",
+
     // Design Tokens Page
     designTokensTitle: "Design Tokens",
-    designTokensSubtitle: "Explore os tokens de design system usados em toda a biblioteca de componentes.",
+    designTokensSubtitle:
+      "Explore os tokens de design system usados em toda a biblioteca de componentes.",
     colors: "Cores",
     colorsDescription: "Cores da marca e semânticas",
     semanticColors: "Cores semânticas",
     semanticColorsDescription: "Cores que se adaptam ao modo claro/escuro",
-    borderRadius: "Border Radius",
+    borderRadius: "Raio da borda",
     borderRadiusDescription: "Tokens de raio para cantos arredondados",
     typography: "Tipografia",
     typographyDescription: "Variantes e pesos de tipografia",
     shadows: "Sombras",
     shadowsDescription: "Tokens de elevação e sombra",
-    smallShadow: "Small Shadow",
-    mediumShadow: "Medium Shadow",
-    elevatedShadow: "Elevated Shadow",
-    preview: "Preview",
+    smallShadow: "Sombra pequena",
+    mediumShadow: "Sombra média",
+    elevatedShadow: "Sombra elevada",
+    preview: "Prévia",
     exampleText: "Exemplo",
-    
+    colorBrand: "Marca",
+    colorSuccess: "Sucesso",
+    colorWarning: "Alerta",
+    colorDestructive: "Destrutivo",
+    colorInfo: "Info",
+    colorBackground: "Fundo",
+    colorSurface: "Superfície",
+    colorForeground: "Primeiro plano",
+    colorMuted: "Muted",
+    colorMutedForeground: "Texto muted",
+    colorBorder: "Borda",
+    radiusSmall: "Pequeno",
+    radiusMedium: "Médio",
+    radiusLarge: "Grande",
+    radiusXl: "Extra grande",
+
     // Sidebar
-    home: "Home",
-    
+    home: "Início",
+
     // Component Showcase
     componentNotFound: "Componente não encontrado",
-    returnToHome: "Voltar para home",
+    returnToHome: "Voltar para o início",
     props: "Props",
-    
+    prop: "Prop",
+    propType: "Tipo",
+    propDefault: "Padrão",
+    propDescription: "Descrição",
+
     // Category Page
     categoryNotFound: "Categoria não encontrada",
     componentsInCategory: "({count}) Componentes",
     componentsInThisCategory: "Componentes nesta categoria.",
-    
+    categoryActions: "Ações",
+    categoryForms: "Formulários",
+    categoryContent: "Conteúdo",
+    categoryLayout: "Layout",
+    categoryOverlays: "Sobreposições",
+    categoryFeedback: "Feedback",
+    categoryNavigation: "Navegação",
+
     // Category Descriptions
     actionsDescription: "Componentes interativos que acionam ações e interações do usuário.",
     formsDescription: "Componentes de entrada para coletar e validar dados do usuário.",
     contentDescription: "Componentes para exibir texto, imagens e outro conteúdo.",
     layoutDescription: "Componentes estruturais para organizar e dispor conteúdo.",
     overlaysDescription: "Componentes que aparecem acima de outro conteúdo, como modais e diálogos.",
-    feedbackDescription: "Componentes que fornecem feedback visual aos usuários, como estados de carregamento.",
+    feedbackDescription:
+      "Componentes que fornecem feedback visual aos usuários, como estados de carregamento.",
     navigationDescription: "Componentes para navegar entre diferentes seções e páginas.",
+
+    // Component descriptions
+    buttonDescription: "Botões interativos com múltiplas variantes e tamanhos.",
+    iconButtonDescription: "Botões apenas com ícone para ações compactas.",
+    inputDescription: "Campos de texto com múltiplos tamanhos e estados.",
+    textareaDescription: "Componente de entrada de texto em múltiplas linhas.",
+    autocompleteDescription: "Input com autocompletar e seleção em lista.",
+    searchDescription: "Campo de busca com debounce e seleção de opções.",
+    dateInputDescription: "Campo de seleção de data.",
+    calendarDescription: "Componente de calendário para seleção de datas.",
+    counterDescription: "Stepper numérico com incremento e decremento.",
+    typoDescription: "Componente de tipografia com variantes do design system.",
+    avatarDescription: "Avatar de usuário com iniciais de fallback.",
+    chipDescription: "Componente de tags e labels com múltiplas variantes.",
+    cardDescription: "Container com decorações opcionais.",
+    modalDescription: "Diálogo modal com blur no fundo.",
+    skeletonDescription: "Placeholder de carregamento.",
+    iconDescription: "Ícones Material Symbols Rounded.",
+    breadcrumbDescription: "Componente de navegação em breadcrumb.",
+    separatorDescription: "Separador visual.",
+    appBackgroundComponentDescription:
+      "Fundo de página completa com suporte a modo claro/escuro.",
+    messageBubbleDescription: "Bolha de mensagem de chat.",
+
+    // Example titles
+    exampleVariants: "Variantes",
+    exampleSizes: "Tamanhos",
+    exampleBasicInput: "Input básico",
+    exampleWithLabel: "Com label",
+    exampleBasicTextarea: "Textarea básico",
+    exampleInlineVariant: "Variante inline",
+    exampleAutocomplete: "Autocomplete",
+    exampleSearch: "Search",
+    exampleDateInput: "Date Input",
+    exampleCalendar: "Calendar",
+    exampleCounter: "Counter",
+    exampleScale: "Escala",
+    exampleBasicCard: "Card básico",
+    exampleChipVariants: "Variantes de Chip",
+    exampleAvatar: "Avatar",
+    exampleModal: "Modal",
+    exampleSkeleton: "Skeleton",
+    exampleIcons: "Ícones",
+    exampleBreadcrumb: "Breadcrumb",
+    exampleSeparator: "Separator",
+    exampleAppBackground: "App Background",
+    exampleMessageBubble: "Message Bubble",
+
+    // Example descriptions
+    buttonVariantsDesc: "Diferentes variantes de botão",
+    buttonSizesDesc: "Diferentes tamanhos de botão",
+    iconButtonVariantsDesc: "Botões de ícone ghost, primary e secondary",
+    iconButtonSizesDesc: "Botões de ícone pequenos, médios e grandes",
+    inputBasicDesc: "Campo de texto padrão",
+    inputLabelDesc: "Input com label flutuante",
+    textareaBasicDesc: "Entrada de texto em múltiplas linhas",
+    textareaInlineDesc: "Textarea sem borda para layouts compactos",
+    autocompleteExampleDesc: "Filtre e selecione a partir de uma lista de opções",
+    searchExampleDesc: "Campo de busca com debounce e seleção de opções",
+    dateInputExampleDesc: "Data digitada ou escolhida no calendário",
+    calendarExampleDesc: "Grade mensal independente para seleção de data",
+    counterExampleDesc: "Incremente e decremente um valor numérico",
+    typoScaleDesc: "Variantes de tipografia dos design tokens",
+    cardBasicDesc: "Componente de card simples",
+    chipVariantsDesc: "Diferentes estilos de chip",
+    avatarExampleDesc: "Componente de avatar de usuário",
+    modalExampleDesc: "Componente de diálogo modal",
+    skeletonExampleDesc: "Placeholder de carregamento",
+    iconExampleDesc: "Ícones Material Symbols Rounded em tamanhos diferentes",
+    breadcrumbExampleDesc: "Trilha de navegação hierárquica",
+    separatorExampleDesc: "Linha horizontal entre conteúdos",
+    appBackgroundExampleDesc:
+      "Fundo claro/escuro de página completa. A prévia é recortada para caber no card de demonstração.",
+    messageBubbleExampleDesc: "Bolhas de chat alinhadas à esquerda ou à direita",
+
+    // Demo labels
+    demoPrimary: "Primário",
+    demoSecondary: "Secundário",
+    demoGhost: "Ghost",
+    demoExtraSmall: "Extra pequeno",
+    demoSmall: "Pequeno",
+    demoMedium: "Médio",
+    demoLarge: "Grande",
+    demoEnterText: "Digite o texto...",
+    demoEmail: "E-mail",
+    demoEmailPlaceholder: "voce@exemplo.com",
+    demoWriteMessage: "Escreva uma mensagem...",
+    demoInlineTextarea: "Textarea inline...",
+    demoAssignee: "Responsável",
+    demoSearchPeople: "Buscar pessoas…",
+    demoSearch: "Buscar…",
+    demoStartDate: "Data de início",
+    demoDisplaySmall: "Display pequeno",
+    demoHeadlineMedium: "Headline médio",
+    demoTitleMedium: "Title médio",
+    demoBodyMedium: "Body médio para parágrafos e textos de interface.",
+    demoLabelMuted: "Label médio (muted)",
+    demoCardTitle: "Título do card",
+    demoCardContent: "O conteúdo do card vai aqui",
+    demoSuccess: "Sucesso",
+    demoWarning: "Alerta",
+    demoError: "Erro",
+    demoOpenModal: "Abrir modal",
+    demoModalTitle: "Título do modal",
+    demoModalBody: "Este é um exemplo de diálogo modal.",
+    demoClose: "Fechar",
+    demoPageContent: "Conteúdo da página",
+    demoContentAbove: "Conteúdo acima",
+    demoContentBelow: "Conteúdo abaixo",
+    demoMessageLeft: "Oi, você está por aí?",
+    demoMessageRight: "Sim — enviando os arquivos agora.",
+    demoSearchAria: "Buscar",
+    demoAddAria: "Adicionar",
+    demoSettingsAria: "Configurações",
+    demoFavoriteAria: "Favoritar",
+
+    // Prop descriptions
+    propButtonVariant: "Variante visual do botão",
+    propButtonSize: "Tamanho do botão",
+    propButtonFullWidth: "Faz o botão ocupar a largura total",
+    propInputSize: "Tamanho do input",
+    propInputDisabled: "Desabilita o input",
+    propInputPlaceholder: "Texto de placeholder",
   },
   en: {
     // Header
     toggleMenu: "Toggle menu",
     githubRepository: "GitHub Repository",
     toggleDarkMode: "Toggle dark mode",
+    selectLanguage: "Select language",
     light: "Light",
     dark: "Dark",
-    
+
     // Home Page
     version: "Version",
     buildBeautifulUIs: "Build Beautiful UIs with NeoPTO",
-    homeDescription: "A modern React component library built with Tailwind CSS v4 and TypeScript. Features dark mode, design tokens, and comprehensive documentation.",
+    homeDescription:
+      "A modern React component library built with Tailwind CSS v4 and TypeScript. Features dark mode, design tokens, and comprehensive documentation.",
     getStarted: "Get Started",
     viewOnGitHub: "View on GitHub",
     designTokens: "Design Tokens",
-    designTokensDescription: "Built with a comprehensive design token system for consistent styling and easy theming.",
+    designTokensDescription:
+      "Built with a comprehensive design token system for consistent styling and easy theming.",
     darkMode: "Dark Mode",
-    darkModeDescription: "Full dark mode support with smooth transitions and automatic theme detection.",
+    darkModeDescription:
+      "Full dark mode support with smooth transitions and automatic theme detection.",
     typescript: "TypeScript",
-    typescriptDescription: "Fully typed components with IntelliSense support and comprehensive type definitions.",
+    typescriptDescription:
+      "Fully typed components with IntelliSense support and comprehensive type definitions.",
     components: "Components",
     componentsDescription: "Explore {count} ready-to-use components organized by category.",
     componentsCount: "{count} components",
@@ -124,7 +286,7 @@ export const translations = {
     gettingStartedDescription: "Learn how to install and use the library",
     designTokensPage: "Design Tokens",
     designTokensPageDescription: "Explore colors, typography, and spacing",
-    
+
     // Getting Started Page
     gettingStartedTitle: "Getting Started",
     gettingStartedSubtitle: "Learn how to install and use NeoPTO UI in your React project.",
@@ -148,8 +310,9 @@ export const translations = {
     appBackgroundDescription: "Use the AppBackground component for full-page backgrounds",
     requirements: "Requirements",
     requirementsDescription: "Important information about dependencies",
-    requirementsWarning: "⚠️ This library requires Tailwind CSS v4+. Make sure you have the latest version installed.",
-    
+    requirementsWarning:
+      "⚠️ This library requires Tailwind CSS v4+. Make sure you have the latest version installed.",
+
     // Design Tokens Page
     designTokensTitle: "Design Tokens",
     designTokensSubtitle: "Explore the design system tokens used throughout the component library.",
@@ -168,20 +331,46 @@ export const translations = {
     elevatedShadow: "Elevated Shadow",
     preview: "Preview",
     exampleText: "Example Text",
-    
+    colorBrand: "Brand",
+    colorSuccess: "Success",
+    colorWarning: "Warning",
+    colorDestructive: "Destructive",
+    colorInfo: "Info",
+    colorBackground: "Background",
+    colorSurface: "Surface",
+    colorForeground: "Foreground",
+    colorMuted: "Muted",
+    colorMutedForeground: "Muted Foreground",
+    colorBorder: "Border",
+    radiusSmall: "Small",
+    radiusMedium: "Medium",
+    radiusLarge: "Large",
+    radiusXl: "Extra Large",
+
     // Sidebar
     home: "Home",
-    
+
     // Component Showcase
     componentNotFound: "Component not found",
     returnToHome: "Return to home",
     props: "Props",
-    
+    prop: "Prop",
+    propType: "Type",
+    propDefault: "Default",
+    propDescription: "Description",
+
     // Category Page
     categoryNotFound: "Category not found",
     componentsInCategory: "Components ({count})",
     componentsInThisCategory: "Components in this category.",
-    
+    categoryActions: "Actions",
+    categoryForms: "Forms",
+    categoryContent: "Content",
+    categoryLayout: "Layout",
+    categoryOverlays: "Overlays",
+    categoryFeedback: "Feedback",
+    categoryNavigation: "Navigation",
+
     // Category Descriptions
     actionsDescription: "Interactive components that trigger actions and user interactions.",
     formsDescription: "Input components for collecting and validating user data.",
@@ -190,20 +379,160 @@ export const translations = {
     overlaysDescription: "Components that appear above other content, such as modals and dialogs.",
     feedbackDescription: "Components that provide visual feedback to users, such as loading states.",
     navigationDescription: "Components for navigating between different sections and pages.",
+
+    // Component descriptions
+    buttonDescription: "Interactive buttons with multiple variants and sizes.",
+    iconButtonDescription: "Icon-only buttons for compact actions.",
+    inputDescription: "Text input fields with multiple sizes and states.",
+    textareaDescription: "Multi-line text input component.",
+    autocompleteDescription: "Autocomplete input with dropdown selection.",
+    searchDescription: "Search input with debouncing and option selection.",
+    dateInputDescription: "Date picker input component.",
+    calendarDescription: "Calendar component for date selection.",
+    counterDescription: "Number stepper component with increment/decrement.",
+    typoDescription: "Typography component with design token variants.",
+    avatarDescription: "User avatar component with fallback initials.",
+    chipDescription: "Tag and label component with multiple variants.",
+    cardDescription: "Container component with optional decorations.",
+    modalDescription: "Dialog modal component with backdrop blur.",
+    skeletonDescription: "Loading placeholder component.",
+    iconDescription: "Material Symbols Rounded icon component.",
+    breadcrumbDescription: "Breadcrumb navigation component.",
+    separatorDescription: "Visual separator component.",
+    appBackgroundComponentDescription: "Full-page background with light/dark mode support.",
+    messageBubbleDescription: "Chat message bubble component.",
+
+    // Example titles
+    exampleVariants: "Variants",
+    exampleSizes: "Sizes",
+    exampleBasicInput: "Basic Input",
+    exampleWithLabel: "With label",
+    exampleBasicTextarea: "Basic Textarea",
+    exampleInlineVariant: "Inline variant",
+    exampleAutocomplete: "Autocomplete",
+    exampleSearch: "Search",
+    exampleDateInput: "Date Input",
+    exampleCalendar: "Calendar",
+    exampleCounter: "Counter",
+    exampleScale: "Scale",
+    exampleBasicCard: "Basic Card",
+    exampleChipVariants: "Chip Variants",
+    exampleAvatar: "Avatar",
+    exampleModal: "Modal",
+    exampleSkeleton: "Skeleton",
+    exampleIcons: "Icons",
+    exampleBreadcrumb: "Breadcrumb",
+    exampleSeparator: "Separator",
+    exampleAppBackground: "App Background",
+    exampleMessageBubble: "Message Bubble",
+
+    // Example descriptions
+    buttonVariantsDesc: "Different button variants",
+    buttonSizesDesc: "Different button sizes",
+    iconButtonVariantsDesc: "Ghost, primary, and secondary icon buttons",
+    iconButtonSizesDesc: "Small, medium, and large icon buttons",
+    inputBasicDesc: "Standard text input",
+    inputLabelDesc: "Input with a floating label",
+    textareaBasicDesc: "Multi-line text input",
+    textareaInlineDesc: "Borderless textarea for compact layouts",
+    autocompleteExampleDesc: "Filter and select from a list of options",
+    searchExampleDesc: "Debounced search input with option selection",
+    dateInputExampleDesc: "Typed or calendar-picked date",
+    calendarExampleDesc: "Standalone month grid for date selection",
+    counterExampleDesc: "Increment and decrement a numeric value",
+    typoScaleDesc: "Typography variants from the design tokens",
+    cardBasicDesc: "Simple card component",
+    chipVariantsDesc: "Different chip styles",
+    avatarExampleDesc: "User avatar component",
+    modalExampleDesc: "Dialog modal component",
+    skeletonExampleDesc: "Loading placeholder",
+    iconExampleDesc: "Material Symbols Rounded glyphs at different sizes",
+    breadcrumbExampleDesc: "Hierarchical navigation trail",
+    separatorExampleDesc: "Horizontal rule between content",
+    appBackgroundExampleDesc:
+      "Full-page light/dark background. Preview is clipped so it stays in the demo card.",
+    messageBubbleExampleDesc: "Chat bubbles aligned left or right",
+
+    // Demo labels
+    demoPrimary: "Primary",
+    demoSecondary: "Secondary",
+    demoGhost: "Ghost",
+    demoExtraSmall: "Extra small",
+    demoSmall: "Small",
+    demoMedium: "Medium",
+    demoLarge: "Large",
+    demoEnterText: "Enter text...",
+    demoEmail: "Email",
+    demoEmailPlaceholder: "you@example.com",
+    demoWriteMessage: "Write a message...",
+    demoInlineTextarea: "Inline textarea...",
+    demoAssignee: "Assignee",
+    demoSearchPeople: "Search people…",
+    demoSearch: "Search…",
+    demoStartDate: "Start date",
+    demoDisplaySmall: "Display small",
+    demoHeadlineMedium: "Headline medium",
+    demoTitleMedium: "Title medium",
+    demoBodyMedium: "Body medium for paragraphs and UI copy.",
+    demoLabelMuted: "Label medium (muted)",
+    demoCardTitle: "Card Title",
+    demoCardContent: "Card content goes here",
+    demoSuccess: "Success",
+    demoWarning: "Warning",
+    demoError: "Error",
+    demoOpenModal: "Open Modal",
+    demoModalTitle: "Modal Title",
+    demoModalBody: "This is a modal dialog example.",
+    demoClose: "Close",
+    demoPageContent: "Page content",
+    demoContentAbove: "Content above",
+    demoContentBelow: "Content below",
+    demoMessageLeft: "Hey, are you around?",
+    demoMessageRight: "Yes — sending the files now.",
+    demoSearchAria: "Search",
+    demoAddAria: "Add",
+    demoSettingsAria: "Settings",
+    demoFavoriteAria: "Favorite",
+
+    // Prop descriptions
+    propButtonVariant: "Button visual variant",
+    propButtonSize: "Button size",
+    propButtonFullWidth: "Make button full width",
+    propInputSize: "Input size",
+    propInputDisabled: "Disable the input",
+    propInputPlaceholder: "Placeholder text",
   },
 } as const;
 
 export type TranslationKey = keyof typeof translations.pt;
 
-export const getTranslation = (key: TranslationKey, lang: Language, params?: Record<string, string | number>): string => {
+export type TranslateFn = (
+  key: TranslationKey,
+  params?: Record<string, string | number>
+) => string;
+
+export const categoryNameKeys: Record<string, TranslationKey> = {
+  Actions: "categoryActions",
+  Forms: "categoryForms",
+  Content: "categoryContent",
+  Layout: "categoryLayout",
+  Overlays: "categoryOverlays",
+  Feedback: "categoryFeedback",
+  Navigation: "categoryNavigation",
+};
+
+export const getTranslation = (
+  key: TranslationKey,
+  lang: Language,
+  params?: Record<string, string | number>
+): string => {
   const translation = translations[lang][key] || translations.pt[key];
-  
+
   if (params) {
     return translation.replace(/\{(\w+)\}/g, (match, paramKey) => {
       return params[paramKey]?.toString() || match;
     });
   }
-  
+
   return translation;
 };
-

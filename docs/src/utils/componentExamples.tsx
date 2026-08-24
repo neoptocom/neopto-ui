@@ -22,6 +22,7 @@ import { Separator } from "../../../src/components/Separator";
 import { AppBackground } from "../../../src/components/AppBackground";
 import { MessageBubble } from "../../../src/components/MessageBubble";
 import { useState, type ReactNode } from "react";
+import { TranslateFn } from "./translations";
 
 type ComponentExample = {
   title: string;
@@ -43,17 +44,20 @@ const SEARCH_OPTIONS: SearchOption[] = PEOPLE.map((person) => ({
   value: person.value,
 }));
 
-export function getComponentExamples(componentId: string): ComponentExample[] {
+export function getComponentExamples(
+  componentId: string,
+  t: TranslateFn
+): ComponentExample[] {
   const examplesMap: Record<string, ComponentExample[]> = {
     button: [
       {
-        title: "Variants",
-        description: "Different button variants",
+        title: t("exampleVariants"),
+        description: t("buttonVariantsDesc"),
         demo: (
           <div className="flex gap-4 flex-wrap">
-            <Button variant="primary">Primary</Button>
-            <Button variant="secondary">Secondary</Button>
-            <Button variant="ghost">Ghost</Button>
+            <Button variant="primary">{t("demoPrimary")}</Button>
+            <Button variant="secondary">{t("demoSecondary")}</Button>
+            <Button variant="ghost">{t("demoGhost")}</Button>
           </div>
         ),
         code: `<Button variant="primary">Primary</Button>
@@ -61,14 +65,14 @@ export function getComponentExamples(componentId: string): ComponentExample[] {
 <Button variant="ghost">Ghost</Button>`,
       },
       {
-        title: "Sizes",
-        description: "Different button sizes",
+        title: t("exampleSizes"),
+        description: t("buttonSizesDesc"),
         demo: (
           <div className="flex gap-4 items-center flex-wrap">
-            <Button size="xs">Extra small</Button>
-            <Button size="sm">Small</Button>
-            <Button size="md">Medium</Button>
-            <Button size="lg">Large</Button>
+            <Button size="xs">{t("demoExtraSmall")}</Button>
+            <Button size="sm">{t("demoSmall")}</Button>
+            <Button size="md">{t("demoMedium")}</Button>
+            <Button size="lg">{t("demoLarge")}</Button>
           </div>
         ),
         code: `<Button size="xs">Extra small</Button>
@@ -79,13 +83,13 @@ export function getComponentExamples(componentId: string): ComponentExample[] {
     ],
     "icon-button": [
       {
-        title: "Variants",
-        description: "Ghost, primary, and secondary icon buttons",
+        title: t("exampleVariants"),
+        description: t("iconButtonVariantsDesc"),
         demo: (
           <div className="flex gap-4 items-center flex-wrap">
-            <IconButton icon="search" variant="ghost" aria-label="Search" />
-            <IconButton icon="add" variant="primary" aria-label="Add" />
-            <IconButton icon="settings" variant="secondary" aria-label="Settings" />
+            <IconButton icon="search" variant="ghost" aria-label={t("demoSearchAria")} />
+            <IconButton icon="add" variant="primary" aria-label={t("demoAddAria")} />
+            <IconButton icon="settings" variant="secondary" aria-label={t("demoSettingsAria")} />
           </div>
         ),
         code: `<IconButton icon="search" variant="ghost" aria-label="Search" />
@@ -93,13 +97,13 @@ export function getComponentExamples(componentId: string): ComponentExample[] {
 <IconButton icon="settings" variant="secondary" aria-label="Settings" />`,
       },
       {
-        title: "Sizes",
-        description: "Small, medium, and large icon buttons",
+        title: t("exampleSizes"),
+        description: t("iconButtonSizesDesc"),
         demo: (
           <div className="flex gap-4 items-center flex-wrap">
-            <IconButton icon="favorite" size="sm" aria-label="Favorite" />
-            <IconButton icon="favorite" size="md" aria-label="Favorite" />
-            <IconButton icon="favorite" size="lg" aria-label="Favorite" />
+            <IconButton icon="favorite" size="sm" aria-label={t("demoFavoriteAria")} />
+            <IconButton icon="favorite" size="md" aria-label={t("demoFavoriteAria")} />
+            <IconButton icon="favorite" size="lg" aria-label={t("demoFavoriteAria")} />
           </div>
         ),
         code: `<IconButton icon="favorite" size="sm" />
@@ -109,37 +113,37 @@ export function getComponentExamples(componentId: string): ComponentExample[] {
     ],
     input: [
       {
-        title: "Basic Input",
-        description: "Standard text input",
-        demo: <Input placeholder="Enter text..." />,
+        title: t("exampleBasicInput"),
+        description: t("inputBasicDesc"),
+        demo: <Input placeholder={t("demoEnterText")} />,
         code: `<Input placeholder="Enter text..." />`,
       },
       {
-        title: "With label",
-        description: "Input with a floating label",
-        demo: <Input label="Email" placeholder="you@example.com" />,
+        title: t("exampleWithLabel"),
+        description: t("inputLabelDesc"),
+        demo: <Input label={t("demoEmail")} placeholder={t("demoEmailPlaceholder")} />,
         code: `<Input label="Email" placeholder="you@example.com" />`,
       },
     ],
     textarea: [
       {
-        title: "Basic Textarea",
-        description: "Multi-line text input",
-        demo: <Textarea placeholder="Write a message..." />,
+        title: t("exampleBasicTextarea"),
+        description: t("textareaBasicDesc"),
+        demo: <Textarea placeholder={t("demoWriteMessage")} />,
         code: `<Textarea placeholder="Write a message..." />`,
       },
       {
-        title: "Inline variant",
-        description: "Borderless textarea for compact layouts",
-        demo: <Textarea variant="inline" placeholder="Inline textarea..." />,
+        title: t("exampleInlineVariant"),
+        description: t("textareaInlineDesc"),
+        demo: <Textarea variant="inline" placeholder={t("demoInlineTextarea")} />,
         code: `<Textarea variant="inline" placeholder="Inline textarea..." />`,
       },
     ],
     autocomplete: [
       {
-        title: "Autocomplete",
-        description: "Filter and select from a list of options",
-        demo: <AutocompleteDemo />,
+        title: t("exampleAutocomplete"),
+        description: t("autocompleteExampleDesc"),
+        demo: <AutocompleteDemo t={t} />,
         code: `const [selected, setSelected] = useState(null);
 
 <Autocomplete
@@ -156,9 +160,9 @@ export function getComponentExamples(componentId: string): ComponentExample[] {
     ],
     search: [
       {
-        title: "Search",
-        description: "Debounced search input with option selection",
-        demo: <SearchDemo />,
+        title: t("exampleSearch"),
+        description: t("searchExampleDesc"),
+        demo: <SearchDemo t={t} />,
         code: `const [selected, setSelected] = useState(null);
 
 <Search
@@ -174,9 +178,9 @@ export function getComponentExamples(componentId: string): ComponentExample[] {
     ],
     "date-input": [
       {
-        title: "Date Input",
-        description: "Typed or calendar-picked date",
-        demo: <DateInputDemo />,
+        title: t("exampleDateInput"),
+        description: t("dateInputExampleDesc"),
+        demo: <DateInputDemo t={t} />,
         code: `const [date, setDate] = useState(null);
 
 <DateInput label="Start date" value={date} onChange={setDate} />`,
@@ -184,8 +188,8 @@ export function getComponentExamples(componentId: string): ComponentExample[] {
     ],
     calendar: [
       {
-        title: "Calendar",
-        description: "Standalone month grid for date selection",
+        title: t("exampleCalendar"),
+        description: t("calendarExampleDesc"),
         demo: <CalendarDemo />,
         code: `const [date, setDate] = useState(new Date());
 
@@ -198,8 +202,8 @@ export function getComponentExamples(componentId: string): ComponentExample[] {
     ],
     counter: [
       {
-        title: "Counter",
-        description: "Increment and decrement a numeric value",
+        title: t("exampleCounter"),
+        description: t("counterExampleDesc"),
         demo: <CounterDemo />,
         code: `const [count, setCount] = useState(1);
 
@@ -208,22 +212,22 @@ export function getComponentExamples(componentId: string): ComponentExample[] {
     ],
     typo: [
       {
-        title: "Scale",
-        description: "Typography variants from the design tokens",
+        title: t("exampleScale"),
+        description: t("typoScaleDesc"),
         demo: (
           <div className="flex flex-col gap-3">
             <Typo variant="display-sm" bold="bold">
-              Display small
+              {t("demoDisplaySmall")}
             </Typo>
             <Typo variant="headline-md" bold="semibold">
-              Headline medium
+              {t("demoHeadlineMedium")}
             </Typo>
             <Typo variant="title-md" bold="medium">
-              Title medium
+              {t("demoTitleMedium")}
             </Typo>
-            <Typo variant="body-md">Body medium for paragraphs and UI copy.</Typo>
+            <Typo variant="body-md">{t("demoBodyMedium")}</Typo>
             <Typo variant="label-md" muted>
-              Label medium (muted)
+              {t("demoLabelMuted")}
             </Typo>
           </div>
         ),
@@ -236,15 +240,15 @@ export function getComponentExamples(componentId: string): ComponentExample[] {
     ],
     card: [
       {
-        title: "Basic Card",
-        description: "Simple card component",
+        title: t("exampleBasicCard"),
+        description: t("cardBasicDesc"),
         demo: (
           <Card className="p-6">
             <Typo variant="headline-sm" bold="semibold">
-              Card Title
+              {t("demoCardTitle")}
             </Typo>
             <Typo variant="body-md" className="text-text-secondary">
-              Card content goes here
+              {t("demoCardContent")}
             </Typo>
           </Card>
         ),
@@ -256,15 +260,15 @@ export function getComponentExamples(componentId: string): ComponentExample[] {
     ],
     chip: [
       {
-        title: "Chip Variants",
-        description: "Different chip styles",
+        title: t("exampleChipVariants"),
+        description: t("chipVariantsDesc"),
         demo: (
           <div className="flex gap-2 flex-wrap">
-            <Chip label="Success" variant="success" />
-            <Chip label="Warning" variant="warning" />
-            <Chip label="Error" variant="error" />
-            <Chip label="Light" variant="light" />
-            <Chip label="Dark" variant="dark" />
+            <Chip label={t("demoSuccess")} variant="success" />
+            <Chip label={t("demoWarning")} variant="warning" />
+            <Chip label={t("demoError")} variant="error" />
+            <Chip label={t("light")} variant="light" />
+            <Chip label={t("dark")} variant="dark" />
           </div>
         ),
         code: `<Chip label="Success" variant="success" />
@@ -276,8 +280,8 @@ export function getComponentExamples(componentId: string): ComponentExample[] {
     ],
     avatar: [
       {
-        title: "Avatar",
-        description: "User avatar component",
+        title: t("exampleAvatar"),
+        description: t("avatarExampleDesc"),
         demo: (
           <div className="flex gap-4 items-center">
             <Avatar name="John Doe" />
@@ -299,9 +303,9 @@ export function getComponentExamples(componentId: string): ComponentExample[] {
     ],
     modal: [
       {
-        title: "Modal",
-        description: "Dialog modal component",
-        demo: <ModalDemo />,
+        title: t("exampleModal"),
+        description: t("modalExampleDesc"),
+        demo: <ModalDemo t={t} />,
         code: `<Modal open={isOpen} onClose={() => setIsOpen(false)}>
   <Typo variant="headline-md">Modal Title</Typo>
   <Typo variant="body-md">Modal content</Typo>
@@ -310,8 +314,8 @@ export function getComponentExamples(componentId: string): ComponentExample[] {
     ],
     skeleton: [
       {
-        title: "Skeleton",
-        description: "Loading placeholder",
+        title: t("exampleSkeleton"),
+        description: t("skeletonExampleDesc"),
         demo: (
           <div className="space-y-4">
             <Skeleton className="h-4 w-full" />
@@ -325,8 +329,8 @@ export function getComponentExamples(componentId: string): ComponentExample[] {
     ],
     icon: [
       {
-        title: "Icons",
-        description: "Material Symbols Rounded glyphs at different sizes",
+        title: t("exampleIcons"),
+        description: t("iconExampleDesc"),
         demo: (
           <div className="flex gap-6 items-center flex-wrap">
             <Icon name="home" size="sm" />
@@ -343,13 +347,13 @@ export function getComponentExamples(componentId: string): ComponentExample[] {
     ],
     breadcrumb: [
       {
-        title: "Breadcrumb",
-        description: "Hierarchical navigation trail",
+        title: t("exampleBreadcrumb"),
+        description: t("breadcrumbExampleDesc"),
         demo: (
           <Breadcrumb
             items={[
-              { label: "Home", href: "#" },
-              { label: "Components", href: "#" },
+              { label: t("home"), href: "#" },
+              { label: t("components"), href: "#" },
               { label: "Breadcrumb" },
             ]}
           />
@@ -365,13 +369,13 @@ export function getComponentExamples(componentId: string): ComponentExample[] {
     ],
     separator: [
       {
-        title: "Separator",
-        description: "Horizontal rule between content",
+        title: t("exampleSeparator"),
+        description: t("separatorExampleDesc"),
         demo: (
           <div>
-            <Typo variant="body-md">Content above</Typo>
+            <Typo variant="body-md">{t("demoContentAbove")}</Typo>
             <Separator />
-            <Typo variant="body-md">Content below</Typo>
+            <Typo variant="body-md">{t("demoContentBelow")}</Typo>
           </div>
         ),
         code: `<Typo variant="body-md">Content above</Typo>
@@ -381,9 +385,8 @@ export function getComponentExamples(componentId: string): ComponentExample[] {
     ],
     "app-background": [
       {
-        title: "App Background",
-        description:
-          "Full-page light/dark background. Preview is clipped so it stays in the demo card.",
+        title: t("exampleAppBackground"),
+        description: t("appBackgroundExampleDesc"),
         demo: (
           <div
             className="relative h-48 overflow-hidden rounded-2xl"
@@ -393,7 +396,7 @@ export function getComponentExamples(componentId: string): ComponentExample[] {
               <div className="flex h-48 items-center justify-center">
                 <Card className="px-6 py-4">
                   <Typo variant="title-md" bold="semibold">
-                    Page content
+                    {t("demoPageContent")}
                   </Typo>
                 </Card>
               </div>
@@ -407,19 +410,19 @@ export function getComponentExamples(componentId: string): ComponentExample[] {
     ],
     "message-bubble": [
       {
-        title: "Message Bubble",
-        description: "Chat bubbles aligned left or right",
+        title: t("exampleMessageBubble"),
+        description: t("messageBubbleExampleDesc"),
         demo: (
           <div className="flex flex-col gap-3 max-w-sm">
             <div className="self-start">
               <MessageBubble direction="left">
-                <Typo variant="body-md">Hey, are you around?</Typo>
+                <Typo variant="body-md">{t("demoMessageLeft")}</Typo>
               </MessageBubble>
             </div>
             <div className="self-end">
               <MessageBubble direction="right" color="var(--color-brand)">
                 <Typo variant="body-md" className="text-white">
-                  Yes — sending the files now.
+                  {t("demoMessageRight")}
                 </Typo>
               </MessageBubble>
             </div>
@@ -438,33 +441,33 @@ export function getComponentExamples(componentId: string): ComponentExample[] {
   return examplesMap[componentId] || [];
 }
 
-function ModalDemo() {
+function ModalDemo({ t }: { t: TranslateFn }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <Button onClick={() => setIsOpen(true)}>Open Modal</Button>
+      <Button onClick={() => setIsOpen(true)}>{t("demoOpenModal")}</Button>
       <Modal open={isOpen} onClose={() => setIsOpen(false)}>
         <Typo variant="headline-md" bold="bold">
-          Modal Title
+          {t("demoModalTitle")}
         </Typo>
         <Typo variant="body-md" className="text-text-secondary">
-          This is a modal dialog example.
+          {t("demoModalBody")}
         </Typo>
-        <Button onClick={() => setIsOpen(false)}>Close</Button>
+        <Button onClick={() => setIsOpen(false)}>{t("demoClose")}</Button>
       </Modal>
     </>
   );
 }
 
-function AutocompleteDemo() {
+function AutocompleteDemo({ t }: { t: TranslateFn }) {
   const [selected, setSelected] = useState<AutocompleteOption | string | null>(
     null
   );
   return (
     <div className="max-w-md">
       <Autocomplete
-        title="Assignee"
-        placeholder="Search people…"
+        title={t("demoAssignee")}
+        placeholder={t("demoSearchPeople")}
         options={PEOPLE}
         selectedOption={selected}
         onSelect={setSelected}
@@ -473,14 +476,14 @@ function AutocompleteDemo() {
   );
 }
 
-function SearchDemo() {
+function SearchDemo({ t }: { t: TranslateFn }) {
   const [selected, setSelected] = useState<SearchOption | string | null>(null);
   const [results, setResults] = useState<SearchOption[]>(SEARCH_OPTIONS);
 
   return (
     <div className="max-w-md">
       <Search
-        placeholder="Search…"
+        placeholder={t("demoSearch")}
         options={results}
         selectedOption={selected}
         onSelect={setSelected}
@@ -499,11 +502,11 @@ function SearchDemo() {
   );
 }
 
-function DateInputDemo() {
+function DateInputDemo({ t }: { t: TranslateFn }) {
   const [date, setDate] = useState<Date | null>(null);
   return (
     <div className="max-w-md">
-      <DateInput label="Start date" value={date} onChange={setDate} />
+      <DateInput label={t("demoStartDate")} value={date} onChange={setDate} />
     </div>
   );
 }

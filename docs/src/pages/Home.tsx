@@ -5,6 +5,7 @@ import Icon from "../../../src/components/Icon";
 import { Card } from "../../../src/components/Card";
 import { componentsConfig, componentCategories } from "../config/components";
 import { useLanguage } from "../contexts/LanguageContext";
+import { categoryNameKeys } from "../utils/translations";
 
 export default function Home() {
   const { t } = useLanguage();
@@ -12,17 +13,17 @@ export default function Home() {
   const features = [
     {
       icon: "palette",
-      title: "Design Tokens",
+      title: t("designTokens"),
       description: t("designTokensDescription"),
     },
     {
       icon: "dark_mode",
-      title: "Dark Mode",
+      title: t("darkMode"),
       description: t("darkModeDescription"),
     },
     {
       icon: "code",
-      title: "TypeScript",
+      title: t("typescript"),
       description: t("typescriptDescription"),
     },
   ];
@@ -31,13 +32,13 @@ export default function Home() {
     {
       path: "/getting-started",
       icon: "rocket_launch",
-      title: "Getting Started",
+      title: t("gettingStarted"),
       description: t("gettingStartedDescription"),
     },
     {
       path: "/design-tokens",
       icon: "palette",
-      title: "Design Tokens",
+      title: t("designTokensPage"),
       description: t("designTokensPageDescription"),
     },
   ];
@@ -124,7 +125,7 @@ export default function Home() {
       <section className="space-y-6">
         <div className="flex flex-col gap-2">
           <Typo variant="headline-md" bold="bold">
-            Components
+            {t("components")}
           </Typo>
           <Typo variant="body-md" className="text-text-secondary">
             {t("componentsDescription", { count: componentsConfig.length })}
@@ -147,7 +148,7 @@ export default function Home() {
                   </Typo>
                 </div>
                 <Typo variant="headline-sm" bold="semibold">
-                  {category.name}
+                  {t(categoryNameKeys[category.name] ?? "components")}
                 </Typo>
               </Card>
             </Link>
@@ -158,7 +159,7 @@ export default function Home() {
       {/* Quick Links */}
       <section className="bg-background-secondary rounded-lg border border-gray-700 dark:border-gray-300 p-8">
         <Typo variant="headline-sm" bold="semibold" className="mb-6">
-          Quick Links
+          {t("quickLinks")}
         </Typo>
         <div className="grid md:grid-cols-2 gap-4">
           {quickLinks.map((link) => (

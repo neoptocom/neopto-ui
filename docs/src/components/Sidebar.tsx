@@ -5,6 +5,7 @@ import Typo from "../../../src/components/Typo";
 import Icon from "../../../src/components/Icon";
 import { useLanguage } from "../contexts/LanguageContext";
 import { VERSION } from "../config/version";
+import { categoryNameKeys } from "../utils/translations";
 
 type SidebarProps = {
   isOpen: boolean;
@@ -47,8 +48,8 @@ export default function Sidebar({ isOpen, onClose, currentPath }: SidebarProps) 
 
   const menuItems = [
     { path: "/", label: t("home"), icon: "home" },
-    { path: "/getting-started", label: "Getting Started", icon: "rocket_launch" },
-    { path: "/design-tokens", label: "Design Tokens", icon: "palette" },
+    { path: "/getting-started", label: t("gettingStarted"), icon: "rocket_launch" },
+    { path: "/design-tokens", label: t("designTokensPage"), icon: "palette" },
   ];
 
   const isActive = (path: string) => {
@@ -110,7 +111,7 @@ export default function Sidebar({ isOpen, onClose, currentPath }: SidebarProps) 
             <div className="inline-flex items-center justify-center  gap-2 px-3 py-1.5 bg-[--color-brand]/10 text-[--color-brand] rounded-full">
               <Icon name="stars" size="sm" />
               <Typo variant="label-sm" bold="medium">
-                Version {VERSION}
+                {t("version")} {VERSION}
               </Typo>
             </div>
           </div>
@@ -145,7 +146,7 @@ export default function Sidebar({ isOpen, onClose, currentPath }: SidebarProps) 
           {/* Components Section */}
           <div className="mb-4">
             <Typo variant="label-md" bold="semibold" className="text-text-secondary uppercase tracking-wide px-4 mb-0">
-              Components
+              {t("components")}
             </Typo>
           </div>
 
@@ -176,7 +177,9 @@ export default function Sidebar({ isOpen, onClose, currentPath }: SidebarProps) 
                       }
                     `}
                   >
-                    <Typo variant="body-sm" className={`mb-0 ${isCategoryActive ? "text-white" : ""}`}>{category}</Typo>
+                    <Typo variant="body-sm" className={`mb-0 ${isCategoryActive ? "text-white" : ""}`}>
+                      {t(categoryNameKeys[category] ?? "components")}
+                    </Typo>
                     <Icon
                       name={isOpen ? "expand_less" : "expand_more"}
                       size="sm"

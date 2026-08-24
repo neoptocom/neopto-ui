@@ -7,27 +7,27 @@ export default function DesignTokens() {
   const { t } = useLanguage();
 
   const colors = [
-    { name: "Brand", token: "--color-brand", value: "#22A9CB" },
-    { name: "Success", token: "--success", value: "#13B59F" },
-    { name: "Warning", token: "--warning", value: "#D79C2C" },
-    { name: "Destructive", token: "--destructive", value: "#E03737" },
-    { name: "Info", token: "--info", value: "#0E91B2" },
+    { nameKey: "colorBrand" as const, token: "--color-brand", value: "#22A9CB" },
+    { nameKey: "colorSuccess" as const, token: "--success", value: "#13B59F" },
+    { nameKey: "colorWarning" as const, token: "--warning", value: "#D79C2C" },
+    { nameKey: "colorDestructive" as const, token: "--destructive", value: "#E03737" },
+    { nameKey: "colorInfo" as const, token: "--info", value: "#0E91B2" },
   ];
 
   const semanticColors = [
-    { name: "Background", token: "--bg", light: "#F3F4F6", dark: "#242832" },
-    { name: "Surface", token: "--surface", light: "#FFFFFF", dark: "#2E303B" },
-    { name: "Foreground", token: "--fg", light: "#242832", dark: "#E4E7EC" },
-    { name: "Muted", token: "--muted", light: "#E5E7EB", dark: "#3F424F" },
-    { name: "Muted Foreground", token: "--muted-fg", light: "#6B7280", dark: "#9D9EA2" },
-    { name: "Border", token: "--border", light: "#E5E7EB", dark: "#5C5E68" },
+    { nameKey: "colorBackground" as const, token: "--bg", light: "#F3F4F6", dark: "#242832" },
+    { nameKey: "colorSurface" as const, token: "--surface", light: "#FFFFFF", dark: "#2E303B" },
+    { nameKey: "colorForeground" as const, token: "--fg", light: "#242832", dark: "#E4E7EC" },
+    { nameKey: "colorMuted" as const, token: "--muted", light: "#E5E7EB", dark: "#3F424F" },
+    { nameKey: "colorMutedForeground" as const, token: "--muted-fg", light: "#6B7280", dark: "#9D9EA2" },
+    { nameKey: "colorBorder" as const, token: "--border", light: "#E5E7EB", dark: "#5C5E68" },
   ];
 
   const radiusTokens = [
-    { name: "Small", token: "--radius-sm", value: "0.25rem" },
-    { name: "Medium", token: "--radius-md", value: "0.375rem" },
-    { name: "Large", token: "--radius-lg", value: "0.5rem" },
-    { name: "Extra Large", token: "--radius-xl", value: "0.75rem" },
+    { nameKey: "radiusSmall" as const, token: "--radius-sm", value: "0.25rem" },
+    { nameKey: "radiusMedium" as const, token: "--radius-md", value: "0.375rem" },
+    { nameKey: "radiusLarge" as const, token: "--radius-lg", value: "0.5rem" },
+    { nameKey: "radiusXl" as const, token: "--radius-xl", value: "0.75rem" },
   ];
 
   const typographyVariants = [
@@ -53,14 +53,14 @@ export default function DesignTokens() {
     <div className="max-w-4xl space-y-12">
       <div className="flex flex-col gap-4">
         <Typo variant="display-sm" bold="bold">
-          Design Tokens
+          {t("designTokensTitle")}
         </Typo>
         <Typo variant="body-lg" className="text-text-secondary">
           {t("designTokensSubtitle")}
         </Typo>
       </div>
 
-      <Section title="Colors" description={t("colorsDescription")}>
+      <Section title={t("colors")} description={t("colorsDescription")}>
         <div className="grid md:grid-cols-2 gap-4">
           {colors.map((color) => (
             <Card key={color.token} className="p-6">
@@ -69,7 +69,7 @@ export default function DesignTokens() {
                 style={{ backgroundColor: color.value }}
               />
               <Typo variant="body-md" bold="semibold" className="mb-1">
-                {color.name}
+                {t(color.nameKey)}
               </Typo>
               <Typo variant="body-sm" className="text-text-secondary font-mono">
                 {color.token}
@@ -82,12 +82,12 @@ export default function DesignTokens() {
         </div>
       </Section>
 
-      <Section title="Semantic Colors" description={t("semanticColorsDescription")}>
+      <Section title={t("semanticColors")} description={t("semanticColorsDescription")}>
         <div className="space-y-4">
           {semanticColors.map((color) => (
             <Card key={color.token} className="p-6">
               <Typo variant="body-md" bold="semibold" className="mb-4">
-                {color.name}
+                {t(color.nameKey)}
               </Typo>
               <div className="grid grid-cols-2 gap-4">
                 <div>
@@ -117,7 +117,7 @@ export default function DesignTokens() {
         </div>
       </Section>
 
-      <Section title="Border Radius" description={t("borderRadiusDescription")}>
+      <Section title={t("borderRadius")} description={t("borderRadiusDescription")}>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {radiusTokens.map((radius) => (
             <Card key={radius.token} className="p-6">
@@ -130,7 +130,7 @@ export default function DesignTokens() {
                 </Typo>
               </div>
               <Typo variant="body-md" bold="semibold" className="mb-1">
-                {radius.name}
+                {t(radius.nameKey)}
               </Typo>
               <Typo variant="body-sm" className="text-text-secondary font-mono">
                 {radius.token}
@@ -143,7 +143,7 @@ export default function DesignTokens() {
         </div>
       </Section>
 
-      <Section title="Typography" description={t("typographyDescription")}>
+      <Section title={t("typography")} description={t("typographyDescription")}>
         <Card className="p-6 space-y-6">
           {typographyVariants.map((variant) => (
             <div key={variant} className="border-b border-gray-700 dark:border-gray-300 last:border-0 pb-4 last:pb-0">
@@ -158,7 +158,7 @@ export default function DesignTokens() {
         </Card>
       </Section>
 
-      <Section title="Shadows" description={t("shadowsDescription")}>
+      <Section title={t("shadows")} description={t("shadowsDescription")}>
         <div className="grid md:grid-cols-3 gap-4">
           <Card className="p-6">
             <div className="w-full h-20 rounded-lg bg-background-secondary mb-4" style={{ boxShadow: "var(--shadow-sm)" }}>

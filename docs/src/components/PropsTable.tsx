@@ -1,4 +1,5 @@
 import Typo from "../../../src/components/Typo";
+import { useLanguage } from "../contexts/LanguageContext";
 
 type Prop = {
   name: string;
@@ -13,6 +14,8 @@ type PropsTableProps = {
 };
 
 export default function PropsTable({ props }: PropsTableProps) {
+  const { t } = useLanguage();
+
   return (
     <div className="overflow-x-auto">
       <table className="w-full border-collapse">
@@ -20,22 +23,22 @@ export default function PropsTable({ props }: PropsTableProps) {
           <tr className="border-b border-gray-700 dark:border-gray-300">
             <th className="text-left p-3">
               <Typo variant="body-sm" bold="semibold">
-                Prop
+                {t("prop")}
               </Typo>
             </th>
             <th className="text-left p-3">
               <Typo variant="body-sm" bold="semibold">
-                Type
+                {t("propType")}
               </Typo>
             </th>
             <th className="text-left p-3">
               <Typo variant="body-sm" bold="semibold">
-                Default
+                {t("propDefault")}
               </Typo>
             </th>
             <th className="text-left p-3">
               <Typo variant="body-sm" bold="semibold">
-                Description
+                {t("propDescription")}
               </Typo>
             </th>
           </tr>

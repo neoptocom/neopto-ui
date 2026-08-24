@@ -1,3 +1,5 @@
+import { TranslateFn } from "../utils/translations";
+
 type ComponentProp = {
   name: string;
   type: string;
@@ -6,28 +8,26 @@ type ComponentProp = {
   required?: boolean;
 };
 
-export function getComponentProps(componentId: string): ComponentProp[] {
-  // This is a placeholder - you can expand this with actual prop definitions
-  // For now, return empty array or basic props based on component
+export function getComponentProps(componentId: string, t: TranslateFn): ComponentProp[] {
   const propsMap: Record<string, ComponentProp[]> = {
     button: [
       {
         name: "variant",
         type: '"primary" | "secondary" | "ghost"',
         default: '"primary"',
-        description: "Button visual variant",
+        description: t("propButtonVariant"),
       },
       {
         name: "size",
         type: '"xs" | "sm" | "md" | "lg"',
         default: '"md"',
-        description: "Button size",
+        description: t("propButtonSize"),
       },
       {
         name: "fullWidth",
         type: "boolean",
         default: "false",
-        description: "Make button full width",
+        description: t("propButtonFullWidth"),
       },
     ],
     input: [
@@ -35,18 +35,18 @@ export function getComponentProps(componentId: string): ComponentProp[] {
         name: "size",
         type: '"sm" | "md" | "lg"',
         default: '"md"',
-        description: "Input size",
+        description: t("propInputSize"),
       },
       {
         name: "disabled",
         type: "boolean",
         default: "false",
-        description: "Disable the input",
+        description: t("propInputDisabled"),
       },
       {
         name: "placeholder",
         type: "string",
-        description: "Placeholder text",
+        description: t("propInputPlaceholder"),
       },
     ],
   };

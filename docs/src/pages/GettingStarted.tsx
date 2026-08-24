@@ -10,7 +10,7 @@ export default function GettingStarted() {
     <div className="max-w-4xl space-y-12">
       <div className="flex flex-col gap-4">
         <Typo variant="display-sm" bold="bold">
-          Getting Started
+          {t("gettingStartedTitle")}
         </Typo>
         <Typo variant="body-lg" className="text-text-secondary">
           {t("gettingStartedSubtitle")}
@@ -18,7 +18,7 @@ export default function GettingStarted() {
       </div>
 
       <Section
-        title="Installation"
+        title={t("installation")}
         description={t("installationDescription")}
       >
         <CodeBlock
@@ -29,7 +29,7 @@ npm install -D tailwindcss@latest @tailwindcss/postcss`}
       </Section>
 
       <Section
-        title="Configuration"
+        title={t("configuration")}
         description={t("configurationDescription")}
       >
         <Typo variant="body-md" className="mb-4">
@@ -46,7 +46,7 @@ npm install -D tailwindcss@latest @tailwindcss/postcss`}
       </Section>
 
       <Section
-        title="CSS Setup"
+        title={t("cssSetup")}
         description={t("cssSetupDescription")}
       >
         <Typo variant="body-md" className="mb-4">
@@ -75,7 +75,7 @@ npm install -D tailwindcss@latest @tailwindcss/postcss`}
       </Section>
 
       <Section
-        title="Basic Usage"
+        title={t("basicUsage")}
         description={t("basicUsageDescription")}
       >
         <CodeBlock
@@ -95,7 +95,7 @@ function App() {
       </Section>
 
       <Section
-        title="Dark Mode"
+        title={t("darkModeSection")}
         description={t("darkModeSectionDescription")}
       >
         <CodeBlock
@@ -112,7 +112,7 @@ document.documentElement.classList.toggle("dark");`}
       </Section>
 
       <Section
-        title="App Background"
+        title={t("appBackground")}
         description={t("appBackgroundDescription")}
       >
         <CodeBlock
@@ -130,7 +130,7 @@ function App() {
       </Section>
 
       <Section
-        title="Requirements"
+        title={t("requirements")}
         description={t("requirementsDescription")}
       >
         <div className="bg-[--warning]/10 border border-[--warning]/20 rounded-lg p-4">

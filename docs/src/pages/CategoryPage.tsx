@@ -3,7 +3,7 @@ import Typo from "../../../src/components/Typo";
 import Icon from "../../../src/components/Icon";
 import { componentsConfig, componentCategories } from "../config/components";
 import { useLanguage } from "../contexts/LanguageContext";
-import { TranslationKey } from "../utils/translations";
+import { categoryNameKeys, TranslationKey } from "../utils/translations";
 
 const getCategoryDescription = (category: string, t: (key: TranslationKey, params?: Record<string, string | number>) => string): string => {
   const descriptions: Record<string, TranslationKey> = {
@@ -66,7 +66,7 @@ export default function CategoryPage() {
             {t("home")}
           </Link>
           <span>/</span>
-          <span>{categoryName}</span>
+          <span>{t(categoryNameKeys[categoryName] ?? "components")}</span>
         </div>
         <div className="flex items-center gap-4">
           <div className="w-12 h-12 rounded-lg bg-[--color-brand]/10 flex items-center justify-center">
@@ -74,7 +74,7 @@ export default function CategoryPage() {
           </div>
           <div className="flex flex-col gap-2">
             <Typo variant="display-sm" bold="bold">
-              {categoryName}
+              {t(categoryNameKeys[categoryName] ?? "components")}
             </Typo>
             <Typo variant="body-lg" className="text-text-secondary">
               {getCategoryDescription(categoryName, t)}
@@ -101,7 +101,7 @@ export default function CategoryPage() {
                     {component.name}
                   </Typo>
                   <Typo variant="body-sm" className="text-text-secondary">
-                    {component.description}
+                    {t(component.descriptionKey)}
                   </Typo>
                 </div>
               </Link>

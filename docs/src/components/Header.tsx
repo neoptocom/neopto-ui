@@ -104,7 +104,7 @@ export default function Header({ onMenuClick }: HeaderProps) {
               onClick={() => setShowLanguageMenu(!showLanguageMenu)}
               variant="ghost"
               size="sm"
-              aria-label="Select language"
+              aria-label={t("selectLanguage")}
             >
               <Icon name="language" size="md" />
               <span className="hidden sm:inline uppercase">
