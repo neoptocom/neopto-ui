@@ -6,6 +6,7 @@ import { Card } from "../../../src/components/Card";
 import { componentsConfig, componentCategories } from "../config/components";
 import { useLanguage } from "../contexts/LanguageContext";
 import { categoryNameKeys } from "../utils/translations";
+import { VERSION } from "../config/version";
 
 export default function Home() {
   const { t } = useLanguage();
@@ -71,7 +72,7 @@ export default function Home() {
         <div className="inline-flex items-center flex-col justify-center gap-2 px-4 py-2 bg-[--color-brand]/10 text-[--color-brand] rounded-full">
           <Icon name="stars" size="sm" />
           <Typo variant="label-md" bold="medium">
-            {t("version")} 1.6.7
+            {t("version")} {VERSION}
           </Typo>
         </div>
         <div className="flex flex-col gap-4">

@@ -1,5 +1,11 @@
 # @neoptocom/neopto-ui
 
+## 1.7.0
+
+### Minor Changes
+
+- Add shared UI primitives for reuse across NeoPTO apps: Toast, ConfirmationDialog, Table, Tabs, Toggle, Checkbox, RadioGroup, FileDropzone, Select, Pagination, SidePanel, ChipInputList, OptionsMenu, and Spinner.
+
 ## 1.6.14
 
 ### Patch Changes
