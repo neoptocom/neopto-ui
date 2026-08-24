@@ -240,7 +240,7 @@ export function getComponentExamples(componentId: string): ComponentExample[] {
         description: "Simple card component",
         demo: (
           <Card className="p-6">
-            <Typo variant="headline-sm" bold="semibold" className="mb-2">
+            <Typo variant="headline-sm" bold="semibold">
               Card Title
             </Typo>
             <Typo variant="body-md" className="text-text-secondary">
@@ -444,15 +444,13 @@ function ModalDemo() {
     <>
       <Button onClick={() => setIsOpen(true)}>Open Modal</Button>
       <Modal open={isOpen} onClose={() => setIsOpen(false)}>
-        <div className="space-y-4">
-          <Typo variant="headline-md" bold="bold">
-            Modal Title
-          </Typo>
-          <Typo variant="body-md" className="text-text-secondary">
-            This is a modal dialog example.
-          </Typo>
-          <Button onClick={() => setIsOpen(false)}>Close</Button>
-        </div>
+        <Typo variant="headline-md" bold="bold">
+          Modal Title
+        </Typo>
+        <Typo variant="body-md" className="text-text-secondary">
+          This is a modal dialog example.
+        </Typo>
+        <Button onClick={() => setIsOpen(false)}>Close</Button>
       </Modal>
     </>
   );

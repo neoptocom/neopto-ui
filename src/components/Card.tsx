@@ -135,7 +135,9 @@ export function Card({
           </defs>
         </svg>
       )}
-      <div style={{ position: "relative", zIndex: 3, display: "inherit", flex: "inherit", flexDirection: "inherit", gap: "inherit", width: "100%", height: "100%" }}>
+      <div
+        className="relative z-[3] flex h-full w-full flex-col gap-6"
+      >
         {children}
       </div>
     </div>
