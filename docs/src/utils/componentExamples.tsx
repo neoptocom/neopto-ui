@@ -22,6 +22,22 @@ import { Separator } from "../../../src/components/Separator";
 import { AppBackground } from "../../../src/components/AppBackground";
 import { MessageBubble } from "../../../src/components/MessageBubble";
 import { ToastProvider, useToast } from "../../../src/components/Toast";
+import { ConfirmationDialog } from "../../../src/components/ConfirmationDialog";
+import {
+  Table,
+  TableSkeleton,
+} from "../../../src/components/Table";
+import { Tabs } from "../../../src/components/Tabs";
+import { Toggle } from "../../../src/components/Toggle";
+import { Checkbox } from "../../../src/components/Checkbox";
+import { RadioGroup } from "../../../src/components/RadioGroup";
+import { FileDropzone } from "../../../src/components/FileDropzone";
+import { Select, type SelectOption } from "../../../src/components/Select";
+import { Pagination } from "../../../src/components/Pagination";
+import { SidePanel } from "../../../src/components/SidePanel";
+import { ChipInputList } from "../../../src/components/ChipInputList";
+import { OptionsMenu } from "../../../src/components/OptionsMenu";
+import { Spinner, LoadingDots } from "../../../src/components/Spinner";
 import { useState, type ReactNode } from "react";
 import { TranslateFn } from "./translations";
 
@@ -313,6 +329,43 @@ export function getComponentExamples(
 </Modal>`,
       },
     ],
+    "confirmation-dialog": [
+      {
+        title: t("exampleConfirmationDialog"),
+        description: t("confirmationDialogExampleDesc"),
+        demo: <ConfirmationDialogDemo />,
+        code: `<ConfirmationDialog
+  open={open}
+  title="Delete item?"
+  description="This action cannot be undone."
+  onConfirm={handleDelete}
+  onClose={() => setOpen(false)}
+/>`,
+      },
+    ],
+    "side-panel": [
+      {
+        title: t("exampleSidePanel"),
+        description: t("sidePanelExampleDesc"),
+        demo: <SidePanelDemo />,
+        code: `<SidePanel open={open} onClose={() => setOpen(false)}>
+  <Typo variant="headline-sm">Details</Typo>
+</SidePanel>`,
+      },
+    ],
+    "options-menu": [
+      {
+        title: t("exampleOptionsMenu"),
+        description: t("optionsMenuExampleDesc"),
+        demo: <OptionsMenuDemo />,
+        code: `<OptionsMenu
+  open={open}
+  position={position}
+  onClose={() => setOpen(false)}
+  items={[{ label: "Edit", onSelect: onEdit }]}
+/>`,
+      },
+    ],
     skeleton: [
       {
         title: t("exampleSkeleton"),
@@ -342,6 +395,152 @@ export function getComponentExamples(
 })}>
   Show toast
 </Button>`,
+      },
+    ],
+    spinner: [
+      {
+        title: t("exampleSpinner"),
+        description: t("spinnerExampleDesc"),
+        demo: (
+          <div className="flex items-center gap-8">
+            <Spinner size="sm" />
+            <Spinner size="md" />
+            <Spinner size="lg" />
+            <LoadingDots />
+          </div>
+        ),
+        code: `<Spinner size="md" />
+<LoadingDots />`,
+      },
+    ],
+    tabs: [
+      {
+        title: t("exampleTabs"),
+        description: t("tabsExampleDesc"),
+        demo: <TabsDemo />,
+        code: `<Tabs
+  tabs={[{ id: "one", label: "One" }, { id: "two", label: "Two" }]}
+  activeTabId={active}
+  onTabChange={setActive}
+/>`,
+      },
+    ],
+    pagination: [
+      {
+        title: t("examplePagination"),
+        description: t("paginationExampleDesc"),
+        demo: <PaginationDemo />,
+        code: `<Pagination page={page} pageCount={10} onPageChange={setPage} />`,
+      },
+    ],
+    table: [
+      {
+        title: t("exampleTable"),
+        description: t("tableExampleDesc"),
+        demo: (
+          <div className="w-full space-y-6">
+            <Table
+              columnTemplate="2fr 1fr 1fr"
+              align="start"
+              headers={[
+                { label: "Name", sortableKey: "name" },
+                { label: "Role" },
+                { label: "Status" },
+              ]}
+            >
+              <Table.Body>
+                <Table.Row>
+                  <Table.Cell title="Ada Lovelace">Ada Lovelace</Table.Cell>
+                  <Table.Cell title="Engineer">Engineer</Table.Cell>
+                  <Table.Cell title="Active">Active</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell title="Alan Turing">Alan Turing</Table.Cell>
+                  <Table.Cell title="Researcher">Researcher</Table.Cell>
+                  <Table.Cell title="Active">Active</Table.Cell>
+                </Table.Row>
+              </Table.Body>
+            </Table>
+            <TableSkeleton columnTemplate="2fr 1fr 1fr" rowCount={3} />
+          </div>
+        ),
+        code: `<Table columnTemplate="2fr 1fr 1fr" headers={[...]}>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell title="Ada">Ada</Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table>`,
+      },
+    ],
+    toggle: [
+      {
+        title: t("exampleToggle"),
+        description: t("toggleExampleDesc"),
+        demo: <ToggleDemo />,
+        code: `<Toggle checked={on} onCheckedChange={setOn} aria-label="Notifications" />`,
+      },
+    ],
+    checkbox: [
+      {
+        title: t("exampleCheckbox"),
+        description: t("checkboxExampleDesc"),
+        demo: <CheckboxDemo />,
+        code: `<Checkbox
+  label="Select all"
+  checked={checked}
+  indeterminate={indeterminate}
+  onCheckedChange={setChecked}
+/>`,
+      },
+    ],
+    "radio-group": [
+      {
+        title: t("exampleRadioGroup"),
+        description: t("radioGroupExampleDesc"),
+        demo: <RadioGroupDemo />,
+        code: `<RadioGroup
+  name="plan"
+  value={value}
+  onChange={setValue}
+  options={[
+    { label: "Starter", value: "starter" },
+    { label: "Pro", value: "pro" },
+  ]}
+/>`,
+      },
+    ],
+    select: [
+      {
+        title: t("exampleSelect"),
+        description: t("selectExampleDesc"),
+        demo: <SelectDemo />,
+        code: `<Select
+  title="Country"
+  options={options}
+  value={value}
+  onChange={setValue}
+/>`,
+      },
+    ],
+    "file-dropzone": [
+      {
+        title: t("exampleFileDropzone"),
+        description: t("fileDropzoneExampleDesc"),
+        demo: <FileDropzoneDemo />,
+        code: `<FileDropzone value={file} onChange={setFile} accept=".pdf,image/*" />`,
+      },
+    ],
+    "chip-input-list": [
+      {
+        title: t("exampleChipInputList"),
+        description: t("chipInputListExampleDesc"),
+        demo: <ChipInputListDemo />,
+        code: `<ChipInputList
+  label="Tags"
+  values={tags}
+  onChange={setTags}
+/>`,
       },
     ],
     icon: [
@@ -590,5 +789,173 @@ function ToastDemo() {
     <ToastProvider>
       <ToastDemoInner />
     </ToastProvider>
+  );
+}
+
+function ConfirmationDialogDemo() {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <Button variant="secondary" onClick={() => setOpen(true)}>
+        Delete item
+      </Button>
+      <ConfirmationDialog
+        open={open}
+        title="Delete item?"
+        description="This action cannot be undone."
+        confirmLabel="Delete"
+        cancelLabel="Cancel"
+        onConfirm={() => undefined}
+        onClose={() => setOpen(false)}
+      />
+    </>
+  );
+}
+
+function SidePanelDemo() {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <Button onClick={() => setOpen(true)}>Open panel</Button>
+      <SidePanel open={open} onClose={() => setOpen(false)} width={360}>
+        <Typo variant="headline-sm" bold="semibold">
+          Details
+        </Typo>
+        <Typo variant="body-md" className="text-[var(--muted-fg)]">
+          Side panel content goes here.
+        </Typo>
+      </SidePanel>
+    </>
+  );
+}
+
+function OptionsMenuDemo() {
+  const [open, setOpen] = useState(false);
+  const [position, setPosition] = useState<{ x: number; y: number } | null>(
+    null
+  );
+  return (
+    <>
+      <Button
+        variant="secondary"
+        onClick={(e) => {
+          const rect = e.currentTarget.getBoundingClientRect();
+          setPosition({ x: rect.right, y: rect.bottom + 8 });
+          setOpen(true);
+        }}
+      >
+        Open menu
+      </Button>
+      <OptionsMenu
+        open={open}
+        position={position}
+        onClose={() => setOpen(false)}
+        items={[
+          { label: "Edit", onSelect: () => undefined },
+          { label: "Duplicate", onSelect: () => undefined },
+          { label: "Delete", onSelect: () => undefined },
+        ]}
+      />
+    </>
+  );
+}
+
+function TabsDemo() {
+  const [active, setActive] = useState("one");
+  return (
+    <Tabs
+      tabs={[
+        { id: "one", label: "Overview" },
+        { id: "two", label: "Activity" },
+        { id: "three", label: "Settings" },
+      ]}
+      activeTabId={active}
+      onTabChange={setActive}
+    />
+  );
+}
+
+function PaginationDemo() {
+  const [page, setPage] = useState(1);
+  return <Pagination page={page} pageCount={10} onPageChange={setPage} />;
+}
+
+function ToggleDemo() {
+  const [on, setOn] = useState(true);
+  return <Toggle checked={on} onCheckedChange={setOn} aria-label="Notifications" />;
+}
+
+function CheckboxDemo() {
+  const [checked, setChecked] = useState(false);
+  return (
+    <div className="flex flex-col gap-3">
+      <Checkbox
+        label="Accept terms"
+        checked={checked}
+        onCheckedChange={setChecked}
+      />
+      <Checkbox
+        label="Partial selection"
+        checked={false}
+        indeterminate
+        onCheckedChange={() => undefined}
+      />
+    </div>
+  );
+}
+
+function RadioGroupDemo() {
+  const [value, setValue] = useState<string | null>("pro");
+  return (
+    <RadioGroup
+      name="plan"
+      value={value}
+      onChange={setValue}
+      options={[
+        { label: "Starter", value: "starter" },
+        { label: "Pro", value: "pro" },
+        { label: "Enterprise", value: "enterprise" },
+      ]}
+    />
+  );
+}
+
+function SelectDemo() {
+  const [value, setValue] = useState<SelectOption | string | null>(null);
+  return (
+    <div className="max-w-md">
+      <Select
+        title="Country"
+        placeholder="Search…"
+        options={[
+          { label: "Brazil", value: "br" },
+          { label: "Portugal", value: "pt" },
+          { label: "United States", value: "us" },
+        ]}
+        value={value}
+        onChange={setValue}
+      />
+    </div>
+  );
+}
+
+function FileDropzoneDemo() {
+  const [file, setFile] = useState<File | null>(null);
+  return (
+    <FileDropzone
+      value={file}
+      onChange={setFile}
+      accept=".pdf,image/*"
+      hint="PDF or images"
+    />
+  );
+}
+
+function ChipInputListDemo() {
+  const [tags, setTags] = useState<string[]>(["design", "react"]);
+  return (
+    <div className="max-w-md">
+      <ChipInputList label="Tags" placeholder="Add a tag" values={tags} onChange={setTags} />
+    </div>
   );
 }
