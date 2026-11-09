@@ -1,5 +1,11 @@
 # @neoptocom/neopto-ui
 
+## 1.7.1
+
+### Patch Changes
+
+- d643346: disable autocomplete for Autocomplete and Search components
+
 ## 1.7.0
 
 ### Minor Changes
