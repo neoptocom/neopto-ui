@@ -182,63 +182,64 @@ export default function Search({
             "flex flex-col w-full overflow-hidden transition-all",
             filtersExpanded && children ? "h-auto pb-3" : "h-full"
           ].join(" ")}>
-          <div className="flex w-full items-center h-12 px-2">
-            {/* Filter button (if children exist) */}
-            {children && (
-              <IconButton
-                icon="filter_list"
-                onClick={() => setFiltersExpanded((prev) => !prev)}
+            <div className="flex w-full items-center h-12 px-2">
+              {/* Filter button (if children exist) */}
+              {children && (
+                <IconButton
+                  icon="filter_list"
+                  onClick={() => setFiltersExpanded((prev) => !prev)}
+                  disabled={disabled}
+                  aria-label={filtersExpanded ? "Hide filters" : "Show filters"}
+                  aria-expanded={filtersExpanded}
+                  className="mr-2"
+                />
+              )}
+              {/* Input */}
+              <input
+                id={inputId}
+                role="combobox"
+                aria-expanded={open}
+                aria-controls={listboxId}
+                aria-autocomplete="list"
+                aria-disabled={disabled || undefined}
+                type="text"
+                autoComplete="off"
+                value={displayValue}
+                onChange={(e) => {
+                  const query = e.target.value;
+                  setSearchQuery(query);
+                  debouncedSearch(query);
+                  if (!open) setOpen(true);
+                  setActiveIndex(0);
+                }}
+                onFocus={openList}
+                onKeyDown={onKeyDown}
+                onBlur={() => setTimeout(closeList, 150)}
                 disabled={disabled}
-                aria-label={filtersExpanded ? "Hide filters" : "Show filters"}
-                aria-expanded={filtersExpanded}
-                className="mr-2"
+                style={{ fontFamily: 'var(--font-display)', fontSize: '16px' }}
+                className={[
+                  "w-full rounded-full border-0 outline-none bg-transparent h-12",
+                  "leading-tight text-[var(--fg)] placeholder:text-[var(--muted-fg)]",
+                  "px-2"
+                ].join(" ")}
+                placeholder={placeholder}
+                onClick={() => !disabled && setOpen(true)}
               />
-            )}
-            {/* Input */}
-            <input
-              id={inputId}
-              role="combobox"
-              aria-expanded={open}
-              aria-controls={listboxId}
-              aria-autocomplete="list"
-              aria-disabled={disabled || undefined}
-              type="text"
-              value={displayValue}
-              onChange={(e) => {
-                const query = e.target.value;
-                setSearchQuery(query);
-                debouncedSearch(query);
-                if (!open) setOpen(true);
-                setActiveIndex(0);
-              }}
-              onFocus={openList}
-              onKeyDown={onKeyDown}
-              onBlur={() => setTimeout(closeList, 150)}
-              disabled={disabled}
-              style={{ fontFamily: 'var(--font-display)', fontSize: '16px' }}
-              className={[
-                "w-full rounded-full border-0 outline-none bg-transparent h-12",
-                "leading-tight text-[var(--fg)] placeholder:text-[var(--muted-fg)]",
-                "px-2"
-              ].join(" ")}
-              placeholder={placeholder}
-              onClick={() => !disabled && setOpen(true)}
-            />
-            {/* Action button (clear or expand) */}
-            <IconButton
-              icon="search"
-              onClick={
-                selectedOption && !open ? handleClear : () => setOpen((s) => !s)
-              }
-              disabled={disabled}
-              aria-label={selectedOption && !open ? "Clear" : open ? "Collapse" : "Expand"}
-            />
-          </div>
-          {children && (
-            <div className="w-full px-4.5 pb-3 pt-2">
-              {children}
+              {/* Action button (clear or expand) */}
+              <IconButton
+                icon="search"
+                onClick={
+                  selectedOption && !open ? handleClear : () => setOpen((s) => !s)
+                }
+                disabled={disabled}
+                aria-label={selectedOption && !open ? "Clear" : open ? "Collapse" : "Expand"}
+              />
             </div>
-          )}
+            {children && (
+              <div className="w-full px-4.5 pb-3 pt-2">
+                {children}
+              </div>
+            )}
           </div>
         </div>
       </div>

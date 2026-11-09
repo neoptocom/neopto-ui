@@ -194,6 +194,7 @@ export default function Autocomplete({
               aria-controls={listboxId}
               aria-autocomplete="list"
               aria-disabled={disabled || undefined}
+              autoComplete="off"
               type="text"
               value={displayValue}
               onChange={(e) => {
@@ -250,9 +251,9 @@ export default function Autocomplete({
                   selectedOption != null &&
                   (typeof selectedOption === "string"
                     ? selectedOption === optionName ||
-                      selectedOption === (option.label ?? "")
+                    selectedOption === (option.label ?? "")
                     : (selectedOption.name ?? selectedOption.label ?? "") ===
-                      optionName);
+                    optionName);
                 return (
                   <li
                     key={`${optionName || index}-${index}`}
